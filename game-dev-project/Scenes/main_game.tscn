@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://clffyc8x5a8pr"]
+
+[node name="MainGame" type="Node2D"]
+
+[node name="TestCommitLabel" type="Label" parent="."]
+offset_left = 28.0
+offset_top = 22.0
+offset_right = 126.0
+offset_bottom = 45.0
+text = "Test Commit"
