@@ -3,5 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://c1sv4yjv73noh" path="res://Assets/GameboardAssets/outTiles.png" id="1_cddap"]
 
 [node name="borderTiles" type="Sprite2D"]
-self_modulate = Color(2, 2, 2, 1)
+z_index = -10
 texture = ExtResource("1_cddap")

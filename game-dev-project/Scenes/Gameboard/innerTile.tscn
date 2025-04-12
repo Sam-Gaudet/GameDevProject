@@ -5,6 +5,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nkd4t"]
 
 [node name="Sprite2D" type="Sprite2D"]
-self_modulate = Color(2, 2, 2, 1)
+visibility_layer = 2
+z_index = -10
 material = SubResource("ShaderMaterial_nkd4t")
 texture = ExtResource("1_6w4x1")

@@ -3,6 +3,7 @@ extends Node2D
 const GRID_SIZE = 7
 const TILE_SIZE = 64
 
+
 const InnerTile = preload("res://Scenes/Gameboard/innerTile.tscn")
 const BorderTile = preload("res://Scenes/Gameboard/border_tiles.tscn")
 
