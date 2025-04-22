@@ -1,3 +1,104 @@
-[gd_scene format=3 uid="uid://dkj8ofhjk827m"]
+[gd_scene load_steps=9 format=3 uid="uid://dkj8ofhjk827m"]
+
+[ext_resource type="Script" uid="uid://ca2xbuqxro322" path="res://Scenes/SamScenesAndScripts/hub.gd" id="1_bhjrh"]
+[ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="1_ypb1b"]
+[ext_resource type="PackedScene" uid="uid://dlngourcew8p7" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_bhjrh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aj2dl"]
+size = Vector2(1168, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xakg3"]
+size = Vector2(30.75, 508.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxyaf"]
+size = Vector2(34.5, 502)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmd4q"]
+size = Vector2(79, 174.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5gap"]
+size = Vector2(178, 198.25)
 
 [node name="Hub" type="Node2D"]
+script = ExtResource("1_bhjrh")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="FloorSprite" type="Sprite2D" parent="Floor"]
+modulate = Color(2.06962e-06, 0.506198, 0.128379, 1)
+position = Vector2(580, 613)
+scale = Vector2(7.6319, 1.06388)
+texture = ExtResource("1_ypb1b")
+
+[node name="FloorCollision" type="CollisionShape2D" parent="Floor"]
+position = Vector2(575, 576)
+shape = SubResource("RectangleShape2D_aj2dl")
+
+[node name="RightCollision" type="CollisionShape2D" parent="Floor"]
+position = Vector2(1163, 242)
+shape = SubResource("RectangleShape2D_xakg3")
+
+[node name="LeftCollison" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-16.75, 244)
+shape = SubResource("RectangleShape2D_cxyaf")
+
+[node name="MainMenu" type="Area2D" parent="."]
+
+[node name="MainMenuCollision" type="CollisionShape2D" parent="MainMenu"]
+position = Vector2(34, 405.375)
+shape = SubResource("RectangleShape2D_dmd4q")
+
+[node name="Door1" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="Door1Collision" type="CollisionShape2D" parent="Door1"]
+position = Vector2(625.25, 387.87)
+shape = SubResource("RectangleShape2D_o5gap")
+
+[node name="Door1Sprite" type="Sprite2D" parent="Door1"]
+modulate = Color(0.528003, 0.31351, 9.62615e-08, 1)
+position = Vector2(623.25, 397.87)
+scale = Vector2(0.800614, 0.800614)
+texture = ExtResource("1_ypb1b")
+
+[node name="Door2" type="Area2D" parent="."]
+position = Vector2(187, -6)
+collision_layer = 2
+
+[node name="Door2Collision" type="CollisionShape2D" parent="Door2"]
+position = Vector2(639.25, 390.87)
+shape = SubResource("RectangleShape2D_o5gap")
+
+[node name="Door2Sprite" type="Sprite2D" parent="Door2"]
+modulate = Color(0.528003, 0.31351, 9.62615e-08, 1)
+position = Vector2(637.25, 400.87)
+scale = Vector2(0.800614, 0.800614)
+texture = ExtResource("1_ypb1b")
+
+[node name="Door3" type="Area2D" parent="."]
+position = Vector2(374, -12)
+collision_layer = 2
+
+[node name="Door3Collision" type="CollisionShape2D" parent="Door3"]
+position = Vector2(656.25, 395.87)
+shape = SubResource("RectangleShape2D_o5gap")
+
+[node name="Door3Sprite" type="Sprite2D" parent="Door3"]
+modulate = Color(0.528003, 0.31351, 9.62615e-08, 1)
+position = Vector2(654.25, 405.87)
+scale = Vector2(0.800614, 0.800614)
+texture = ExtResource("1_ypb1b")
+
+[node name="PlayerPlatformer" parent="." instance=ExtResource("2_bhjrh")]
+position = Vector2(161, 315)
+collision_mask = 6
+
+[connection signal="body_entered" from="MainMenu" to="." method="_on_main_menu_body_entered"]
+[connection signal="body_exited" from="MainMenu" to="." method="_on_main_menu_body_exited"]
+[connection signal="body_entered" from="Door1" to="." method="_on_door_1_body_entered"]
+[connection signal="body_exited" from="Door1" to="." method="_on_door_1_body_exited"]
+[connection signal="body_entered" from="Door2" to="." method="_on_door_2_body_entered"]
+[connection signal="body_exited" from="Door2" to="." method="_on_door_2_body_exited"]
+[connection signal="body_entered" from="Door3" to="." method="_on_door_3_body_entered"]
+[connection signal="body_exited" from="Door3" to="." method="_on_door_3_body_exited"]

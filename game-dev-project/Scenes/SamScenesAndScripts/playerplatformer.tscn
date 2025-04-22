@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlngourcew8p7"]
+
+[ext_resource type="Script" uid="uid://dv2rpl1okwbk" path="res://Scenes/SamScenesAndScripts/playerplatformer.gd" id="1_2e6yv"]
+[ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="2_c88xe"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_td51m"]
+
+[node name="PlayerPlatformer" type="CharacterBody2D"]
+script = ExtResource("1_2e6yv")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+position = Vector2(-5.96046e-08, 0)
+scale = Vector2(0.122699, 0.131902)
+texture = ExtResource("2_c88xe")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_td51m")
