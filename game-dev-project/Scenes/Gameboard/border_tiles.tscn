@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmis8435hhu2q"]
+
+[ext_resource type="Texture2D" uid="uid://dl3qrpej22uch" path="res://Assets/GameboardAssets/xTHn4aL.png" id="2_45s4p"]
+
+[node name="borderTiles" type="Node2D"]
+z_index = -10
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.528652, -26.0625)
+scale = Vector2(0.0587079, 0.0587079)
+texture = ExtResource("2_45s4p")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(26, 0)
+rotation = 1.5708
+scale = Vector2(0.0587079, 0.0587079)
+texture = ExtResource("2_45s4p")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(1, 27)
+scale = Vector2(0.0587079, 0.0587079)
+texture = ExtResource("2_45s4p")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(-27, 0)
+rotation = 1.5708
+scale = Vector2(0.0587079, 0.0587079)
+texture = ExtResource("2_45s4p")

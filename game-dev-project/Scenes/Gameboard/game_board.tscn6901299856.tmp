@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfie0mfxbb5ed"]
+
+[ext_resource type="Script" uid="uid://18wcj2jaknpp" path="res://Scenes/Gameboard/game_board.gd" id="1_8iux8"]
+[ext_resource type="Script" uid="uid://7lhiqqsvopn3" path="res://Scenes/Gameboard/camera.gd" id="2_h6sja"]
+
+[node name="GameBoard" type="Node2D"]
+script = ExtResource("1_8iux8")
+
+[node name="camera" type="Camera2D" parent="."]
+rotation = -0.872665
+ignore_rotation = false
+zoom = Vector2(0.5, 0.5)
+process_callback = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("2_h6sja")
