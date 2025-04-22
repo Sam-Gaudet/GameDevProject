@@ -1,11 +1,32 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdcox2pnsb8r1"]
 
-[ext_resource type="Texture2D" uid="uid://ubod0pe56vsm" path="res://Assets/GameboardAssets/InnerTile.png" id="1_6w4x1"]
+[ext_resource type="Texture2D" uid="uid://dl3qrpej22uch" path="res://Assets/GameboardAssets/xTHn4aL.png" id="2_nkd4t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nkd4t"]
 
-[node name="Sprite2D" type="Sprite2D"]
+[node name="Sprite2D" type="Node2D"]
 visibility_layer = 2
 z_index = -10
 material = SubResource("ShaderMaterial_nkd4t")
-texture = ExtResource("1_6w4x1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.62527, -27.0625)
+scale = Vector2(0.0632022, 0.0632022)
+texture = ExtResource("2_nkd4t")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(1, 28)
+scale = Vector2(0.0632022, 0.0632022)
+texture = ExtResource("2_nkd4t")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-29, 1)
+rotation = 1.5708
+scale = Vector2(0.0632022, 0.0632022)
+texture = ExtResource("2_nkd4t")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(27, 1)
+rotation = 1.5708
+scale = Vector2(0.0632022, 0.0632022)
+texture = ExtResource("2_nkd4t")

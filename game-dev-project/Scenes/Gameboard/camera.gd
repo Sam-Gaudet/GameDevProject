@@ -57,5 +57,5 @@ func _on_hide_timer_timeout():
 
 	# Smoothly move the camera up by 200 pixels over 1 second
 	var tween = create_tween()
-	var new_position = position + Vector2(0, -30)
+	var new_position = position + Vector2(0, -60)
 	tween.tween_property(self, "position", new_position, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)

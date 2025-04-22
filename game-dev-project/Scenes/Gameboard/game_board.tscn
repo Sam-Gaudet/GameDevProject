@@ -783,7 +783,7 @@ script = ExtResource("4_gsrb0")
 
 [node name="animation" type="AnimatedSprite2D" parent="Countdown"]
 visible = false
-modulate = Color(1, 0.192157, 0.188235, 1)
+modulate = Color(2.88785e-07, 0.724092, 0.507522, 1)
 position = Vector2(134, -30)
 rotation = -1.90066
 scale = Vector2(5.67331, 30.49)
