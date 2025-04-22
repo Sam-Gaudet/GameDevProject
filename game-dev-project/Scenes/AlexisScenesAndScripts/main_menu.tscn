@@ -1,4 +1,46 @@
-[gd_scene format=3 uid="uid://ddcs6fmpooyn8"]
+[gd_scene load_steps=10 format=3 uid="uid://ddcs6fmpooyn8"]
+
+[ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="1_t0b6g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ccvf"]
+
+[sub_resource type="Theme" id="Theme_ro21a"]
+default_font = ExtResource("1_t0b6g")
+default_font_size = 0
+Button/styles/normal = SubResource("StyleBoxFlat_3ccvf")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0b6g"]
+bg_color = Color(0.501961, 0.658824, 0.305882, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.909804, 0.792157, 0.435294, 1)
+
+[sub_resource type="Theme" id="Theme_3ccvf"]
+Button/styles/normal = SubResource("StyleBoxFlat_t0b6g")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ro21a"]
+bg_color = Color(0.501961, 0.658824, 0.305882, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.910378, 0.790738, 0.434518, 1)
+
+[sub_resource type="Theme" id="Theme_o5lx2"]
+Button/styles/normal = SubResource("StyleBoxFlat_ro21a")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0pmvj"]
+bg_color = Color(0.501961, 0.658824, 0.305882, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.909804, 0.792157, 0.435294, 1)
+
+[sub_resource type="Theme" id="Theme_a7f27"]
+Button/styles/normal = SubResource("StyleBoxFlat_0pmvj")
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -7,3 +49,53 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenuMarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -116.0
+offset_right = 325.0
+offset_bottom = 116.0
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 0
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenuMarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MainMenuMarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_ro21a")
+theme_override_fonts/font = ExtResource("1_t0b6g")
+theme_override_font_sizes/font_size = 80
+text = "Platformer"
+
+[node name="MainMenuVboxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenuMarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Play" type="Button" parent="CanvasLayer/MainMenuMarginContainer/VBoxContainer/MainMenuVboxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_3ccvf")
+theme_override_fonts/font = ExtResource("1_t0b6g")
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="Options" type="Button" parent="CanvasLayer/MainMenuMarginContainer/VBoxContainer/MainMenuVboxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_o5lx2")
+theme_override_fonts/font = ExtResource("1_t0b6g")
+theme_override_font_sizes/font_size = 50
+text = "Options"
+
+[node name="Exit" type="Button" parent="CanvasLayer/MainMenuMarginContainer/VBoxContainer/MainMenuVboxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_a7f27")
+theme_override_fonts/font = ExtResource("1_t0b6g")
+theme_override_font_sizes/font_size = 50
+text = "Exit"
