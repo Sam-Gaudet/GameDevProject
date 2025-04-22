@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://cfie0mfxbb5ed"]
+[gd_scene load_steps=131 format=3 uid="uid://cfie0mfxbb5ed"]
 
 [ext_resource type="Script" uid="uid://18wcj2jaknpp" path="res://Scenes/Gameboard/game_board.gd" id="1_8iux8"]
 [ext_resource type="Script" uid="uid://7lhiqqsvopn3" path="res://Scenes/Gameboard/camera.gd" id="2_h6sja"]
@@ -45,6 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://dvnid3j1s1hfb" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_36.png" id="41_pynnk"]
 [ext_resource type="Texture2D" uid="uid://dhnkpquvu4ki" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_37.png" id="42_l2syn"]
 [ext_resource type="Texture2D" uid="uid://b30pewo2uymbh" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_38.png" id="43_o16ux"]
+[ext_resource type="Texture2D" uid="uid://i76c8o64rakq" path="res://Assets/GameboardAssets/hearth.png" id="46_uk3bs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bv5xx"]
 atlas = ExtResource("3_w2c1j")
@@ -744,6 +745,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fleov"]
 size = Vector2(1937.49, 1714)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_uk3bs"]
+radius = 8.0
+
 [node name="GameBoard" type="Node2D"]
 script = ExtResource("1_8iux8")
 
@@ -849,3 +853,14 @@ position = Vector2(0.499992, 2.99999)
 scale = Vector2(0.228646, 0.256709)
 shape = SubResource("RectangleShape2D_fleov")
 debug_color = Color(0.820336, 0.353676, 0.511924, 0.415686)
+
+[node name="MainCharacter" type="CharacterBody2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="MainCharacter"]
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("46_uk3bs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainCharacter"]
+shape = SubResource("CircleShape2D_uk3bs")

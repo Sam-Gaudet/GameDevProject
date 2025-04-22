@@ -3,6 +3,7 @@ extends Camera2D
 @onready var sprite_left = $AnimatedSprite2D
 @onready var sprite_right = $AnimatedSprite2D2
 @onready var hide_timer := Timer.new()
+@onready var hero = get_node("../MainCharacter")
 
 var target_rotation = 0.0
 var rotation_speed = 0.1
@@ -54,8 +55,7 @@ func _on_hide_timer_timeout():
 	# Hide both animated sprites
 	sprite_left.visible = false
 	sprite_right.visible = false
-
-	# Smoothly move the camera up by 200 pixels over 1 second
+	hero.visible = true
 	var tween = create_tween()
 	var new_position = position + Vector2(0, -60)
 	tween.tween_property(self, "position", new_position, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
