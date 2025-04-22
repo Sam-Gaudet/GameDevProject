@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddcs6fmpooyn8"]
+[gd_scene load_steps=14 format=3 uid="uid://ddcs6fmpooyn8"]
 
 [ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="1_t0b6g"]
 [ext_resource type="StyleBox" uid="uid://fqksfxp6mp8g" path="res://Assets/AlexisAssets/ButtonTheme.tres" id="2_3ccvf"]
@@ -36,6 +36,11 @@ Button/styles/normal = ExtResource("2_3ccvf")
 Button/styles/pressed = ExtResource("4_o5lx2")
 
 [sub_resource type="Theme" id="Theme_a0lgb"]
+Button/styles/hover = ExtResource("2_ro21a")
+Button/styles/normal = ExtResource("2_3ccvf")
+Button/styles/pressed = ExtResource("4_o5lx2")
+
+[sub_resource type="Theme" id="Theme_xjm5v"]
 Button/styles/hover = ExtResource("2_ro21a")
 Button/styles/normal = ExtResource("2_3ccvf")
 Button/styles/pressed = ExtResource("4_o5lx2")
@@ -102,9 +107,9 @@ text = "Exit"
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 291.0
 grow_horizontal = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -118,6 +123,7 @@ layout_mode = 2
 
 [node name="LanguageLabel" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 100
 text = "Language"
 
@@ -137,3 +143,61 @@ layout_mode = 2
 theme = SubResource("Theme_a0lgb")
 theme_override_font_sizes/font_size = 45
 text = "French"
+
+[node name="Label" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 65
+text = "Audio"
+
+[node name="MasterHBoxContainer" type="HBoxContainer" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/MasterHBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Master"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/MasterHBoxContainer"]
+custom_minimum_size = Vector2(300, 35)
+layout_mode = 2
+size_flags_vertical = 8
+rounded = true
+tick_count = 10
+
+[node name="MusicHBoxContainer2" type="HBoxContainer" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/MusicHBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 55
+text = "Music"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/MusicHBoxContainer2"]
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+size_flags_vertical = 8
+rounded = true
+tick_count = 10
+
+[node name="sfxHBoxContainer3" type="HBoxContainer" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/sfxHBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 55
+text = "Sound Effects"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/sfxHBoxContainer3"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+size_flags_vertical = 8
+rounded = true
+tick_count = 10
+
+[node name="SaveSettingsButton" type="Button" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_xjm5v")
+theme_override_font_sizes/font_size = 40
+text = "Save Settings
+"
