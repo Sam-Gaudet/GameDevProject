@@ -1,6 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddcs6fmpooyn8"]
+[gd_scene load_steps=13 format=3 uid="uid://ddcs6fmpooyn8"]
 
 [ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="1_t0b6g"]
+[ext_resource type="StyleBox" uid="uid://fqksfxp6mp8g" path="res://Assets/AlexisAssets/ButtonTheme.tres" id="2_3ccvf"]
+[ext_resource type="StyleBox" uid="uid://dx270757cfgt6" path="res://Assets/AlexisAssets/ButtonHover.tres" id="2_ro21a"]
+[ext_resource type="StyleBox" uid="uid://dd11joxjfo11o" path="res://Assets/AlexisAssets/ButtonPressed.tres" id="4_o5lx2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ccvf"]
 
@@ -9,38 +12,33 @@ default_font = ExtResource("1_t0b6g")
 default_font_size = 0
 Button/styles/normal = SubResource("StyleBoxFlat_3ccvf")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0b6g"]
-bg_color = Color(0.501961, 0.658824, 0.305882, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.909804, 0.792157, 0.435294, 1)
-
 [sub_resource type="Theme" id="Theme_3ccvf"]
-Button/styles/normal = SubResource("StyleBoxFlat_t0b6g")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ro21a"]
-bg_color = Color(0.501961, 0.658824, 0.305882, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.910378, 0.790738, 0.434518, 1)
+Button/styles/hover = ExtResource("2_ro21a")
+Button/styles/normal = ExtResource("2_3ccvf")
+Button/styles/pressed = ExtResource("4_o5lx2")
 
 [sub_resource type="Theme" id="Theme_o5lx2"]
-Button/styles/normal = SubResource("StyleBoxFlat_ro21a")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0pmvj"]
-bg_color = Color(0.501961, 0.658824, 0.305882, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.909804, 0.792157, 0.435294, 1)
+Button/styles/hover = ExtResource("2_ro21a")
+Button/styles/normal = ExtResource("2_3ccvf")
+Button/styles/pressed = ExtResource("4_o5lx2")
 
 [sub_resource type="Theme" id="Theme_a7f27"]
-Button/styles/normal = SubResource("StyleBoxFlat_0pmvj")
+Button/styles/hover = ExtResource("2_ro21a")
+Button/styles/normal = ExtResource("2_3ccvf")
+Button/styles/pressed = ExtResource("4_o5lx2")
+
+[sub_resource type="Theme" id="Theme_t0b6g"]
+default_font = ExtResource("1_t0b6g")
+
+[sub_resource type="Theme" id="Theme_0pmvj"]
+Button/styles/hover = ExtResource("2_ro21a")
+Button/styles/normal = ExtResource("2_3ccvf")
+Button/styles/pressed = ExtResource("4_o5lx2")
+
+[sub_resource type="Theme" id="Theme_a0lgb"]
+Button/styles/hover = ExtResource("2_ro21a")
+Button/styles/normal = ExtResource("2_3ccvf")
+Button/styles/pressed = ExtResource("4_o5lx2")
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -99,3 +97,43 @@ theme = SubResource("Theme_a7f27")
 theme_override_fonts/font = ExtResource("1_t0b6g")
 theme_override_font_sizes/font_size = 50
 text = "Exit"
+
+[node name="SettingsMarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = SubResource("Theme_t0b6g")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/SettingsMarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/SettingsMarginContainer"]
+layout_mode = 2
+
+[node name="LanguageLabel" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Language"
+
+[node name="LanguageHBoxContainer" type="HBoxContainer" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Engish" type="Button" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/LanguageHBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_0pmvj")
+theme_override_fonts/font = ExtResource("1_t0b6g")
+theme_override_font_sizes/font_size = 45
+text = "English"
+
+[node name="French" type="Button" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/LanguageHBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_a0lgb")
+theme_override_font_sizes/font_size = 45
+text = "French"
