@@ -1,9 +1,10 @@
-[gd_scene load_steps=48 format=3 uid="uid://cfie0mfxbb5ed"]
+[gd_scene load_steps=52 format=3 uid="uid://cfie0mfxbb5ed"]
 
 [ext_resource type="Script" uid="uid://18wcj2jaknpp" path="res://Scenes/Gameboard/game_board.gd" id="1_8iux8"]
 [ext_resource type="Script" uid="uid://7lhiqqsvopn3" path="res://Scenes/Gameboard/camera.gd" id="2_h6sja"]
 [ext_resource type="Script" uid="uid://ds75cp8ibbtl7" path="res://Scenes/Gameboard/countdown.gd" id="4_gsrb0"]
 [ext_resource type="FontFile" uid="uid://rf3xdt6kmvpp" path="res://Assets/GameboardAssets/GelatinMonoTTF.ttf" id="5_gsrb0"]
+[ext_resource type="Texture2D" uid="uid://d2i7u7itukj8t" path="res://Assets/GameboardAssets/green heart.png" id="5_uk3bs"]
 [ext_resource type="Texture2D" uid="uid://dh2lf6nutqqr6" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_01.png" id="6_h26sm"]
 [ext_resource type="Texture2D" uid="uid://dop1v1isgqaiq" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_02.png" id="7_w2c1j"]
 [ext_resource type="Texture2D" uid="uid://3ulc1nr7rdlr" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_03.png" id="8_bv5xx"]
@@ -42,11 +43,14 @@
 [ext_resource type="Texture2D" uid="uid://dvnid3j1s1hfb" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_36.png" id="41_pynnk"]
 [ext_resource type="Texture2D" uid="uid://dhnkpquvu4ki" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_37.png" id="42_l2syn"]
 [ext_resource type="Texture2D" uid="uid://b30pewo2uymbh" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_38.png" id="43_o16ux"]
+[ext_resource type="Texture2D" uid="uid://cvmubg66kvtga" path="res://Assets/GameboardAssets/solid-red-background-14148727243CA.jpg" id="45_bv5xx"]
 [ext_resource type="Script" uid="uid://dqvbspy6c2jio" path="res://Scenes/Gameboard/main_character.gd" id="46_oa80g"]
 [ext_resource type="Texture2D" uid="uid://i76c8o64rakq" path="res://Assets/GameboardAssets/hearth.png" id="46_uk3bs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uk3bs"]
 radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bv5xx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vaqoi"]
 animations = [{
@@ -173,11 +177,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fleov"]
 size = Vector2(1937.49, 1714)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uk3bs"]
+size = Vector2(153, 27)
+
 [node name="GameBoard" type="Node2D"]
 script = ExtResource("1_8iux8")
 
-[node name="MainCharacter" type="CharacterBody2D" parent="."]
+[node name="MainCharacter" type="RigidBody2D" parent="."]
 visible = false
+gravity_scale = 0.0
 script = ExtResource("46_oa80g")
 
 [node name="Sprite2D" type="Sprite2D" parent="MainCharacter"]
@@ -188,6 +196,11 @@ texture = ExtResource("46_uk3bs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainCharacter"]
 shape = SubResource("CircleShape2D_uk3bs")
 
+[node name="ouch" type="Area2D" parent="MainCharacter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainCharacter/ouch"]
+shape = SubResource("CircleShape2D_bv5xx")
+
 [node name="camera" type="Camera2D" parent="."]
 rotation = 0.872665
 ignore_rotation = false
@@ -195,6 +208,33 @@ process_callback = 0
 limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("2_h6sja")
+
+[node name="health" type="Node2D" parent="camera"]
+rotation = -0.872665
+
+[node name="1" type="Sprite2D" parent="camera/health"]
+modulate = Color(0, 1, 0, 1)
+self_modulate = Color(1, 1, 1, 0.341176)
+position = Vector2(-561.93, -230.673)
+rotation = 0.872665
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_uk3bs")
+
+[node name="2" type="Sprite2D" parent="camera/health"]
+modulate = Color(0, 1, 0, 1)
+self_modulate = Color(1, 1, 1, 0.341176)
+position = Vector2(-541, -201)
+rotation = 0.872665
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_uk3bs")
+
+[node name="3" type="Sprite2D" parent="camera/health"]
+modulate = Color(0, 1, 0, 1)
+self_modulate = Color(1, 1, 1, 0.341176)
+position = Vector2(-519, -171)
+rotation = 0.872665
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_uk3bs")
 
 [node name="Countdown" type="Node2D" parent="."]
 script = ExtResource("4_gsrb0")
@@ -267,3 +307,18 @@ position = Vector2(0.499992, 2.99999)
 scale = Vector2(0.228646, 0.256709)
 shape = SubResource("RectangleShape2D_fleov")
 debug_color = Color(0.820336, 0.353676, 0.511924, 0.415686)
+
+[node name="dummy laser" type="Area2D" parent="." groups=["projectile"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dummy laser" groups=["projectile"]]
+position = Vector2(0.5, 55.5)
+shape = SubResource("RectangleShape2D_uk3bs")
+
+[node name="Sprite2D" type="Sprite2D" parent="dummy laser"]
+position = Vector2(5.72205e-06, 56)
+scale = Vector2(0.0791667, 0.0151692)
+texture = ExtResource("45_bv5xx")
+
+[connection signal="body_entered" from="MainCharacter" to="MainCharacter" method="_on_body_entered"]
+[connection signal="area_entered" from="MainCharacter/ouch" to="MainCharacter" method="_on_ouch_area_entered"]
