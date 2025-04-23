@@ -4,11 +4,18 @@ const TILE_SIZE = 64
 const GRID_SIZE = 7
 const HALF_GRID = GRID_SIZE / 2
 @onready var hide_timer := Timer.new()
+@onready var hearth1 = $"../camera/health/1"
+@onready var health2 = $"../camera/health/2"
+@onready var health3 = $"../camera/health/3"
 const MIN_POS = Vector2(-HALF_GRID, -HALF_GRID) * TILE_SIZE
 const MAX_POS = Vector2(HALF_GRID, HALF_GRID) * TILE_SIZE
+
 var is_moving = false
 var move_duration = 0.1
 var target_position: Vector2
+
+var life := 3
+
 
 func _ready():
 	position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
@@ -33,7 +40,6 @@ func handle_input():
 	if input_vector != Vector2.ZERO:
 		var proposed_position = position + input_vector * TILE_SIZE
 
-		# Check that the proposed position is within the board boundaries
 		if proposed_position.x >= MIN_POS.x and proposed_position.x <= MAX_POS.x and proposed_position.y >= MIN_POS.y and proposed_position.y <= MAX_POS.y:
 			move_to_tile(proposed_position)
 
@@ -50,6 +56,20 @@ func _on_tween_finished():
 func _on_hide_timer_timeout():
 	visible = true
 
+func _on_ouch_area_entered(area: Area2D):
+	if area.is_in_group("projectile"):
+		take_damage()
 
-func take_damaga():
-	print("take damage")
+
+func take_damage():
+	if life <= 0:
+		return
+	life -= 1
+	print("Player took damage! Life is now: ", life)
+	match life:
+		2:
+			health3.visible = false
+		1:
+			health2.visible = false
+		0:
+			hearth1.visible = false
