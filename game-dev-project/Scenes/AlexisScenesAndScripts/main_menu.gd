@@ -29,4 +29,4 @@ func _on_save_settings_button_pressed() -> void:
 # Log play button press and start game scene (can be changed)
 func _on_play_pressed() -> void:
 	print("Play button pressed")
-	get_tree().change_scene_to_file("res://dark_forest.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/SamScenesAndScripts/hub.tscn")
