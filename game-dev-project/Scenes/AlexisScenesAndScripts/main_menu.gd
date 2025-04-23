@@ -5,6 +5,7 @@ extends Control
 @onready var settings_button = $CanvasLayer/MainMenuMarginContainer/VBoxContainer/MainMenuVboxContainer/Options
 @onready var save_settings_button = $CanvasLayer/SettingsMarginContainer/VBoxContainer/SaveSettingsButton
 @onready var play_button = $CanvasLayer/MainMenuMarginContainer/VBoxContainer/MainMenuVboxContainer/Play
+@onready var exit_button = $CanvasLayer/MainMenuMarginContainer/VBoxContainer/MainMenuVboxContainer/Exit
 
 func _ready():
 	# Start with main menu visible and settings menu hidden
@@ -29,4 +30,8 @@ func _on_save_settings_button_pressed() -> void:
 # Log play button press and start game scene (can be changed)
 func _on_play_pressed() -> void:
 	print("Play button pressed")
-	get_tree().change_scene_to_file("res://dark_forest.tscn")
+	get_tree().change_scene_to_file("res://dark_forest.tscn") # placeholder, change to proper scene
+	
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()
