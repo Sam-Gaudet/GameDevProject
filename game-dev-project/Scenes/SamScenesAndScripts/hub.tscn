@@ -121,6 +121,7 @@ scale = Vector2(0.800614, 0.800614)
 texture = ExtResource("1_ypb1b")
 
 [node name="TestPortal" type="AnimatedSprite2D" parent="Door1"]
+modulate = Color(0.890082, 0, 0.224112, 1)
 texture_filter = 1
 position = Vector2(614, 392)
 scale = Vector2(6.61719, 6.61719)
@@ -151,6 +152,7 @@ scale = Vector2(0.800614, 0.800614)
 texture = ExtResource("1_ypb1b")
 
 [node name="TestPortal" type="AnimatedSprite2D" parent="Door2"]
+modulate = Color(0.980529, 0.500418, 0, 1)
 texture_filter = 1
 position = Vector2(629, 400)
 scale = Vector2(6.61719, 6.61719)
@@ -181,6 +183,7 @@ scale = Vector2(0.800614, 0.800614)
 texture = ExtResource("1_ypb1b")
 
 [node name="TestPortal" type="AnimatedSprite2D" parent="Door3"]
+modulate = Color(0.879125, 0.00106658, 0.943515, 1)
 texture_filter = 1
 position = Vector2(643, 406)
 scale = Vector2(6.61719, 6.61719)

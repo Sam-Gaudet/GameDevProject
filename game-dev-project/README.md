@@ -11,6 +11,14 @@ pixelnauta
 Pixel Dimensional Portal 32x32
 https://pixelnauta.itch.io/pixel-dimensional-portal-32x32
 
+(Possible use)
+https://kayillustrations.itch.io/parallax-sunset-mountains
+https://free-game-assets.itch.io/free-sky-with-clouds-background-pixel-art-set
+https://ansimuz.itch.io/parallax-forest
+https://kiddolink.itch.io/parallax-background-plains-pixel-art
+https://ilymeiib.itch.io/caketileset
+
+
 Alexis -------------------------------------------
 
 Flower Background for Main Menu: https://www.istockphoto.com/vector/pixel-art-meadow-with-flowers-background-seamless-lawn-texture-backdrop-gm1334677974-416712819

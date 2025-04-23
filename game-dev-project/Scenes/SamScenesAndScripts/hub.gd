@@ -57,7 +57,7 @@ func _on_door_3_body_exited(body: Node2D) -> void:
 func _input(event: InputEvent) -> void:
 	# Main menu
 	if player_in_main_menu and event.is_action_pressed("ui_accept"):
-		print("Switched to main menu")
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/AlexisScenesAndScripts/main_menu.tscn")
 	
 	# Door one
 	if player_in_door_1 and event.is_action_pressed("ui_accept"):
