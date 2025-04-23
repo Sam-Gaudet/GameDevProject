@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd0147i6qu1g2"]
+
+[ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_0g4ct"]
+
+[node name="FinalFight" type="Node2D"]
+
+[node name="GameBoard" parent="." instance=ExtResource("1_0g4ct")]
