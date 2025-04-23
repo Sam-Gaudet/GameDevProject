@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bv11cnr31p6eg"]
+[gd_scene load_steps=16 format=3 uid="uid://ddcs6fmpooyn8"]
 
 [ext_resource type="Script" uid="uid://ddfk3oa0rxcvf" path="res://Scenes/AlexisScenesAndScripts/main_menu.gd" id="1_0pmvj"]
 [ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="1_t0b6g"]
