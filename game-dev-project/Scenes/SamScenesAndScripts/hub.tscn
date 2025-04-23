@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dkj8ofhjk827m"]
 
-[ext_resource type="Script" uid="uid://ca2xbuqxro322" path="res://Scenes/SamScenesAndScripts/hub.gd" id="1_bhjrh"]
+[ext_resource type="Script" path="res://Scenes/SamScenesAndScripts/hub.gd" id="1_bhjrh"]
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="1_ypb1b"]
-[ext_resource type="PackedScene" uid="uid://dlngourcew8p7" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_bhjrh"]
+[ext_resource type="PackedScene" uid="uid://du5i5alatbswb" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_bhjrh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aj2dl"]
 size = Vector2(1168, 180)
