@@ -4,26 +4,37 @@ const TILE_SIZE = 64
 const GRID_SIZE = 7
 const HALF_GRID = GRID_SIZE / 2
 @onready var hide_timer := Timer.new()
+@onready var gameoverTimer := Timer.new()
 @onready var hearth1 = $"../camera/health/1"
 @onready var health2 = $"../camera/health/2"
 @onready var health3 = $"../camera/health/3"
+@onready var blackscreen = $"../screen"
+@onready var death_timer = $deathDelay
+@onready var anim_player = $deathanimation
+@onready var player = $Sprite2D
+
 const MIN_POS = Vector2(-HALF_GRID, -HALF_GRID) * TILE_SIZE
 const MAX_POS = Vector2(HALF_GRID, HALF_GRID) * TILE_SIZE
 
 var is_moving = false
 var move_duration = 0.1
 var target_position: Vector2
-
+var is_dead := false
 var life := 3
-
+var game_started := false
 
 func _ready():
 	position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
 	target_position = position
 	hide_timer.wait_time = 5.0
+	add_child(gameoverTimer)
+	gameoverTimer.one_shot = true
+	gameoverTimer.autostart = false
+	gameoverTimer.wait_time = 4
+	gameoverTimer.timeout.connect(_on_gameoverTimer_timeout)
 
 func _process(_delta):
-	if not is_moving:
+	if not is_moving and not is_dead and visible:
 		handle_input()
 
 func handle_input():
@@ -55,6 +66,7 @@ func _on_tween_finished():
 
 func _on_hide_timer_timeout():
 	visible = true
+	is_moving = false
 
 func _on_ouch_area_entered(area: Area2D):
 	if area.is_in_group("projectile"):
@@ -62,8 +74,9 @@ func _on_ouch_area_entered(area: Area2D):
 
 
 func take_damage():
-	if life <= 0:
+	if is_dead:
 		return
+
 	life -= 1
 	print("Player took damage! Life is now: ", life)
 	match life:
@@ -73,3 +86,20 @@ func take_damage():
 			health2.visible = false
 		0:
 			hearth1.visible = false
+
+	if life == 0:
+		is_dead = true
+		blackscreen.visible = true
+		death_timer.start()
+		is_moving = true 
+		gameoverTimer.wait_time = 2
+	
+func _on_death_delay_timeout():
+	print("boom")
+	player.visible = false
+	anim_player.play("death")
+	gameoverTimer.start()
+
+func _on_gameoverTimer_timeout():
+	print("done")
+	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
