@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://8r21imrjgorp"]
+[gd_scene load_steps=10 format=3 uid="uid://8r21imrjgorp"]
 
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="1_h41p6"]
 [ext_resource type="Script" path="res://Scenes/SamScenesAndScripts/platformer_logic.gd" id="1_qj7cj"]
 [ext_resource type="PackedScene" uid="uid://du5i5alatbswb" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_qj7cj"]
+[ext_resource type="Texture2D" uid="uid://cqaaybjkc8368" path="res://Assets/SamAssets/bg_5.png" id="2_wpnnp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g358o"]
 size = Vector2(102, 172.5)
@@ -22,6 +23,11 @@ size = Vector2(44.5, 254.75)
 [node name="Platformer2" type="Node2D"]
 script = ExtResource("1_qj7cj")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(590, 319)
+scale = Vector2(0.823529, 0.823529)
+texture = ExtResource("2_wpnnp")
+
 [node name="Boss2" type="Area2D" parent="."]
 
 [node name="Boss2Sprite" type="Sprite2D" parent="Boss2"]
@@ -34,9 +40,17 @@ texture = ExtResource("1_h41p6")
 position = Vector2(997.25, 402.12)
 shape = SubResource("RectangleShape2D_g358o")
 
+[node name="Label" type="Label" parent="Boss2"]
+offset_left = 953.0
+offset_top = 324.0
+offset_right = 1047.0
+offset_bottom = 347.0
+text = "Hi im a boss"
+
 [node name="Floor" type="StaticBody2D" parent="."]
 
 [node name="FloorSprite" type="Sprite2D" parent="Floor"]
+visible = false
 modulate = Color(0, 0.505882, 0.129412, 1)
 position = Vector2(580, 613)
 scale = Vector2(7.6319, 1.06388)

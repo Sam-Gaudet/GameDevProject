@@ -5,6 +5,17 @@ var player_in_door_1 : bool = false
 var player_in_door_2 : bool = false
 var player_in_door_3 : bool = false
 
+# Portal references
+@onready var portal1_anim = $Door1/TestPortal
+@onready var portal2_anim = $Door2/TestPortal
+@onready var portal3_anim = $Door3/TestPortal
+
+func _ready():
+	# Start all portal animations when the scene loads
+	portal1_anim.play("portal")
+	portal2_anim.play("portal")
+	portal3_anim.play("portal")
+
 # Main menu -------------------------------------------
 func _on_main_menu_body_entered(body: Node2D) -> void:
 	print("Do you want to go to the main menu")

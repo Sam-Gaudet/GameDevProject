@@ -43,6 +43,13 @@ texture = ExtResource("1_c0qil")
 position = Vector2(997.25, 402.12)
 shape = SubResource("RectangleShape2D_g358o")
 
+[node name="Label" type="Label" parent="Boss1"]
+offset_left = 953.0
+offset_top = 324.0
+offset_right = 1047.0
+offset_bottom = 347.0
+text = "Hi im a boss"
+
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 97)
 
