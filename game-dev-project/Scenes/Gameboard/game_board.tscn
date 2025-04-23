@@ -45,6 +45,9 @@
 [ext_resource type="Script" uid="uid://dqvbspy6c2jio" path="res://Scenes/Gameboard/main_character.gd" id="46_oa80g"]
 [ext_resource type="Texture2D" uid="uid://i76c8o64rakq" path="res://Assets/GameboardAssets/hearth.png" id="46_uk3bs"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_uk3bs"]
+radius = 8.0
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_vaqoi"]
 animations = [{
 "frames": [{
@@ -170,11 +173,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fleov"]
 size = Vector2(1937.49, 1714)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uk3bs"]
-radius = 8.0
-
 [node name="GameBoard" type="Node2D"]
 script = ExtResource("1_8iux8")
+
+[node name="MainCharacter" type="CharacterBody2D" parent="."]
+visible = false
+script = ExtResource("46_oa80g")
+
+[node name="Sprite2D" type="Sprite2D" parent="MainCharacter"]
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("46_uk3bs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainCharacter"]
+shape = SubResource("CircleShape2D_uk3bs")
 
 [node name="camera" type="Camera2D" parent="."]
 rotation = 0.872665
@@ -255,15 +267,3 @@ position = Vector2(0.499992, 2.99999)
 scale = Vector2(0.228646, 0.256709)
 shape = SubResource("RectangleShape2D_fleov")
 debug_color = Color(0.820336, 0.353676, 0.511924, 0.415686)
-
-[node name="MainCharacter" type="CharacterBody2D" parent="."]
-visible = false
-script = ExtResource("46_oa80g")
-
-[node name="Sprite2D" type="Sprite2D" parent="MainCharacter"]
-position = Vector2(2.38419e-07, 2.38419e-07)
-scale = Vector2(1.6, 1.6)
-texture = ExtResource("46_uk3bs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MainCharacter"]
-shape = SubResource("CircleShape2D_uk3bs")
