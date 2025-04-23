@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvdewqx85pvyl"]
+
+[ext_resource type="Script" uid="uid://detyqk7ptli88" path="res://Scenes/game_over.gd" id="1_14u15"]
+[ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="1_ek8ke"]
+[ext_resource type="Texture2D" uid="uid://dhasar33v5i8h" path="res://Assets/GameboardAssets/background game.png" id="1_ojehl"]
+[ext_resource type="Script" uid="uid://cr63ssuccqt23" path="res://Scenes/texture_button.gd" id="3_ek8ke"]
+[ext_resource type="Script" uid="uid://ddqc0tyl05rig" path="res://Scenes/texture_button_2.gd" id="4_eoghk"]
+
+[node name="gameOver" type="Node2D"]
+script = ExtResource("1_14u15")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5.35245, 4.76664)
+texture = ExtResource("1_ojehl")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.486275, 0, 0, 1)
+offset_left = -577.0
+offset_top = -323.0
+offset_right = 560.0
+offset_bottom = -107.0
+theme_override_fonts/font = ExtResource("1_ek8ke")
+theme_override_font_sizes/font_size = 400
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="restart" type="Button" parent="."]
+offset_left = -128.0
+offset_top = 24.0
+offset_right = 128.0
+offset_bottom = 64.0
+action_mode = 0
+text = "Restart"
+script = ExtResource("3_ek8ke")
+
+[node name="menu" type="Button" parent="."]
+offset_left = -128.0
+offset_top = 104.0
+offset_right = 128.0
+offset_bottom = 144.0
+text = "MainMenu"
+script = ExtResource("4_eoghk")
+
+[connection signal="pressed" from="restart" to="restart" method="_on_pressed"]
+[connection signal="pressed" from="menu" to="restart" method="_on_texture_button_2_pressed"]
