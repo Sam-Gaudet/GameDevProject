@@ -69,4 +69,4 @@ func _input(event: InputEvent) -> void:
 		
 	# Door one
 	if player_in_door_3 and event.is_action_pressed("ui_accept"):
-		print("Switched to level 3")
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/SamScenesAndScripts/platformer3.tscn")
