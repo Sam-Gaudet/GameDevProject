@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkj8ofhjk827m"]
+[gd_scene load_steps=18 format=3 uid="uid://dkj8ofhjk827m"]
 
 [ext_resource type="Script" uid="uid://ca2xbuqxro322" path="res://Scenes/SamScenesAndScripts/hub.gd" id="1_bhjrh"]
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="1_ypb1b"]
-[ext_resource type="PackedScene" uid="uid://dlngourcew8p7" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_bhjrh"]
+[ext_resource type="PackedScene" uid="uid://du5i5alatbswb" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_bhjrh"]
+[ext_resource type="Texture2D" uid="uid://cqaaybjkc8368" path="res://Assets/SamAssets/bg_5.png" id="2_xakg3"]
+[ext_resource type="Texture2D" uid="uid://13xpsaboxi18" path="res://Assets/SamAssets/Dimensional_Portal.png" id="4_cxyaf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aj2dl"]
 size = Vector2(1168, 180)
@@ -19,8 +21,63 @@ size = Vector2(79, 174.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5gap"]
 size = Vector2(178, 198.25)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmd4q"]
+atlas = ExtResource("4_cxyaf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5gap"]
+atlas = ExtResource("4_cxyaf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md1j0"]
+atlas = ExtResource("4_cxyaf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwfiy"]
+atlas = ExtResource("4_cxyaf")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g51e"]
+atlas = ExtResource("4_cxyaf")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6csd"]
+atlas = ExtResource("4_cxyaf")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pnljh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmd4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5gap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md1j0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwfiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g51e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6csd")
+}],
+"loop": true,
+"name": &"portal",
+"speed": 5.0
+}]
+
 [node name="Hub" type="Node2D"]
 script = ExtResource("1_bhjrh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(590, 319)
+scale = Vector2(0.823529, 0.823529)
+texture = ExtResource("2_xakg3")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -57,10 +114,26 @@ position = Vector2(625.25, 387.87)
 shape = SubResource("RectangleShape2D_o5gap")
 
 [node name="Door1Sprite" type="Sprite2D" parent="Door1"]
+visible = false
 modulate = Color(0.528003, 0.31351, 9.62615e-08, 1)
 position = Vector2(623.25, 397.87)
 scale = Vector2(0.800614, 0.800614)
 texture = ExtResource("1_ypb1b")
+
+[node name="TestPortal" type="AnimatedSprite2D" parent="Door1"]
+texture_filter = 1
+position = Vector2(614, 392)
+scale = Vector2(6.61719, 6.61719)
+sprite_frames = SubResource("SpriteFrames_pnljh")
+animation = &"portal"
+frame_progress = 0.267573
+
+[node name="Boss" type="Label" parent="Door1"]
+offset_left = 595.0
+offset_top = 298.0
+offset_right = 645.0
+offset_bottom = 321.0
+text = "Boss 1"
 
 [node name="Door2" type="Area2D" parent="."]
 position = Vector2(187, -6)
@@ -71,10 +144,26 @@ position = Vector2(639.25, 390.87)
 shape = SubResource("RectangleShape2D_o5gap")
 
 [node name="Door2Sprite" type="Sprite2D" parent="Door2"]
+visible = false
 modulate = Color(0.528003, 0.31351, 9.62615e-08, 1)
 position = Vector2(637.25, 400.87)
 scale = Vector2(0.800614, 0.800614)
 texture = ExtResource("1_ypb1b")
+
+[node name="TestPortal" type="AnimatedSprite2D" parent="Door2"]
+texture_filter = 1
+position = Vector2(629, 400)
+scale = Vector2(6.61719, 6.61719)
+sprite_frames = SubResource("SpriteFrames_pnljh")
+animation = &"portal"
+frame_progress = 0.548532
+
+[node name="Boss" type="Label" parent="Door2"]
+offset_left = 607.0
+offset_top = 296.0
+offset_right = 657.0
+offset_bottom = 319.0
+text = "Boss 2"
 
 [node name="Door3" type="Area2D" parent="."]
 position = Vector2(374, -12)
@@ -85,14 +174,40 @@ position = Vector2(656.25, 395.87)
 shape = SubResource("RectangleShape2D_o5gap")
 
 [node name="Door3Sprite" type="Sprite2D" parent="Door3"]
+visible = false
 modulate = Color(0.528003, 0.31351, 9.62615e-08, 1)
 position = Vector2(654.25, 405.87)
 scale = Vector2(0.800614, 0.800614)
 texture = ExtResource("1_ypb1b")
 
+[node name="TestPortal" type="AnimatedSprite2D" parent="Door3"]
+texture_filter = 1
+position = Vector2(643, 406)
+scale = Vector2(6.61719, 6.61719)
+sprite_frames = SubResource("SpriteFrames_pnljh")
+animation = &"portal"
+frame_progress = 0.548532
+
+[node name="Boss" type="Label" parent="Door3"]
+offset_left = 624.0
+offset_top = 307.0
+offset_right = 674.0
+offset_bottom = 330.0
+text = "Boss 3"
+
 [node name="PlayerPlatformer" parent="." instance=ExtResource("2_bhjrh")]
 position = Vector2(161, 315)
 collision_mask = 6
+
+[node name="Controls" type="Label" parent="."]
+offset_left = 13.0
+offset_top = 134.0
+offset_right = 199.0
+offset_bottom = 235.0
+text = "Left - A / Left arrow
+Right - D / Right arrow
+Jump - Space / Up arrow
+Interact - Enter / Space"
 
 [connection signal="body_entered" from="MainMenu" to="." method="_on_main_menu_body_entered"]
 [connection signal="body_exited" from="MainMenu" to="." method="_on_main_menu_body_exited"]

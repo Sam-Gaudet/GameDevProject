@@ -30,3 +30,6 @@ func _on_save_settings_button_pressed() -> void:
 func _on_play_pressed() -> void:
 	print("Play button pressed")
 	get_tree().call_deferred("change_scene_to_file", "res://Scenes/SamScenesAndScripts/hub.tscn")
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()
