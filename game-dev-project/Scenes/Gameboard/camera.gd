@@ -19,9 +19,7 @@ func _ready():
 	rotation = base_rotation
 	do_full_spin = true
 
-	# Play glitch animation immediately
-	sprite_left.play("default")
-	sprite_right.play("default")
+
 
 	# Set up and start the hide timer
 	hide_timer.wait_time = 5.0
@@ -52,9 +50,6 @@ func _process(delta):
 			rotation = deg_to_rad(target_rotation)
 
 func _on_hide_timer_timeout():
-	# Hide both animated sprites
-	sprite_left.visible = false
-	sprite_right.visible = false
 	hero.visible = true
 	var tween = create_tween()
 	var new_position = position + Vector2(0, -60)

@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmis8435hhu2q"]
+[gd_scene load_steps=3 format=3 uid="uid://dmis8435hhu2q"]
 
+[ext_resource type="Texture2D" uid="uid://c1sv4yjv73noh" path="res://Assets/GameboardAssets/outTiles.png" id="1_45s4p"]
 [ext_resource type="Texture2D" uid="uid://dl3qrpej22uch" path="res://Assets/GameboardAssets/xTHn4aL.png" id="2_45s4p"]
 
 [node name="borderTiles" type="Node2D"]
 z_index = -10
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(0, -1.90735e-06)
+scale = Vector2(1, 1)
+texture = ExtResource("1_45s4p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.528652, -26.0625)
