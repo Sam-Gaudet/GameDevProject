@@ -1,3 +1,205 @@
-[gd_scene format=3 uid="uid://bv11cnr31p6eg"]
+[gd_scene load_steps=15 format=3 uid="uid://ddcs6fmpooyn8"]
 
-[node name="MainMenu" type="Node2D"]
+[ext_resource type="Script" uid="uid://ddfk3oa0rxcvf" path="res://Scenes/AlexisScenesAndScripts/main_menu.gd" id="1_0pmvj"]
+[ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="1_t0b6g"]
+[ext_resource type="StyleBox" uid="uid://fqksfxp6mp8g" path="res://Assets/AlexisAssets/ButtonTheme.tres" id="2_3ccvf"]
+[ext_resource type="StyleBox" uid="uid://dx270757cfgt6" path="res://Assets/AlexisAssets/ButtonHover.tres" id="2_ro21a"]
+[ext_resource type="StyleBox" uid="uid://dd11joxjfo11o" path="res://Assets/AlexisAssets/ButtonPressed.tres" id="4_o5lx2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ccvf"]
+
+[sub_resource type="Theme" id="Theme_ro21a"]
+default_font = ExtResource("1_t0b6g")
+default_font_size = 0
+Button/styles/normal = SubResource("StyleBoxFlat_3ccvf")
+
+[sub_resource type="Theme" id="Theme_3ccvf"]
+Button/styles/hover = ExtResource("2_ro21a")
+Button/styles/normal = ExtResource("2_3ccvf")
+Button/styles/pressed = ExtResource("4_o5lx2")
+
+[sub_resource type="Theme" id="Theme_o5lx2"]
+Button/styles/hover = ExtResource("2_ro21a")
+Button/styles/normal = ExtResource("2_3ccvf")
+Button/styles/pressed = ExtResource("4_o5lx2")
+
+[sub_resource type="Theme" id="Theme_a7f27"]
+Button/styles/hover = ExtResource("2_ro21a")
+Button/styles/normal = ExtResource("2_3ccvf")
+Button/styles/pressed = ExtResource("4_o5lx2")
+
+[sub_resource type="Theme" id="Theme_t0b6g"]
+default_font = ExtResource("1_t0b6g")
+
+[sub_resource type="Theme" id="Theme_0pmvj"]
+Button/styles/hover = ExtResource("2_ro21a")
+Button/styles/normal = ExtResource("2_3ccvf")
+Button/styles/pressed = ExtResource("4_o5lx2")
+
+[sub_resource type="Theme" id="Theme_a0lgb"]
+Button/styles/hover = ExtResource("2_ro21a")
+Button/styles/normal = ExtResource("2_3ccvf")
+Button/styles/pressed = ExtResource("4_o5lx2")
+
+[sub_resource type="Theme" id="Theme_xjm5v"]
+Button/styles/hover = ExtResource("2_ro21a")
+Button/styles/normal = ExtResource("2_3ccvf")
+Button/styles/pressed = ExtResource("4_o5lx2")
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0pmvj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenuMarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -116.0
+offset_right = 325.0
+offset_bottom = 116.0
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 0
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenuMarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MainMenuMarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_ro21a")
+theme_override_fonts/font = ExtResource("1_t0b6g")
+theme_override_font_sizes/font_size = 80
+text = "Platformer"
+
+[node name="MainMenuVboxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenuMarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Play" type="Button" parent="CanvasLayer/MainMenuMarginContainer/VBoxContainer/MainMenuVboxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_3ccvf")
+theme_override_fonts/font = ExtResource("1_t0b6g")
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="Options" type="Button" parent="CanvasLayer/MainMenuMarginContainer/VBoxContainer/MainMenuVboxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_o5lx2")
+theme_override_fonts/font = ExtResource("1_t0b6g")
+theme_override_font_sizes/font_size = 50
+text = "Options"
+
+[node name="Exit" type="Button" parent="CanvasLayer/MainMenuMarginContainer/VBoxContainer/MainMenuVboxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_a7f27")
+theme_override_fonts/font = ExtResource("1_t0b6g")
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+
+[node name="SettingsMarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 291.0
+grow_horizontal = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = SubResource("Theme_t0b6g")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/SettingsMarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/SettingsMarginContainer"]
+layout_mode = 2
+
+[node name="LanguageLabel" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+text = "Language"
+
+[node name="LanguageHBoxContainer" type="HBoxContainer" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Engish" type="Button" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/LanguageHBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_0pmvj")
+theme_override_fonts/font = ExtResource("1_t0b6g")
+theme_override_font_sizes/font_size = 45
+text = "English"
+
+[node name="French" type="Button" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/LanguageHBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_a0lgb")
+theme_override_font_sizes/font_size = 45
+text = "French"
+
+[node name="Label" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 65
+text = "Audio"
+
+[node name="MasterHBoxContainer" type="HBoxContainer" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/MasterHBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Master"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/MasterHBoxContainer"]
+custom_minimum_size = Vector2(300, 35)
+layout_mode = 2
+size_flags_vertical = 8
+rounded = true
+tick_count = 10
+
+[node name="MusicHBoxContainer2" type="HBoxContainer" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/MusicHBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 55
+text = "Music"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/MusicHBoxContainer2"]
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+size_flags_vertical = 8
+rounded = true
+tick_count = 10
+
+[node name="sfxHBoxContainer3" type="HBoxContainer" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/sfxHBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 55
+text = "Sound Effects"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/sfxHBoxContainer3"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+size_flags_vertical = 8
+rounded = true
+tick_count = 10
+
+[node name="SaveSettingsButton" type="Button" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_xjm5v")
+theme_override_font_sizes/font_size = 40
+text = "Save Settings
+"
