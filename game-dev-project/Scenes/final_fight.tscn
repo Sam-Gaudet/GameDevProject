@@ -1,7 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://bd0147i6qu1g2"]
+[gd_scene load_steps=5 format=3 uid="uid://bd0147i6qu1g2"]
 
 [ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_0g4ct"]
+[ext_resource type="Script" uid="uid://c4l03anq3aks7" path="res://Scenes/BACKfight.gd" id="2_4ahpb"]
+[ext_resource type="Texture2D" uid="uid://b64gefxdewsqv" path="res://Assets/GameboardAssets/BackgroundBoss/blue-stars.png" id="3_ccadc"]
+[ext_resource type="Texture2D" uid="uid://ejp7hin08rku" path="res://Assets/GameboardAssets/BackgroundBoss/blue-back.png" id="4_i5n05"]
 
 [node name="FinalFight" type="Node2D"]
 
 [node name="GameBoard" parent="." instance=ExtResource("1_0g4ct")]
+modulate = Color(0, 0, 0.901961, 1)
+z_index = 10
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+script = ExtResource("2_4ahpb")
+
+[node name="back" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(672, 400)
+scale = Vector2(5, 5)
+texture = ExtResource("4_i5n05")
+
+[node name="back2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(2032, 400)
+scale = Vector2(5, 5)
+texture = ExtResource("4_i5n05")
+
+[node name="stars" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(672, 400)
+scale = Vector2(5, 5)
+texture = ExtResource("3_ccadc")
+
+[node name="stars2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(2032, 400)
+scale = Vector2(5, 5)
+texture = ExtResource("3_ccadc")
