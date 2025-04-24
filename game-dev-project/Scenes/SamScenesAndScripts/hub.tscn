@@ -202,12 +202,24 @@ text = "Boss 3"
 position = Vector2(161, 315)
 collision_mask = 6
 
+[node name="Controls2" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 135.0
+offset_right = 197.0
+offset_bottom = 262.0
+text = "Chess board:
+Up - W / Up  arrow
+Down - S / Down arrow
+Left - A / Left arrow
+Right - D / Right arrow"
+
 [node name="Controls" type="Label" parent="."]
-offset_left = 13.0
-offset_top = 134.0
-offset_right = 199.0
-offset_bottom = 235.0
-text = "Left - A / Left arrow
+offset_left = 11.0
+offset_top = 5.0
+offset_right = 197.0
+offset_bottom = 132.0
+text = "Platformer:
+Left - A / Left arrow
 Right - D / Right arrow
 Jump - Space / Up arrow
 Interact - Enter / Space"

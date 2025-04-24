@@ -39,13 +39,13 @@ func _process(_delta):
 
 func handle_input():
 	var input_vector = Vector2.ZERO
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("move_up"):
 		input_vector.y -= 1
-	elif Input.is_action_just_pressed("ui_down"):
+	elif Input.is_action_just_pressed("move_down"):
 		input_vector.y += 1
-	elif Input.is_action_just_pressed("ui_left"):
+	elif Input.is_action_just_pressed("move_left"):
 		input_vector.x -= 1
-	elif Input.is_action_just_pressed("ui_right"):
+	elif Input.is_action_just_pressed("move_right"):
 		input_vector.x += 1
 
 	if input_vector != Vector2.ZERO:
