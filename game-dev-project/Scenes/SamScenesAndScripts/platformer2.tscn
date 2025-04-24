@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://8r21imrjgorp"]
 
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="1_h41p6"]
-[ext_resource type="Script" path="res://Scenes/SamScenesAndScripts/platformer_logic.gd" id="1_qj7cj"]
+[ext_resource type="Script" uid="uid://dqdpurbolymav" path="res://Scenes/SamScenesAndScripts/platformer_logic.gd" id="1_qj7cj"]
 [ext_resource type="PackedScene" uid="uid://du5i5alatbswb" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_qj7cj"]
 [ext_resource type="Texture2D" uid="uid://cqaaybjkc8368" path="res://Assets/SamAssets/bg_5.png" id="2_wpnnp"]
 

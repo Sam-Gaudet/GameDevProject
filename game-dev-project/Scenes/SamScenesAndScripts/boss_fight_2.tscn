@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxtm6t7t5o816"]
+
+[ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_mtd77"]
+
+[node name="BossFight2" type="Node2D"]
+
+[node name="GameBoard" parent="." instance=ExtResource("1_mtd77")]

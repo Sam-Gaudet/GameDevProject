@@ -53,10 +53,10 @@ func _input(event: InputEvent) -> void:
 		get_tree().call_deferred("change_scene_to_file", "res://Scenes/SamScenesAndScripts/hub.tscn")
 		
 	if player_in_boss_1 and event.is_action_pressed("ui_accept"):
-		print("Switched to boss fight 1")
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/AlexisScenesAndScripts/boss_fight_1.tscn")
 		
 	if player_in_boss_2 and event.is_action_pressed("ui_accept"):
-		print("Switched to boss fight 2")
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/SamScenesAndScripts/boss_fight_2.tscn")
 		
 	if player_in_boss_3 and event.is_action_pressed("ui_accept"):
-		print("Switched to boss fight 3")
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/final_fight.tscn")
