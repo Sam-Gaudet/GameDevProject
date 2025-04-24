@@ -1,15 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://bd0147i6qu1g2"]
+[gd_scene load_steps=7 format=3 uid="uid://bd0147i6qu1g2"]
 
 [ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_0g4ct"]
+[ext_resource type="Script" uid="uid://ccaogwqk3572d" path="res://Scenes/final_fight.gd" id="1_i5n05"]
 [ext_resource type="Script" uid="uid://c4l03anq3aks7" path="res://Scenes/BACKfight.gd" id="2_4ahpb"]
 [ext_resource type="Texture2D" uid="uid://b64gefxdewsqv" path="res://Assets/GameboardAssets/BackgroundBoss/blue-stars.png" id="3_ccadc"]
 [ext_resource type="Texture2D" uid="uid://ejp7hin08rku" path="res://Assets/GameboardAssets/BackgroundBoss/blue-back.png" id="4_i5n05"]
+[ext_resource type="Texture2D" uid="uid://dhasar33v5i8h" path="res://Assets/GameboardAssets/background game.png" id="6_i5n05"]
 
 [node name="FinalFight" type="Node2D"]
+script = ExtResource("1_i5n05")
+
+[node name="bakcdrop black" type="Sprite2D" parent="."]
+position = Vector2(681, 353)
+scale = Vector2(2.94571, 2.08282)
+texture = ExtResource("6_i5n05")
 
 [node name="GameBoard" parent="." instance=ExtResource("1_0g4ct")]
-modulate = Color(0, 0, 0.901961, 1)
 z_index = 10
+position = Vector2(576, 328)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1

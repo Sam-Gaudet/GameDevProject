@@ -4,29 +4,35 @@
 [ext_resource type="Texture2D" uid="uid://dl3qrpej22uch" path="res://Assets/GameboardAssets/xTHn4aL.png" id="2_45s4p"]
 
 [node name="borderTiles" type="Node2D"]
+self_modulate = Color(0.83, 0.83, 0.83, 1)
 z_index = -10
 
 [node name="Sprite2D5" type="Sprite2D" parent="."]
+self_modulate = Color(0.83, 0.83, 0.83, 1)
 position = Vector2(0, -1.90735e-06)
 texture = ExtResource("1_45s4p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.83, 0.83, 0.83, 1)
 position = Vector2(0.528652, -26.0625)
 scale = Vector2(0.0587079, 0.0587079)
 texture = ExtResource("2_45s4p")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+self_modulate = Color(0.83, 0.83, 0.83, 1)
 position = Vector2(26, 0)
 rotation = 1.5708
 scale = Vector2(0.0587079, 0.0587079)
 texture = ExtResource("2_45s4p")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
+self_modulate = Color(0.83, 0.83, 0.83, 1)
 position = Vector2(1, 27)
 scale = Vector2(0.0587079, 0.0587079)
 texture = ExtResource("2_45s4p")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
+self_modulate = Color(0.83, 0.83, 0.83, 1)
 position = Vector2(-27, 0)
 rotation = 1.5708
 scale = Vector2(0.0587079, 0.0587079)

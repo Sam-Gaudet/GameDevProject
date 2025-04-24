@@ -1,6 +1,6 @@
 extends Camera2D
 
-@onready var sprite_left = $AnimatedSprite2D
+
 @onready var sprite_right = $AnimatedSprite2D2
 @onready var hide_timer := Timer.new()
 @onready var hero = get_node("../MainCharacter")
