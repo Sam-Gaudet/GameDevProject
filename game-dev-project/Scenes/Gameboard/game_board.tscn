@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cfie0mfxbb5ed"]
+[gd_scene load_steps=24 format=3 uid="uid://cfie0mfxbb5ed"]
 
 [ext_resource type="Script" uid="uid://18wcj2jaknpp" path="res://Scenes/Gameboard/game_board.gd" id="1_8iux8"]
 [ext_resource type="Script" uid="uid://7lhiqqsvopn3" path="res://Scenes/Gameboard/camera.gd" id="2_h6sja"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b6cw6bav8mnrr" path="res://Assets/GameboardAssets/273.png" id="4_oa80g"]
 [ext_resource type="FontFile" uid="uid://rf3xdt6kmvpp" path="res://Assets/GameboardAssets/GelatinMonoTTF.ttf" id="5_gsrb0"]
 [ext_resource type="Texture2D" uid="uid://d2i7u7itukj8t" path="res://Assets/GameboardAssets/green heart.png" id="5_uk3bs"]
+[ext_resource type="Texture2D" uid="uid://cvmubg66kvtga" path="res://Assets/GameboardAssets/solid-red-background-14148727243CA.jpg" id="11_ptfbb"]
 [ext_resource type="Script" uid="uid://dqvbspy6c2jio" path="res://Scenes/Gameboard/main_character.gd" id="46_oa80g"]
 [ext_resource type="Texture2D" uid="uid://i76c8o64rakq" path="res://Assets/GameboardAssets/hearth.png" id="46_uk3bs"]
 [ext_resource type="Texture2D" uid="uid://dhasar33v5i8h" path="res://Assets/GameboardAssets/background game.png" id="48_8gdtb"]
@@ -211,6 +212,12 @@ speed_scale = 4.0
 
 [node name="deathDelay" type="Timer" parent="MainCharacter"]
 one_shot = true
+
+[node name="board immage" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(2.6226e-06, 0)
+scale = Vector2(0.233333, 0.261377)
+texture = ExtResource("11_ptfbb")
 
 [connection signal="body_entered" from="MainCharacter" to="MainCharacter" method="_on_body_entered"]
 [connection signal="area_entered" from="MainCharacter/ouch" to="MainCharacter" method="_on_ouch_area_entered"]

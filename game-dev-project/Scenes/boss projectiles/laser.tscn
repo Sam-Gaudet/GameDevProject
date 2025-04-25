@@ -67,7 +67,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_agh3j"]
-size = Vector2(376, 26)
+size = Vector2(1456, 21)
 
 [node name="laser" type="Area2D" groups=["projectile"]]
 modulate = Color(0.99686, 0.428904, 0.360431, 1)
@@ -82,4 +82,5 @@ frame_progress = 0.797723
 
 [node name="shap" type="CollisionShape2D" parent="." groups=["projectile"]]
 modulate = Color(0.99686, 0.428904, 0.360431, 1)
+position = Vector2(-432, -2.5)
 shape = SubResource("RectangleShape2D_agh3j")

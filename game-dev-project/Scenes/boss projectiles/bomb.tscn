@@ -1,41 +1,6 @@
-[gd_scene load_steps=52 format=3 uid="uid://cc8at4yy374j8"]
+[gd_scene load_steps=18 format=3 uid="uid://cc8at4yy374j8"]
 
-[ext_resource type="Texture2D" uid="uid://cedvn1vtaxj0b" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_01.png" id="1_emk8t"]
-[ext_resource type="Texture2D" uid="uid://cxqkv2tj5m00u" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_02.png" id="2_f37bf"]
-[ext_resource type="Texture2D" uid="uid://bvp03pnww4tiy" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_03.png" id="3_4iuw0"]
-[ext_resource type="Texture2D" uid="uid://cvqa7708vm1lq" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_04.png" id="4_eegr6"]
-[ext_resource type="Texture2D" uid="uid://bc3mibdfxqx7g" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_05.png" id="5_1v3l8"]
-[ext_resource type="Texture2D" uid="uid://bap4tqq8686qd" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_06.png" id="6_223r7"]
-[ext_resource type="Texture2D" uid="uid://b7i5hmr2pajda" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_07.png" id="7_gnti4"]
-[ext_resource type="Texture2D" uid="uid://dbyah6wsas132" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_08.png" id="8_7gvmt"]
-[ext_resource type="Texture2D" uid="uid://n7fg87csey4o" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_09.png" id="9_a2vpj"]
-[ext_resource type="Texture2D" uid="uid://dbd24rl51ikwv" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_10.png" id="10_uvdtv"]
-[ext_resource type="Texture2D" uid="uid://cbvrwmvjqekuy" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_11.png" id="11_v0skt"]
-[ext_resource type="Texture2D" uid="uid://y1ne65eglu3f" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_12.png" id="12_yyea1"]
-[ext_resource type="Texture2D" uid="uid://u61nmcqb1th" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_13.png" id="13_5xgri"]
-[ext_resource type="Texture2D" uid="uid://bj2uojx5knna2" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_14.png" id="14_46b25"]
-[ext_resource type="Texture2D" uid="uid://cqtu2dx8uagxv" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_15.png" id="15_54brs"]
-[ext_resource type="Texture2D" uid="uid://bgl2xwbfjilts" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_16.png" id="16_o32bl"]
-[ext_resource type="Texture2D" uid="uid://648ggwm4rve" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_17.png" id="17_u5mwo"]
-[ext_resource type="Texture2D" uid="uid://cry84dqw8hmit" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_18.png" id="18_81n4w"]
-[ext_resource type="Texture2D" uid="uid://q6t128anmafo" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_19.png" id="19_eqw0f"]
-[ext_resource type="Texture2D" uid="uid://t4j7evnex86w" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_20.png" id="20_5hus4"]
-[ext_resource type="Texture2D" uid="uid://dv6dr0gda3mdi" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_21.png" id="21_kjw3s"]
-[ext_resource type="Texture2D" uid="uid://3iev516y3yx5" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_22.png" id="22_ogr7x"]
-[ext_resource type="Texture2D" uid="uid://bvac5y6c0i0ti" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_23.png" id="23_na7nu"]
-[ext_resource type="Texture2D" uid="uid://cw58vmpikgk5t" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_24.png" id="24_p5g4y"]
-[ext_resource type="Texture2D" uid="uid://ca8fntiwpapf8" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_25.png" id="25_nag8j"]
-[ext_resource type="Texture2D" uid="uid://dwsgqdpxgdyux" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_26.png" id="26_lolcb"]
-[ext_resource type="Texture2D" uid="uid://cnmvavcer5wvb" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_27.png" id="27_uyemw"]
-[ext_resource type="Texture2D" uid="uid://pkfd0klcy1va" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_28.png" id="28_772lt"]
-[ext_resource type="Texture2D" uid="uid://dwelij5xtiy5w" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_29.png" id="29_4fs28"]
-[ext_resource type="Texture2D" uid="uid://dbeoodqju24wk" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_30.png" id="30_dpcnn"]
-[ext_resource type="Texture2D" uid="uid://eknbeowtpf7x" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_31.png" id="31_0djyy"]
-[ext_resource type="Texture2D" uid="uid://du1an5jplv837" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_32.png" id="32_2bgg2"]
-[ext_resource type="Texture2D" uid="uid://b8dwgut1s13ar" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_33.png" id="33_1io8r"]
-[ext_resource type="Texture2D" uid="uid://ot3dem7nhuet" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_34.png" id="34_m1c4e"]
-[ext_resource type="Texture2D" uid="uid://g8d1nyrbexah" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_35.png" id="35_84i13"]
-[ext_resource type="Texture2D" uid="uid://d3hvcootdnfv5" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_36.png" id="36_vwtmk"]
+[ext_resource type="Script" uid="uid://8bqri6ogu4xn" path="res://Scenes/boss projectiles/bomb.gd" id="1_eyv3d"]
 [ext_resource type="Texture2D" uid="uid://ddd6xipys8tms" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_37.png" id="37_3v6hb"]
 [ext_resource type="Texture2D" uid="uid://dt2q3apngafjk" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_38.png" id="38_1q5s5"]
 [ext_resource type="Texture2D" uid="uid://bklr58hlsqcup" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_39.png" id="39_3va3o"]
@@ -54,114 +19,6 @@
 [sub_resource type="SpriteFrames" id="SpriteFrames_o6n60"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_emk8t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_f37bf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_4iuw0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_eegr6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_1v3l8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_223r7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_gnti4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_7gvmt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_a2vpj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_uvdtv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_v0skt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_yyea1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_5xgri")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_46b25")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_54brs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_o32bl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_u5mwo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_81n4w")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_eqw0f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_5hus4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_kjw3s")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_ogr7x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_na7nu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_p5g4y")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_nag8j")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_lolcb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_uyemw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_772lt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_4fs28")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30_dpcnn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31_0djyy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("32_2bgg2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("33_1io8r")
-}, {
-"duration": 1.0,
-"texture": ExtResource("34_m1c4e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("35_84i13")
-}, {
-"duration": 1.0,
-"texture": ExtResource("36_vwtmk")
-}, {
 "duration": 1.0,
 "texture": ExtResource("37_3v6hb")
 }, {
@@ -205,16 +62,24 @@ animations = [{
 "texture": ExtResource("50_2nabh")
 }],
 "loop": true,
-"name": &"new_animation",
+"name": &"explode",
 "speed": 37.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6sfq8"]
+radius = 16.0
+
 [node name="bomb" type="Area2D"]
+script = ExtResource("1_eyv3d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.451217, 0.0147352, 0.0101575, 1)
 sprite_frames = SubResource("SpriteFrames_o6n60")
-animation = &"new_animation"
-autoplay = "new_animation"
-frame_progress = 0.672519
+animation = &"explode"
+autoplay = "explode"
+frame_progress = 0.752415
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["projectile"]]
+shape = SubResource("CircleShape2D_6sfq8")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
