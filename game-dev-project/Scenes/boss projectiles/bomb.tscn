@@ -1,0 +1,85 @@
+[gd_scene load_steps=18 format=3 uid="uid://cc8at4yy374j8"]
+
+[ext_resource type="Script" uid="uid://8bqri6ogu4xn" path="res://Scenes/boss projectiles/bomb.gd" id="1_eyv3d"]
+[ext_resource type="Texture2D" uid="uid://ddd6xipys8tms" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_37.png" id="37_3v6hb"]
+[ext_resource type="Texture2D" uid="uid://dt2q3apngafjk" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_38.png" id="38_1q5s5"]
+[ext_resource type="Texture2D" uid="uid://bklr58hlsqcup" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_39.png" id="39_3va3o"]
+[ext_resource type="Texture2D" uid="uid://ffdgg61wys73" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_40.png" id="40_u6nby"]
+[ext_resource type="Texture2D" uid="uid://boow4jkofhdx0" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_41.png" id="41_0ixup"]
+[ext_resource type="Texture2D" uid="uid://cnxcfgrhjy8hq" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_42.png" id="42_h2gin"]
+[ext_resource type="Texture2D" uid="uid://djv6mmvyt2yf4" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_43.png" id="43_eqm3r"]
+[ext_resource type="Texture2D" uid="uid://ceg0jyhy0ey1e" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_44.png" id="44_4jiyr"]
+[ext_resource type="Texture2D" uid="uid://dkhxqvbbbejp0" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_45.png" id="45_d4kks"]
+[ext_resource type="Texture2D" uid="uid://bllnurktphepb" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_46.png" id="46_mwnbv"]
+[ext_resource type="Texture2D" uid="uid://dyblg5ah6x5i" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_47.png" id="47_xjkix"]
+[ext_resource type="Texture2D" uid="uid://c8dhkdp2w4v04" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_48.png" id="48_wt41b"]
+[ext_resource type="Texture2D" uid="uid://c0un764432wr0" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_49.png" id="49_pvavi"]
+[ext_resource type="Texture2D" uid="uid://dpstmi7srkkid" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_50.png" id="50_2nabh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o6n60"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("37_3v6hb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_1q5s5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_3va3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_u6nby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_0ixup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_h2gin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_eqm3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_4jiyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_d4kks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_mwnbv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_xjkix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_wt41b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_pvavi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_2nabh")
+}],
+"loop": true,
+"name": &"explode",
+"speed": 37.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6sfq8"]
+radius = 16.0
+
+[node name="bomb" type="Area2D"]
+script = ExtResource("1_eyv3d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.451217, 0.0147352, 0.0101575, 1)
+sprite_frames = SubResource("SpriteFrames_o6n60")
+animation = &"explode"
+autoplay = "explode"
+frame_progress = 0.752415
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["projectile"]]
+shape = SubResource("CircleShape2D_6sfq8")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

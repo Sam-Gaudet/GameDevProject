@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://cgclx8vgp7gwm"]
+
+[ext_resource type="Texture2D" uid="uid://bfv8j3livpn8d" path="res://Assets/GameboardAssets/LaserShot.png" id="1_oskgj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxk2c"]
+atlas = ExtResource("1_oskgj")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2j46"]
+atlas = ExtResource("1_oskgj")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81ore"]
+atlas = ExtResource("1_oskgj")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcdwq"]
+atlas = ExtResource("1_oskgj")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oskgj"]
+atlas = ExtResource("1_oskgj")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_de1yu"]
+atlas = ExtResource("1_oskgj")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrq0u"]
+atlas = ExtResource("1_oskgj")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r52s"]
+atlas = ExtResource("1_oskgj")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_de1yu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxk2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2j46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81ore")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcdwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oskgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_de1yu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrq0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1r52s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 13.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agh3j"]
+size = Vector2(1456, 21)
+
+[node name="laser" type="Area2D" groups=["projectile"]]
+modulate = Color(0.99686, 0.428904, 0.360431, 1)
+
+[node name="laser" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.99686, 0.428904, 0.360431, 1)
+position = Vector2(-432, 4.76837e-07)
+scale = Vector2(22.625, 1.3125)
+sprite_frames = SubResource("SpriteFrames_de1yu")
+autoplay = "default"
+frame_progress = 0.797723
+
+[node name="shap" type="CollisionShape2D" parent="." groups=["projectile"]]
+modulate = Color(0.99686, 0.428904, 0.360431, 1)
+position = Vector2(-432, -2.5)
+shape = SubResource("RectangleShape2D_agh3j")

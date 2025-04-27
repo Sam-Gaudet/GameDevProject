@@ -1,174 +1,16 @@
-[gd_scene load_steps=61 format=3 uid="uid://cfie0mfxbb5ed"]
+[gd_scene load_steps=24 format=3 uid="uid://cfie0mfxbb5ed"]
 
 [ext_resource type="Script" uid="uid://18wcj2jaknpp" path="res://Scenes/Gameboard/game_board.gd" id="1_8iux8"]
 [ext_resource type="Script" uid="uid://7lhiqqsvopn3" path="res://Scenes/Gameboard/camera.gd" id="2_h6sja"]
+[ext_resource type="Texture2D" uid="uid://cyl3sliqghoq3" path="res://Assets/GameboardAssets/green heart - Copy.png" id="3_id67q"]
 [ext_resource type="Script" uid="uid://ds75cp8ibbtl7" path="res://Scenes/Gameboard/countdown.gd" id="4_gsrb0"]
 [ext_resource type="Texture2D" uid="uid://b6cw6bav8mnrr" path="res://Assets/GameboardAssets/273.png" id="4_oa80g"]
 [ext_resource type="FontFile" uid="uid://rf3xdt6kmvpp" path="res://Assets/GameboardAssets/GelatinMonoTTF.ttf" id="5_gsrb0"]
 [ext_resource type="Texture2D" uid="uid://d2i7u7itukj8t" path="res://Assets/GameboardAssets/green heart.png" id="5_uk3bs"]
-[ext_resource type="Texture2D" uid="uid://dh2lf6nutqqr6" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_01.png" id="6_h26sm"]
-[ext_resource type="Texture2D" uid="uid://dop1v1isgqaiq" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_02.png" id="7_w2c1j"]
-[ext_resource type="Texture2D" uid="uid://3ulc1nr7rdlr" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_03.png" id="8_bv5xx"]
-[ext_resource type="Texture2D" uid="uid://bot5jts4i8yjw" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_04.png" id="9_uk3bs"]
-[ext_resource type="Texture2D" uid="uid://qlatoq7egly2" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_05.png" id="10_oa80g"]
-[ext_resource type="Texture2D" uid="uid://dh8f6jfr7d12l" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_06.png" id="11_8gdtb"]
-[ext_resource type="Texture2D" uid="uid://clcifq7shucef" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_07.png" id="12_h0b34"]
-[ext_resource type="Texture2D" uid="uid://bdupbr4p3uhst" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_08.png" id="13_o4ss2"]
-[ext_resource type="Texture2D" uid="uid://3o477jwa76u3" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_09.png" id="14_bj4d8"]
-[ext_resource type="Texture2D" uid="uid://d2vvciivy587p" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_10.png" id="15_w4giv"]
-[ext_resource type="Texture2D" uid="uid://bs76tfsgfo5jt" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_11.png" id="16_ugck4"]
-[ext_resource type="Texture2D" uid="uid://2dt3hqwgcnxa" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_12.png" id="17_a3cua"]
-[ext_resource type="Texture2D" uid="uid://c64tlp8qkrk2v" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_13.png" id="18_jfovr"]
-[ext_resource type="Texture2D" uid="uid://b2rbiut64iq7r" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_14.png" id="19_qu4j2"]
-[ext_resource type="Texture2D" uid="uid://u3iwlr3fls6o" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_15.png" id="20_7peex"]
-[ext_resource type="Texture2D" uid="uid://bsn47newtcd54" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_16.png" id="21_en21g"]
-[ext_resource type="Texture2D" uid="uid://utxhlw5uqqui" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_17.png" id="22_uii08"]
-[ext_resource type="Texture2D" uid="uid://bxypmpcskjevt" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_18.png" id="23_wscfx"]
-[ext_resource type="Texture2D" uid="uid://nte1sdunq8wq" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_19.png" id="24_wthu8"]
-[ext_resource type="Texture2D" uid="uid://bx7q7hkaoxo7q" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_20.png" id="25_w7y1u"]
-[ext_resource type="Texture2D" uid="uid://cn01becduemlp" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_21.png" id="26_ki77q"]
-[ext_resource type="Texture2D" uid="uid://cuycrsy1k3qqf" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_22.png" id="27_hekaa"]
-[ext_resource type="Texture2D" uid="uid://d2hykk2koq31a" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_23.png" id="28_78nc3"]
-[ext_resource type="Texture2D" uid="uid://dlbtxwfbstdos" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_24.png" id="29_fxid7"]
-[ext_resource type="Texture2D" uid="uid://cl7bnkullqrx3" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_25.png" id="30_dwoft"]
-[ext_resource type="Texture2D" uid="uid://dllrcp3uofoub" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_26.png" id="31_ojdsp"]
-[ext_resource type="Texture2D" uid="uid://122sgvi757o2" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_27.png" id="32_safwn"]
-[ext_resource type="Texture2D" uid="uid://cc1yedm0txygy" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_28.png" id="33_5wtwo"]
-[ext_resource type="Texture2D" uid="uid://j1yl2kqhl0un" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_29.png" id="34_65lhs"]
-[ext_resource type="Texture2D" uid="uid://ch22rcpkcvo6b" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_30.png" id="35_rf5ej"]
-[ext_resource type="Texture2D" uid="uid://ctaonulblg0s0" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_31.png" id="36_4l7uj"]
-[ext_resource type="Texture2D" uid="uid://b03qdxia0y8e4" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_32.png" id="37_7ckd2"]
-[ext_resource type="Texture2D" uid="uid://c68omce34h7u0" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_33.png" id="38_wtw2y"]
-[ext_resource type="Texture2D" uid="uid://b0g1hmsf7r4t4" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_34.png" id="39_vil33"]
-[ext_resource type="Texture2D" uid="uid://cgq31jwpkhpv1" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_35.png" id="40_5mits"]
-[ext_resource type="Texture2D" uid="uid://dvnid3j1s1hfb" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_36.png" id="41_pynnk"]
-[ext_resource type="Texture2D" uid="uid://dhnkpquvu4ki" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_37.png" id="42_l2syn"]
-[ext_resource type="Texture2D" uid="uid://b30pewo2uymbh" path="res://Assets/GameboardAssets/Fx/Fx05/Fx05_38.png" id="43_o16ux"]
+[ext_resource type="Texture2D" uid="uid://cvmubg66kvtga" path="res://Assets/GameboardAssets/solid-red-background-14148727243CA.jpg" id="11_ptfbb"]
 [ext_resource type="Script" uid="uid://dqvbspy6c2jio" path="res://Scenes/Gameboard/main_character.gd" id="46_oa80g"]
 [ext_resource type="Texture2D" uid="uid://i76c8o64rakq" path="res://Assets/GameboardAssets/hearth.png" id="46_uk3bs"]
 [ext_resource type="Texture2D" uid="uid://dhasar33v5i8h" path="res://Assets/GameboardAssets/background game.png" id="48_8gdtb"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_vaqoi"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_h26sm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_w2c1j")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_bv5xx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_uk3bs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_oa80g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_8gdtb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_h0b34")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_o4ss2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_bj4d8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_w4giv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_ugck4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_a3cua")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_jfovr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_qu4j2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_7peex")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_en21g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_uii08")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_wscfx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_wthu8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_w7y1u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_ki77q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_hekaa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_78nc3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_fxid7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30_dwoft")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31_ojdsp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("32_safwn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("33_5wtwo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("34_65lhs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("35_rf5ej")
-}, {
-"duration": 1.0,
-"texture": ExtResource("36_4l7uj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("37_7ckd2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("38_wtw2y")
-}, {
-"duration": 1.0,
-"texture": ExtResource("39_vil33")
-}, {
-"duration": 1.0,
-"texture": ExtResource("40_5mits")
-}, {
-"duration": 1.0,
-"texture": ExtResource("41_pynnk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("42_l2syn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("43_o16ux")
-}],
-"loop": true,
-"name": &"anim",
-"speed": 20.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fleov"]
 size = Vector2(1937.49, 1714)
@@ -246,7 +88,6 @@ animations = [{
 script = ExtResource("1_8iux8")
 
 [node name="camera" type="Camera2D" parent="."]
-rotation = 0.872665
 ignore_rotation = false
 process_callback = 0
 limit_smoothed = true
@@ -257,24 +98,21 @@ script = ExtResource("2_h6sja")
 rotation = -0.872665
 
 [node name="1" type="Sprite2D" parent="camera/health"]
-modulate = Color(0, 1, 0, 1)
-self_modulate = Color(1, 1, 1, 0.341176)
+self_modulate = Color(1, 1, 1, 0.976471)
 position = Vector2(-561.93, -230.673)
 rotation = 0.872665
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("5_uk3bs")
+texture = ExtResource("3_id67q")
 
 [node name="2" type="Sprite2D" parent="camera/health"]
-modulate = Color(0, 1, 0, 1)
-self_modulate = Color(1, 1, 1, 0.341176)
+self_modulate = Color(1, 1, 1, 0.976471)
 position = Vector2(-541, -201)
 rotation = 0.872665
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("5_uk3bs")
 
 [node name="3" type="Sprite2D" parent="camera/health"]
-modulate = Color(0, 1, 0, 1)
-self_modulate = Color(1, 1, 1, 0.341176)
+self_modulate = Color(1, 1, 1, 0.976471)
 position = Vector2(-519, -171)
 rotation = 0.872665
 scale = Vector2(0.05, 0.05)
@@ -282,15 +120,6 @@ texture = ExtResource("5_uk3bs")
 
 [node name="Countdown" type="Node2D" parent="."]
 script = ExtResource("4_gsrb0")
-
-[node name="animation" type="AnimatedSprite2D" parent="Countdown"]
-visible = false
-modulate = Color(2.88785e-07, 0.724092, 0.507522, 1)
-position = Vector2(134, -30)
-rotation = -1.90066
-scale = Vector2(5.67331, 30.49)
-sprite_frames = SubResource("SpriteFrames_vaqoi")
-animation = &"anim"
 
 [node name="3" type="Label" parent="Countdown"]
 visible = false
@@ -383,6 +212,13 @@ speed_scale = 4.0
 
 [node name="deathDelay" type="Timer" parent="MainCharacter"]
 one_shot = true
+
+[node name="board immage" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.490196)
+position = Vector2(2.6226e-06, 0)
+scale = Vector2(0.233333, 0.261377)
+texture = ExtResource("11_ptfbb")
 
 [connection signal="body_entered" from="MainCharacter" to="MainCharacter" method="_on_body_entered"]
 [connection signal="area_entered" from="MainCharacter/ouch" to="MainCharacter" method="_on_ouch_area_entered"]
