@@ -214,6 +214,7 @@ speed_scale = 4.0
 one_shot = true
 
 [node name="board immage" type="Sprite2D" parent="."]
+visible = false
 self_modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(2.6226e-06, 0)
 scale = Vector2(0.233333, 0.261377)

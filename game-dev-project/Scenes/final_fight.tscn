@@ -12,6 +12,7 @@ position = Vector2(1, 0)
 script = ExtResource("1_i5n05")
 
 [node name="bakcdrop black" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(681, 353)
 scale = Vector2(2.94571, 2.08282)
 texture = ExtResource("6_i5n05")

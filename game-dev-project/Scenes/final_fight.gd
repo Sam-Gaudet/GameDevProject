@@ -26,7 +26,7 @@ func start_laser_rotation_delayed():
 func start_laser_rotation():
 	spawn_lasers_sequentially()
 	await get_tree().create_timer(1.0).timeout # slight buffer before bomb wave
-	await spawn_bombs_left_to_right()
+
 
 func spawn_lasers_sequentially():
 	current_index = 0
@@ -47,19 +47,3 @@ func _spawn_next_laser():
 	current_index = (current_index + 1) % number_of_lasers
 	await get_tree().create_timer(delay_between_spawns).timeout
 	_spawn_next_laser()
-
-# Bombs now spawn slowly, one at a time, row by row, left to right
-func spawn_bombs_left_to_right() -> void:
-	var half_grid = Vector2(GRID_SIZE, GRID_SIZE) / 2.0
-	var top_left = CENTER_POSITION - (half_grid * TILE_SIZE)
-
-	for y in range(1, GRID_SIZE - 1):
-		for x in range(1, GRID_SIZE - 1):
-			var pos = top_left + Vector2(x, y) * TILE_SIZE + Vector2(TILE_SIZE / 2, TILE_SIZE / 2)
-			spawn_bomb_at_position(pos)
-			await get_tree().create_timer(bomb_spawn_delay).timeout
-
-func spawn_bomb_at_position(pos: Vector2) -> void:
-	var bomb = BombScene.instantiate()
-	bomb.position = pos
-	add_child(bomb)
