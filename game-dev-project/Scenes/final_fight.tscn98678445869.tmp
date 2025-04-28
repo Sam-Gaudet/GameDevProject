@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd0147i6qu1g2"]
+
+[ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_0g4ct"]
+[ext_resource type="Script" uid="uid://ccaogwqk3572d" path="res://Scenes/final_fight.gd" id="1_i5n05"]
+[ext_resource type="Texture2D" uid="uid://dhasar33v5i8h" path="res://Assets/GameboardAssets/background game.png" id="6_i5n05"]
+
+[node name="FinalFight" type="Node2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_i5n05")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(528.5, 485)
+scale = Vector2(2.51, 2.48773)
+texture = ExtResource("6_i5n05")
+
+[node name="GameBoard" parent="." instance=ExtResource("1_0g4ct")]
+modulate = Color(1, 0, 0, 1)
+z_index = 10
+position = Vector2(576, 328)

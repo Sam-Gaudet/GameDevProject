@@ -5,8 +5,10 @@ func _ready():
 	await get_tree().create_timer(5.0).timeout
 	start_multiple_waves()
 #Patterns
+@onready var ZoomSkullthing = preload("res://Scenes/boss projectiles/warning.tscn")
 @onready var Skullthing = preload("res://Scenes/boss projectiles/Skulls.tscn")
 @onready var WallSkullthing = preload("res://Scenes/boss projectiles/wall_skull.tscn")
+
 var left_wall_patterns = [2, 4, 1, 3, 5, 2, 4, 3, 1, 5]
 var right_wall_patterns = [4, 2, 5, 3, 1, 5, 2, 4, 1, 3]
 var wave_patterns = [
@@ -26,6 +28,8 @@ func start_multiple_waves():
 func spawn_waves(wave_count: int, delay: float) -> void:
 	for i in range(wave_count):
 		start_skulls_wave(i)
+		if i == 2:
+			spawn_zoom_skull()
 		await get_tree().create_timer(delay).timeout
 
 func start_skulls_wave(wave_index: int):
@@ -91,3 +95,8 @@ func spawn_wall_skull(slot_index: int, side: String):
 	Skull.modulate = Color.GRAY
 
 	add_child(Skull)
+
+func spawn_zoom_skull():
+	var zoom_skull = ZoomSkullthing.instantiate()
+	zoom_skull.global_position = Vector2(600, 450)
+	add_child(zoom_skull)
