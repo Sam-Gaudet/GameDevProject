@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://du5i5alatbswb"]
+[gd_scene load_steps=27 format=3 uid="uid://dlngourcew8p7"]
 
 [ext_resource type="Script" uid="uid://dv2rpl1okwbk" path="res://Scenes/SamScenesAndScripts/playerplatformer.gd" id="1_2e6yv"]
 [ext_resource type="Texture2D" uid="uid://drabuhnjvg83n" path="res://Assets/SamAssets/CharAni-Sheet4.png" id="2_2e6yv"]

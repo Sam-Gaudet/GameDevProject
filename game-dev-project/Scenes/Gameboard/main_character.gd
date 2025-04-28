@@ -36,6 +36,9 @@ func _ready():
 func _process(_delta):
 	if not is_moving and not is_dead and visible:
 		handle_input()
+	if Input.is_action_just_pressed("dev Mode"):
+		print("dev mode active, you cannot die")
+		life = 1000
 
 func handle_input():
 	var input_vector = Vector2.ZERO
@@ -47,6 +50,7 @@ func handle_input():
 		input_vector.x -= 1
 	elif Input.is_action_just_pressed("move_right"):
 		input_vector.x += 1
+
 
 	if input_vector != Vector2.ZERO:
 		var proposed_position = position + input_vector * TILE_SIZE
@@ -73,10 +77,11 @@ func _on_ouch_area_entered(area: Area2D):
 		take_damage()
 
 
+	
 func take_damage():
 	if is_dead:
 		return
-
+	print('')
 	life -= 1
 	print("Player took damage! Life is now: ", life)
 	match life:
