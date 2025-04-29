@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://dkj8ofhjk827m"]
+[gd_scene load_steps=19 format=3 uid="uid://dkj8ofhjk827m"]
 
 [ext_resource type="Script" uid="uid://ca2xbuqxro322" path="res://Scenes/SamScenesAndScripts/hub.gd" id="1_bhjrh"]
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="1_ypb1b"]
 [ext_resource type="PackedScene" uid="uid://du5i5alatbswb" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_bhjrh"]
 [ext_resource type="PackedScene" uid="uid://cpvnu34q0avff" path="res://Scenes/SamScenesAndScripts/forest_background.tscn" id="2_xakg3"]
 [ext_resource type="Texture2D" uid="uid://13xpsaboxi18" path="res://Assets/SamAssets/Dimensional_Portal.png" id="4_cxyaf"]
+[ext_resource type="PackedScene" uid="uid://cifpnmy1ws14e" path="res://Scenes/SamScenesAndScripts/sign.tscn" id="6_cxyaf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aj2dl"]
 size = Vector2(2725, 180)
@@ -76,6 +77,7 @@ position = Vector2(3, 246)
 script = ExtResource("1_bhjrh")
 
 [node name="forest_background" parent="." instance=ExtResource("2_xakg3")]
+position = Vector2(284, 4)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -192,6 +194,32 @@ offset_top = 307.0
 offset_right = 674.0
 offset_bottom = 330.0
 text = "Boss 3"
+metadata/_edit_use_anchors_ = true
+
+[node name="ManMenuSign" parent="." instance=ExtResource("6_cxyaf")]
+position = Vector2(163, 435)
+
+[node name="Label" type="Label" parent="ManMenuSign"]
+offset_left = -44.0
+offset_top = -51.0
+offset_right = 44.0
+offset_bottom = -2.0
+text = "Main menu
+<-"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BossesSign" parent="." instance=ExtResource("6_cxyaf")]
+position = Vector2(512, 433)
+
+[node name="Label" type="Label" parent="BossesSign"]
+offset_left = -44.0
+offset_top = -51.0
+offset_right = 44.0
+offset_bottom = -2.0
+text = "Bosses
+->"
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="PlayerPlatformer" parent="." instance=ExtResource("2_bhjrh")]
