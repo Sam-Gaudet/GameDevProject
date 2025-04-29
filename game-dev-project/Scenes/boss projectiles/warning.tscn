@@ -150,16 +150,18 @@ animations = [{
 }]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(-320, 0)
 script = ExtResource("1_h0585")
 
 [node name="warning" type="AnimatedSprite2D" parent="."]
-position = Vector2(-8, -16)
+position = Vector2(3.8147e-06, 1.90735e-06)
 scale = Vector2(4.54815, 4.54815)
 sprite_frames = SubResource("SpriteFrames_pyvrv")
 autoplay = "default"
 frame_progress = 0.810753
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-408, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-408, 0)
@@ -169,4 +171,5 @@ shape = SubResource("CircleShape2D_0u6y2")
 position = Vector2(-392, 8.00001)
 scale = Vector2(5.52381, 5.52381)
 sprite_frames = SubResource("SpriteFrames_erbgq")
+autoplay = "default"
 frame_progress = 0.919146
