@@ -17,6 +17,10 @@ https://free-game-assets.itch.io/free-sky-with-clouds-background-pixel-art-set
 https://ansimuz.itch.io/parallax-forest
 https://kiddolink.itch.io/parallax-background-plains-pixel-art
 https://ilymeiib.itch.io/caketileset
+https://lazyteastudios.itch.io/pine-forest-parallax-background
+https://pixeloverload.itch.io/jungle-parallax-assets
+https://orizho.itch.io/oil-6-palette-landscape
+
 
 
 Alexis -------------------------------------------

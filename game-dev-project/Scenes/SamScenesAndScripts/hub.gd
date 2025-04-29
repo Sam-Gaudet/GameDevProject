@@ -16,6 +16,7 @@ func _ready():
 	portal2_anim.play("portal")
 	portal3_anim.play("portal")
 
+
 # Main menu -------------------------------------------
 func _on_main_menu_body_entered(body: Node2D) -> void:
 	print("Do you want to go to the main menu")

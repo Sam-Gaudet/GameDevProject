@@ -1,0 +1,117 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpvnu34q0avff"]
+
+[ext_resource type="Texture2D" uid="uid://cuja6clrivdei" path="res://Assets/SamAssets/Background.png" id="1_gy67q"]
+[ext_resource type="Texture2D" uid="uid://chyikketqa6fw" path="res://Assets/SamAssets/1_scaled_8x_pngcrushed.png" id="2_hdltd"]
+[ext_resource type="Texture2D" uid="uid://c3kn2wqhjdc4y" path="res://Assets/SamAssets/8_scaled_8x_pngcrushed.png" id="3_xhslh"]
+
+[node name="ForestParallax" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Background"]
+texture = ExtResource("1_gy67q")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(0.412152, 0.412152, 0.412152, 1)
+texture_filter = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.259294, 0.259294, 0.259294, 1)
+position = Vector2(2, 91)
+scale = Vector2(0.685309, 0.64537)
+texture = ExtResource("2_hdltd")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(0.412152, 0.412152, 0.412152, 1)
+texture_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(2, -4)
+scale = Vector2(0.685309, 0.64537)
+texture = ExtResource("3_xhslh")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(0.412152, 0.412152, 0.412152, 1)
+texture_filter = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+modulate = Color(0.259294, 0.259294, 0.259294, 1)
+position = Vector2(2, -4)
+scale = Vector2(0.685309, 0.64537)
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(0.412152, 0.412152, 0.412152, 1)
+texture_filter = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+modulate = Color(0.259294, 0.259294, 0.259294, 1)
+position = Vector2(2, -4)
+scale = Vector2(0.685309, 0.64537)
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(0.412152, 0.412152, 0.412152, 1)
+texture_filter = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+modulate = Color(0.259294, 0.259294, 0.259294, 1)
+position = Vector2(2, -4)
+scale = Vector2(0.685309, 0.64537)
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(0.412152, 0.412152, 0.412152, 1)
+texture_filter = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+modulate = Color(0.259294, 0.259294, 0.259294, 1)
+position = Vector2(2, -4)
+scale = Vector2(0.685309, 0.64537)
+centered = false
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(0.412152, 0.412152, 0.412152, 1)
+texture_filter = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+modulate = Color(0.259294, 0.259294, 0.259294, 1)
+position = Vector2(2, -4)
+scale = Vector2(0.685309, 0.64537)
+centered = false
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(0.412152, 0.412152, 0.412152, 1)
+texture_filter = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
+modulate = Color(0.259294, 0.259294, 0.259294, 1)
+position = Vector2(2, -4)
+scale = Vector2(0.685309, 0.64537)
+centered = false
+
+[node name="ParallaxLayer9" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(0.412152, 0.412152, 0.412152, 1)
+texture_filter = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer9"]
+modulate = Color(0.259294, 0.259294, 0.259294, 1)
+position = Vector2(2, -4)
+scale = Vector2(0.685309, 0.64537)
+centered = false
+
+[node name="ParallaxLayer10" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(0.412152, 0.412152, 0.412152, 1)
+texture_filter = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer10"]
+modulate = Color(0.259294, 0.259294, 0.259294, 1)
+position = Vector2(2, -4)
+scale = Vector2(0.685309, 0.64537)
+centered = false
