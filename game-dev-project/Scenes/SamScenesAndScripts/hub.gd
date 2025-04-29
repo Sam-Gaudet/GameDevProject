@@ -15,6 +15,9 @@ func _ready():
 	portal1_anim.play("portal")
 	portal2_anim.play("portal")
 	portal3_anim.play("portal")
+	
+	for layer in get_children():
+		layer.z_index = 0
 
 
 # Main menu -------------------------------------------
