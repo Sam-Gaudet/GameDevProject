@@ -19,6 +19,7 @@ z_index = 10
 position = Vector2(576, 328)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
 z_index = 10
 position = Vector2(587.5, 347)
 scale = Vector2(8.63286, 7.01227)
