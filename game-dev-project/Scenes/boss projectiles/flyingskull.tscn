@@ -74,13 +74,15 @@ radius = 91.0
 z_index = 10
 script = ExtResource("1_78j8v")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["projectile"]]
+modulate = Color(0.429082, 0, 0.121427, 1)
+self_modulate = Color(1, 0.18, 0.18, 1)
 z_index = 10
 scale = Vector2(9.09524, 9.09524)
 sprite_frames = SubResource("SpriteFrames_5nhu6")
 autoplay = "default"
 frame_progress = 0.220456
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["projectile"]]
 z_index = 10
 shape = SubResource("CircleShape2D_5xlem")

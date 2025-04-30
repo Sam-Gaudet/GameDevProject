@@ -90,7 +90,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sowlv"]
-radius = 2.83548e-05
+radius = 7.90121
 
 [node name="explosion" type="Node2D"]
 scale = Vector2(0.9, 0.9)

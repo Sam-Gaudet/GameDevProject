@@ -5,7 +5,6 @@ func _ready():
 	await get_tree().create_timer(5.0).timeout
 	start_multiple_waves()
 
-
 #Scenes import
 @onready var ZoomSkullthing = preload("res://Scenes/boss projectiles/warning.tscn")
 @onready var Skullthing = preload("res://Scenes/boss projectiles/Skulls.tscn")
@@ -23,22 +22,18 @@ var wave_patterns = [
 	[180, 320, 460],
 	[220, 340, 480]
 ]
+
+#chat gpt is a real one
 var explosion_patterns = [
-	[[1, 2], [3, 4], [5, 6], [6, 1], [2, 5], [3, 3], [6, 4], [0, 0], [4, 0]],
-	[[0, 0], [2, 1], [4, 2], [6, 3], [1, 4], [5, 5], [3, 1], [6, 5], [2, 3]],
-	[[1, 3], [3, 2], [5, 1], [5, 0], [2, 4], [4, 5], [0, 2], [6, 6], [3, 5]],
-	[[0, 5], [2, 4], [4, 3], [6, 2], [1, 1], [3, 0], [5, 4], [2, 2], [1, 6]],
-	[[1, 1], [3, 3], [5, 5], [3, 2], [2, 0], [4, 4], [0, 6], [6, 0], [1, 5]],
-	[[1, 2], [3, 4], [5, 6], [6, 1], [2, 5], [3, 3], [6, 4], [0, 0], [4, 0]],
-	[[0, 0], [2, 1], [4, 2], [6, 3], [1, 4], [5, 5], [3, 1], [6, 5], [2, 3]],
-	[[1, 3], [6, 2], [5, 1], [5, 0], [2, 4], [4, 5], [0, 2], [6, 6], [3, 5]],
-	[[0, 5], [2, 4], [4, 3], [6, 2], [1, 1], [3, 0], [5, 4], [2, 2], [1, 6]],
-	[[1, 1], [3, 3], [5, 5], [3, 2], [2, 0], [4, 4], [0, 6], [6, 0], [1, 5]]
+	
+	[[0, 1], [0, 2], [0, 4], [1, 3], [1, 4], [1, 5], [2, 0], [2, 1], [2, 3], [3, 0], [3, 1], [3, 2], [3, 5], [4, 1], [4, 2], [4, 4], [4, 5], [4, 6], [5, 0], [5, 1], [5, 3], [5, 4], [5, 5], [6, 0], [6, 3], [6, 5], [6, 6]],
+	[[0, 2], [0, 3], [0, 4], [1, 2], [1, 3], [1, 5], [2, 0], [2, 2], [2, 4], [3, 4], [3, 5], [3, 6], [4, 1], [4, 3], [4, 5], [4, 6], [5, 1], [5, 3], [5, 4], [5, 6], [6, 0], [6, 1], [6, 2], [6, 4]],
+	[[0, 0], [0, 1], [0, 2], [1, 1], [1, 2], [1, 3], [2, 2], [2, 3], [2, 4], [3, 2], [3, 3], [3, 4], [4, 1], [4, 2], [4, 3], [4, 5], [5, 0], [5, 1], [5, 2], [5, 3], [6, 0], [6, 2], [6, 3], [6, 5]],
+	[[0, 3], [0, 4], [1, 2], [1, 3], [1, 4], [2, 2], [2, 4], [3, 0], [3, 1], [3, 3], [3, 4], [4, 1], [4, 3], [4, 4], [5, 2], [5, 3], [5, 5], [6, 1], [6, 3], [6, 4]],
+	[[0, 0],[0, 1], [0, 2], [0, 3], [0, 4], [1, 1], [1, 3], [1, 5], [2, 1], [2, 2], [2, 4], [3, 0], [3, 2], [3, 5], [4, 1], [4, 3], [4, 4], [5, 0], [5, 2], [5, 4], [6, 2], [6, 5]]
 ]
-var flying_skull_spawn_pattern = [
-	{ "from_right": false, "from_top": true },   
-	{ "from_right": true, "from_top": false },     
-]
+
+
 
 
 
@@ -48,15 +43,8 @@ func start_multiple_waves():
 	await spawn_waves(5, 1.5)
 	await get_tree().create_timer(0.5).timeout
 	await spawn_walls(10, 1)
-
-	
-	spawn_flying_skull(false, true)
-	await get_tree().create_timer(1).timeout
-	spawn_flying_skull(true, false)
-
-
 	await get_tree().create_timer(1.0).timeout
-	spawn_tile_explosions(5, 2.0)
+	spawn_tile_explosions(5, 1.0)
 	await get_tree().create_timer(2.0).timeout
 
 
@@ -163,9 +151,9 @@ func spawn_zoom_skull(position: Vector2, from_right := false):
 #Bombs and skull
 func spawn_tile_explosions(repeat_count: int, delay: float) -> void:
 	for i in range(repeat_count):
-		var skull_pattern = flying_skull_spawn_pattern[i % flying_skull_spawn_pattern.size()]
 		await spawn_one_explosion_wave(i)
 		await get_tree().create_timer(delay).timeout
+
 func spawn_one_explosion_wave(wave_index: int) -> void:
 	var tile_size = 64
 	var start_x = 352
@@ -179,20 +167,3 @@ func spawn_one_explosion_wave(wave_index: int) -> void:
 		var tile = ExplodingTile.instantiate()
 		tile.global_position = Vector2(start_x + x_index * tile_size, start_y + y_index * tile_size)
 		add_child(tile)
-
-func spawn_flying_skull(from_right := false, from_top := true):
-	var skull = flyingSkull.instantiate()
-	var y_pos = 104 if from_top else 552
-
-	if from_right:
-		skull.global_position = Vector2(1200, y_pos)
-		skull.direction = Vector2.LEFT
-		skull.scale.x *= -1
-	else:
-		skull.global_position = Vector2(-10, y_pos)
-		skull.direction = Vector2.RIGHT
-
-	skull.speed = 100
-	skull.amplitude = 120
-	skull.frequency = 4
-	add_child(skull)

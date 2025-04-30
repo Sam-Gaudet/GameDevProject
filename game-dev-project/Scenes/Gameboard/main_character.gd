@@ -22,6 +22,8 @@ var target_position: Vector2
 var is_dead := false
 var life := 3
 var game_started := false
+var can_take_damage := true
+var invincibility_timer := Timer.new()
 
 func _ready():
 	position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
@@ -32,6 +34,10 @@ func _ready():
 	gameoverTimer.autostart = false
 	gameoverTimer.wait_time = 4
 	gameoverTimer.timeout.connect(_on_gameoverTimer_timeout)
+	add_child(invincibility_timer)
+	invincibility_timer.one_shot = true
+	invincibility_timer.wait_time = 1.0
+	invincibility_timer.timeout.connect(_on_invincibility_timeout)
 
 func _process(_delta):
 	if not is_moving and not is_dead and visible:
@@ -79,9 +85,13 @@ func _on_ouch_area_entered(area: Area2D):
 
 	
 func take_damage():
-	if is_dead:
+	if is_dead or not can_take_damage:
 		return
-	print('')
+	
+	can_take_damage = false
+	start_blinking()
+	invincibility_timer.start()
+
 	life -= 1
 	print("Player took damage! Life is now: ", life)
 	match life:
@@ -108,3 +118,12 @@ func _on_death_delay_timeout():
 func _on_gameoverTimer_timeout():
 	print("done")
 	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+func start_blinking():
+	var blink_timer = create_tween()
+	for i in range(5):
+		blink_timer.tween_property(player, "modulate:a", 0.0, 0.1)
+		blink_timer.tween_property(player, "modulate:a", 1.0, 0.1)
+
+func _on_invincibility_timeout():
+	can_take_damage = true
+	player.modulate.a = 1.0  # Ensure player is visible again

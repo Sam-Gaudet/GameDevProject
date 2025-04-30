@@ -17,3 +17,9 @@ texture = ExtResource("6_i5n05")
 modulate = Color(1, 0, 0, 1)
 z_index = 10
 position = Vector2(576, 328)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(587.5, 347)
+scale = Vector2(8.63286, 7.01227)
+texture = ExtResource("6_i5n05")
