@@ -1,11 +1,17 @@
-[gd_scene load_steps=19 format=3 uid="uid://dkj8ofhjk827m"]
+[gd_scene load_steps=21 format=3 uid="uid://dkj8ofhjk827m"]
 
 [ext_resource type="Script" uid="uid://ca2xbuqxro322" path="res://Scenes/SamScenesAndScripts/hub.gd" id="1_bhjrh"]
+[ext_resource type="Shader" uid="uid://b3vmibw3matnk" path="res://Scenes/SamScenesAndScripts/chromatic.gdshader" id="1_dmd4q"]
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="1_ypb1b"]
 [ext_resource type="PackedScene" uid="uid://du5i5alatbswb" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_bhjrh"]
 [ext_resource type="PackedScene" uid="uid://cpvnu34q0avff" path="res://Scenes/SamScenesAndScripts/forest_background.tscn" id="2_xakg3"]
 [ext_resource type="Texture2D" uid="uid://13xpsaboxi18" path="res://Assets/SamAssets/Dimensional_Portal.png" id="4_cxyaf"]
 [ext_resource type="PackedScene" uid="uid://cifpnmy1ws14e" path="res://Scenes/SamScenesAndScripts/sign.tscn" id="6_cxyaf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dmd4q"]
+shader = ExtResource("1_dmd4q")
+shader_parameter/aberration = 0.15
+shader_parameter/strength = 0.01
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aj2dl"]
 size = Vector2(2725, 180)
@@ -75,6 +81,17 @@ animations = [{
 [node name="Hub" type="Node2D"]
 position = Vector2(3, 246)
 script = ExtResource("1_bhjrh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_priority = 2
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_dmd4q")
+offset_right = 1568.0
+offset_bottom = 882.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
 
 [node name="forest_background" parent="." instance=ExtResource("2_xakg3")]
 position = Vector2(284, 4)
