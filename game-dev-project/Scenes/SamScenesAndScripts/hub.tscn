@@ -199,7 +199,7 @@ metadata/_edit_use_anchors_ = true
 [node name="ManMenuSign" parent="." instance=ExtResource("6_cxyaf")]
 position = Vector2(163, 435)
 
-[node name="Label" type="Label" parent="ManMenuSign"]
+[node name="MainMenuLabel" type="Label" parent="ManMenuSign"]
 offset_left = -44.0
 offset_top = -51.0
 offset_right = 44.0
@@ -212,7 +212,7 @@ metadata/_edit_use_anchors_ = true
 [node name="BossesSign" parent="." instance=ExtResource("6_cxyaf")]
 position = Vector2(512, 433)
 
-[node name="Label" type="Label" parent="BossesSign"]
+[node name="BossesLabel" type="Label" parent="BossesSign"]
 offset_left = -44.0
 offset_top = -51.0
 offset_right = 44.0
