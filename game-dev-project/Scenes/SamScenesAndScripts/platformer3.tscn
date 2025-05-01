@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dqdpurbolymav" path="res://Scenes/SamScenesAndScripts/platformer_logic.gd" id="1_tpqbk"]
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="2_jekxf"]
-[ext_resource type="Texture2D" uid="uid://cqaaybjkc8368" path="res://Assets/SamAssets/bg_5.png" id="2_r4n7g"]
 [ext_resource type="PackedScene" uid="uid://du5i5alatbswb" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="3_r4n7g"]
+[ext_resource type="PackedScene" uid="uid://cpvnu34q0avff" path="res://Scenes/SamScenesAndScripts/forest_background.tscn" id="4_jekxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g358o"]
 size = Vector2(102, 172.5)
@@ -21,12 +21,8 @@ size = Vector2(34.5, 502)
 size = Vector2(44.5, 254.75)
 
 [node name="Platformer3" type="Node2D"]
+position = Vector2(3, 249)
 script = ExtResource("1_tpqbk")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(590, 319)
-scale = Vector2(0.823529, 0.823529)
-texture = ExtResource("2_r4n7g")
 
 [node name="Boss3" type="Area2D" parent="."]
 
@@ -46,6 +42,7 @@ offset_top = 323.0
 offset_right = 1053.0
 offset_bottom = 346.0
 text = "Hi im a boss"
+metadata/_edit_use_anchors_ = true
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -75,6 +72,9 @@ position = Vector2(15.75, 364.375)
 shape = SubResource("RectangleShape2D_u5ing")
 
 [node name="PlayerPlatformer" parent="." instance=ExtResource("3_r4n7g")]
+position = Vector2(324, 430)
+
+[node name="forest_background" parent="." instance=ExtResource("4_jekxf")]
 
 [connection signal="body_entered" from="Boss3" to="." method="_on_boss_3_body_entered"]
 [connection signal="body_exited" from="Boss3" to="." method="_on_boss_3_body_exited"]

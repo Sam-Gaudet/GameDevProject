@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # Movement settings
 var speed = 300
-var jump_force = -600
+var jump_force = -450
 var gravity = 1200
 
 # Animation

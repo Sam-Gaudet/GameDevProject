@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="1_c0qil"]
 [ext_resource type="Script" uid="uid://dqdpurbolymav" path="res://Scenes/SamScenesAndScripts/platformer_logic.gd" id="1_ms48t"]
-[ext_resource type="PackedScene" uid="uid://dlngourcew8p7" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_g358o"]
-[ext_resource type="Texture2D" uid="uid://cqaaybjkc8368" path="res://Assets/SamAssets/bg_5.png" id="2_rsp02"]
+[ext_resource type="PackedScene" uid="uid://du5i5alatbswb" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_g358o"]
+[ext_resource type="PackedScene" uid="uid://cpvnu34q0avff" path="res://Scenes/SamScenesAndScripts/forest_background.tscn" id="2_ywuxp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g358o"]
 size = Vector2(102, 172.5)
@@ -23,15 +23,10 @@ size = Vector2(44.5, 254.75)
 [node name="Platformer1" type="Node2D"]
 script = ExtResource("1_ms48t")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(590, 319)
-scale = Vector2(0.823529, 0.823529)
-texture = ExtResource("2_rsp02")
+[node name="forest_background" parent="." instance=ExtResource("2_ywuxp")]
 
 [node name="Boss1" type="Area2D" parent="."]
-position = Vector2(0, 97)
+position = Vector2(10, 251)
 
 [node name="Boss1Sprite" type="Sprite2D" parent="Boss1"]
 modulate = Color(0.878431, 0, 0, 1)
@@ -49,9 +44,10 @@ offset_top = 324.0
 offset_right = 1047.0
 offset_bottom = 347.0
 text = "Hi im a boss"
+metadata/_edit_use_anchors_ = true
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(0, 97)
+position = Vector2(10, 251)
 
 [node name="FloorSprite" type="Sprite2D" parent="Floor"]
 visible = false
@@ -74,14 +70,14 @@ shape = SubResource("RectangleShape2D_ywuxp")
 
 [node name="Hub" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, 97)
+position = Vector2(10, 251)
 
 [node name="HubTrigger" type="CollisionShape2D" parent="Hub"]
 position = Vector2(15.75, 364.375)
 shape = SubResource("RectangleShape2D_u5ing")
 
 [node name="PlayerPlatformer" parent="." instance=ExtResource("2_g358o")]
-position = Vector2(0, 97)
+position = Vector2(326, 679)
 
 [connection signal="body_entered" from="Boss1" to="." method="_on_boss_1_body_entered"]
 [connection signal="body_exited" from="Boss1" to="." method="_on_boss_1_body_exited"]

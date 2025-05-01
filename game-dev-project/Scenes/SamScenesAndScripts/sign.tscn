@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cifpnmy1ws14e"]
+
+[ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="1_3f6vu"]
+
+[node name="Sign" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.449538, 0.279565, 0.00114681, 1)
+position = Vector2(0, 5)
+scale = Vector2(0.118098, 0.236196)
+texture = ExtResource("1_3f6vu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(7.62939e-06, -135.48)
+scale = Vector2(4.78896, 1)
+texture = ExtResource("1_3f6vu")

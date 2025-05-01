@@ -201,3 +201,7 @@ position = Vector2(1, 0)
 scale = Vector2(5.40625, 5.40625)
 sprite_frames = SubResource("SpriteFrames_y4hhb")
 animation = &"idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -118)
+position_smoothing_enabled = true
