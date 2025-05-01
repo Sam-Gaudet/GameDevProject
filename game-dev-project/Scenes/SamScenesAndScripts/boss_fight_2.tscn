@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxtm6t7t5o816"]
 
 [ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_mtd77"]
-[ext_resource type="Script" path="res://Scenes/SamScenesAndScripts/boss_fight_2.gd" id="1_twden"]
+[ext_resource type="Script" uid="uid://ckkwh8sx60g83" path="res://Scenes/SamScenesAndScripts/boss_fight_2.gd" id="1_twden"]
 [ext_resource type="PackedScene" uid="uid://doyoe204anemg" path="res://Scenes/SamScenesAndScripts/sword.tscn" id="3_twden"]
 
 [node name="BossFight2" type="Node2D"]
