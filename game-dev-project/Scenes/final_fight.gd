@@ -11,6 +11,7 @@ func _ready():
 @onready var WallSkullthing = preload("res://Scenes/boss projectiles/wall_skull.tscn")
 @onready var ExplodingTile = preload("res://Scenes/boss projectiles/explosion.tscn")
 @onready var flyingSkull = preload("res://Scenes/boss projectiles/flyingskull.tscn")
+@onready var GhostScene = preload("res://ghost.tscn")
 
 #Pre set Pattern
 var left_wall_patterns = [2, 4, 1, 3, 5, 2, 4, 3, 1, 5]
@@ -46,6 +47,8 @@ func start_multiple_waves():
 	await get_tree().create_timer(1.0).timeout
 	spawn_tile_explosions(5, 1.0)
 	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(2.0).timeout
+	spawn_ghost()
 
 
 	
@@ -167,3 +170,11 @@ func spawn_one_explosion_wave(wave_index: int) -> void:
 		var tile = ExplodingTile.instantiate()
 		tile.global_position = Vector2(start_x + x_index * tile_size, start_y + y_index * tile_size)
 		add_child(tile)
+
+
+
+#roaming ghost
+func spawn_ghost():
+	var ghost = GhostScene.instantiate()
+	ghost.global_position = Vector2(1200, 300)  # Off-screen right
+	add_child(ghost)
