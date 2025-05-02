@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn5off1tm3nph"]
+
+[ext_resource type="Texture2D" path="res://Assets/AlexisAssets/Bubbles/Coloured/16x16/bubble_3.png" id="1_lpqqq"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BubbleSprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_lpqqq")

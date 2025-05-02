@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://s5j8ei7j025f"]
+
+[ext_resource type="Script" uid="uid://b24a1xny1a46a" path="res://Scenes/SamScenesAndScripts/bomb.gd" id="1_eylkv"]
+[ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="2_0bjuy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ieja5"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_eylkv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ieja5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.431985, 0.305806)
+texture = ExtResource("2_0bjuy")
