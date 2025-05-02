@@ -6,11 +6,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ieja5"]
 
 [node name="Area2D" type="Area2D"]
+scale = Vector2(4.2, 4.2)
 script = ExtResource("1_eylkv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.41905, 2.41905)
 shape = SubResource("RectangleShape2D_ieja5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.431985, 0.305806)
+scale = Vector2(0.27008, 0.191192)
 texture = ExtResource("2_0bjuy")
