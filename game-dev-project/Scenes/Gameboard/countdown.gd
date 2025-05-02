@@ -5,7 +5,6 @@ extends Node2D
 @onready var label1 = $"1"
 @onready var label0 = $"go"
 
-@onready var anim = $animation
 
 func _ready():
 	label3.visible = false
