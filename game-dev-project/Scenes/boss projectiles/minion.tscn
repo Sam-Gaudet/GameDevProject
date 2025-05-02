@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://dgn3mppc0d2uv"]
+
+[ext_resource type="Texture2D" uid="uid://273uq6slrxb" path="res://Assets/FinalFightAssets/undead/summonIdle.png" id="1_o3t16"]
+[ext_resource type="Script" uid="uid://luib1pxpvvlx" path="res://Scenes/boss projectiles/minion.gd" id="1_xahcd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xahcd"]
+atlas = ExtResource("1_o3t16")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uc06w"]
+atlas = ExtResource("1_o3t16")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajirk"]
+atlas = ExtResource("1_o3t16")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sxgq"]
+atlas = ExtResource("1_o3t16")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_doemr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xahcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uc06w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajirk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3sxgq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6fdce"]
+radius = 22.3607
+
+[node name="minion" type="Area2D" groups=["projectile"]]
+script = ExtResource("1_xahcd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(17.127, 2.763, 35.912, 1)
+position = Vector2(0, 1)
+scale = Vector2(2.86, 2.86)
+sprite_frames = SubResource("SpriteFrames_doemr")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 13)
+shape = SubResource("CircleShape2D_6fdce")

@@ -3,7 +3,7 @@ extends Node2D
 #Testing
 func _ready():
 	await get_tree().create_timer(5.0).timeout
-	start_multiple_waves()
+	spawn_ghost()
 
 #Scenes import
 @onready var ZoomSkullthing = preload("res://Scenes/boss projectiles/warning.tscn")
@@ -11,8 +11,9 @@ func _ready():
 @onready var WallSkullthing = preload("res://Scenes/boss projectiles/wall_skull.tscn")
 @onready var ExplodingTile = preload("res://Scenes/boss projectiles/explosion.tscn")
 @onready var flyingSkull = preload("res://Scenes/boss projectiles/flyingskull.tscn")
-@onready var GhostScene = preload("res://ghost.tscn")
-
+@onready var MinionScene = preload("res://Scenes/boss projectiles/minion.tscn")
+@onready var ghost_scene = preload("res://Ghost.tscn")
+@onready var minion_scene = preload("res://Scenes/boss projectiles/minion.tscn")
 #Pre set Pattern
 var left_wall_patterns = [2, 4, 1, 3, 5, 2, 4, 3, 1, 5]
 var right_wall_patterns = [4, 2, 5, 3, 1, 5, 2, 4, 1, 3]
@@ -35,7 +36,15 @@ var explosion_patterns = [
 ]
 
 
-
+var minion_directions = [
+	Vector2(-1, -1),  # top-left
+	Vector2(0, -1),   # up
+	Vector2(1, -1),   # top-right
+	Vector2(1, 0),    # right
+	Vector2(1, 1),    # bottom-right
+	Vector2(0, 1),    # down
+	Vector2(-1, 1)    # bottom-left
+]
 
 
 
@@ -48,7 +57,9 @@ func start_multiple_waves():
 	spawn_tile_explosions(5, 1.0)
 	await get_tree().create_timer(2.0).timeout
 	await get_tree().create_timer(2.0).timeout
-	spawn_ghost()
+	var ghost = preload("res://ghost.gd").new()
+	add_child(ghost)
+	await ghost.play_summon_animation()
 
 
 	
@@ -171,10 +182,36 @@ func spawn_one_explosion_wave(wave_index: int) -> void:
 		tile.global_position = Vector2(start_x + x_index * tile_size, start_y + y_index * tile_size)
 		add_child(tile)
 
+func spawn_ghost():
+	var ghost = ghost_scene.instantiate()
+	add_child(ghost)
+	ghost.global_position = Vector2(1300, 300)  # Entering from right
+	ghost.summon_callback = summon_minions 
+
+
+
+
+
+
+
+
 
 
 #roaming ghost
-func spawn_ghost():
-	var ghost = GhostScene.instantiate()
-	ghost.global_position = Vector2(1200, 300)  # Off-screen right
-	add_child(ghost)
+func summon_minions():
+	for dir in minion_directions:
+		var minion = minion_scene.instantiate()
+		add_child(minion)
+		minion.global_position = Vector2(900, 300)  # Right side
+		minion.set_direction(dir)
+
+	call_deferred("summon_minions_from_left")  # Avoid blocking this frame
+
+
+func summon_minions_from_left():
+	await get_tree().create_timer(1.0).timeout
+	for dir in minion_directions:
+		var minion = minion_scene.instantiate()
+		add_child(minion)
+		minion.global_position = Vector2(300, 300)  # Left side
+		minion.set_direction(dir)
