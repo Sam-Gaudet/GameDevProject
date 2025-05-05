@@ -11,6 +11,22 @@ pixelnauta
 Pixel Dimensional Portal 32x32
 https://pixelnauta.itch.io/pixel-dimensional-portal-32x32
 
+PixLeroy
+Pixelart Torches
+https://pixleroy.itch.io/pixel-torches
+
+ansimuz
+Explosion Animations Pack
+https://ansimuz.itch.io/explosion-animations-pack
+
+xzany
+Knight
+https://xzany.itch.io/free-knight-2d-pixel-art
+
+2D Pixel Pack
+engineering15
+https://engineering15.itch.io/pixel-pack
+
 (Possible use)
 https://kayillustrations.itch.io/parallax-sunset-mountains
 https://free-game-assets.itch.io/free-sky-with-clouds-background-pixel-art-set

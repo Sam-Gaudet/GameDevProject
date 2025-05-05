@@ -1,21 +1,197 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxtm6t7t5o816"]
+[gd_scene load_steps=26 format=4 uid="uid://bxtm6t7t5o816"]
 
 [ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_mtd77"]
 [ext_resource type="Script" uid="uid://ckkwh8sx60g83" path="res://Scenes/SamScenesAndScripts/boss_fight_2.gd" id="1_twden"]
 [ext_resource type="PackedScene" uid="uid://doyoe204anemg" path="res://Scenes/SamScenesAndScripts/sword.tscn" id="3_twden"]
 [ext_resource type="PackedScene" uid="uid://cc8at4yy374j8" path="res://Scenes/boss projectiles/bomb.tscn" id="4_w7eve"]
 [ext_resource type="PackedScene" uid="uid://b3dn0f3kqrc6n" path="res://Scenes/SamScenesAndScripts/arrow.tscn" id="5_cy718"]
+[ext_resource type="Texture2D" uid="uid://ch27i7fupwrne" path="res://Assets/SamAssets/Castle_1.png" id="6_srs60"]
+[ext_resource type="Texture2D" uid="uid://bpcau4ouluftk" path="res://Assets/SamAssets/Floor_1.png" id="7_ftg7x"]
+[ext_resource type="Texture2D" uid="uid://diinr1rd1s686" path="res://Assets/SamAssets/IDLE.png" id="8_ftg7x"]
+[ext_resource type="Texture2D" uid="uid://2x8tmg5avwl8" path="res://Assets/SamAssets/HURT.png" id="8_ifhdf"]
+[ext_resource type="PackedScene" uid="uid://dal1m8ay0xbf4" path="res://Scenes/SamScenesAndScripts/torch.tscn" id="9_jskob"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_srs60"]
+texture = ExtResource("6_srs60")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ftg7x"]
+texture = ExtResource("7_ftg7x")
+1:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+1:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_jskob"]
+sources/0 = SubResource("TileSetAtlasSource_srs60")
+sources/1 = SubResource("TileSetAtlasSource_ftg7x")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3ahn"]
+atlas = ExtResource("8_ifhdf")
+region = Rect2(0, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkjfu"]
+atlas = ExtResource("8_ifhdf")
+region = Rect2(96, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcg5k"]
+atlas = ExtResource("8_ifhdf")
+region = Rect2(192, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tobc2"]
+atlas = ExtResource("8_ifhdf")
+region = Rect2(288, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jskob"]
+atlas = ExtResource("8_ftg7x")
+region = Rect2(0, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifhdf"]
+atlas = ExtResource("8_ftg7x")
+region = Rect2(96, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ew01e"]
+atlas = ExtResource("8_ftg7x")
+region = Rect2(192, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1i0qf"]
+atlas = ExtResource("8_ftg7x")
+region = Rect2(288, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bri00"]
+atlas = ExtResource("8_ftg7x")
+region = Rect2(384, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tqtc"]
+atlas = ExtResource("8_ftg7x")
+region = Rect2(480, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac8ys"]
+atlas = ExtResource("8_ftg7x")
+region = Rect2(576, 0, 96, 84)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s3ahn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3ahn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkjfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcg5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tobc2")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jskob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifhdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ew01e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1i0qf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bri00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tqtc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ac8ys")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="BossFight2" type="Node2D"]
 script = ExtResource("1_twden")
 
 [node name="GameBoard" parent="." instance=ExtResource("1_mtd77")]
+modulate = Color(0.831373, 0.686275, 0.215686, 1)
+z_index = 5
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -15
+
+[node name="Layer0" type="TileMapLayer" parent="TileMapLayer"]
+modulate = Color(0.77084, 0.770839, 0.770839, 1)
+texture_filter = 1
+use_parent_material = true
+scale = Vector2(7.16, 7.16)
+tile_map_data = PackedByteArray("AAD/////AQABAAEAAAD+////AQABAAEAAAD9////AQABAAEAAAD+/wAAAQABAAEAAAD//wAAAQABAAEAAAD//wIAAQABAAEAAAD//wEAAQABAAEAAAD//wMAAQABAAEAAAD+/wMAAQABAAEAAAD9/wMAAQABAAEAAAD8/wMAAQABAAEAAAD7/wMAAQABAAEAAAD6/wMAAQABAAEAAAD5/wMAAQABAAEAAAAAAAMAAQABAAEAAAABAAMAAQABAAEAAAACAAMAAQABAAEAAAADAAMAAQABAAEAAAAEAAMAAQABAAEAAAAFAAMAAQABAAEAAAAGAAMAAQABAAEAAAD6/wIAAQABAAEAAAD5/wIAAQABAAEAAAD7/wIAAQABAAEAAAD8/wIAAQABAAEAAAD9/wIAAQABAAEAAAD+/wIAAQABAAEAAAAAAAIAAQABAAEAAAABAAIAAQABAAEAAAACAAIAAQABAAEAAAADAAIAAQABAAEAAAAEAAIAAQABAAEAAAAFAAIAAQABAAEAAAD+/wEAAQABAAEAAAD9/wEAAQABAAEAAAABAAEAAQABAAEAAAACAAEAAQABAAEAAAADAAEAAQABAAEAAAAEAAEAAQABAAEAAAD8/wEAAQABAAEAAAD7/wEAAQABAAEAAAD6/wEAAQABAAEAAAD5/wEAAQABAAEAAAABAAAAAQABAAEAAAACAAAAAQABAAEAAAADAAAAAQABAAEAAAABAP//AQABAAEAAAACAP7/AQABAAEAAAACAP3/AQABAAEAAAACAPz/AQABAAEAAAACAPv/AQABAAEAAAADAPz/AQABAAEAAAAEAP3/AQABAAEAAAAEAP7/AQABAAEAAAAFAP//AQABAAEAAAAGAAAAAQABAAEAAAAGAP//AQABAAEAAAAFAP7/AQABAAEAAAAFAP3/AQABAAEAAAAFAAAAAQABAAEAAAAFAAEAAQABAAEAAAAFAPz/AQABAAEAAAAEAP//AQABAAEAAAADAP//AQABAAEAAAADAP7/AQABAAEAAAADAP3/AQABAAEAAAAEAPz/AQABAAEAAAAGAPz/AQABAAEAAAAGAP3/AQABAAEAAAAGAP7/AQABAAEAAAD6//7/AQABAAEAAAD7//7/AQABAAEAAAD8//7/AQABAAEAAAD9//7/AQABAAEAAAD+//7/AQABAAEAAAD///7/AQABAAEAAAABAP7/AQABAAEAAAACAP//AQABAAEAAAD8////AQABAAEAAAD7////AQABAAEAAAD6////AQABAAEAAAD5/wAAAQABAAEAAAD6/wAAAQABAAEAAAD7/wAAAQABAAEAAAD8/wAAAQABAAEAAAD9/wAAAQABAAEAAAAEAAAAAQABAAEAAAAGAAIAAQABAAEAAAAGAAEAAQABAAEAAAD5/wQAAQABAAEAAAD8/wQAAQABAAEAAAD9/wQAAQABAAEAAAD7/wQAAQABAAEAAAD6/wQAAQABAAEAAAD+/wQAAQABAAEAAAD//wQAAQABAAEAAAAAAAQAAQABAAEAAAABAAQAAQABAAEAAAACAAQAAQABAAEAAAADAAQAAQABAAEAAAAEAAQAAQABAAEAAAAFAAQAAQABAAEAAAAGAAQAAQABAAEAAAAEAPv/AQABAAEAAAADAPv/AQABAAEAAAABAPv/AQABAAEAAAAAAPv/AQABAAEAAAD///v/AQABAAEAAAD+//v/AQABAAEAAAD6//z/AQABAAEAAAD6//3/AQABAAEAAAD7//3/AQABAAEAAAD8//3/AQABAAEAAAD9//3/AQABAAEAAAD+//3/AQABAAEAAAD///3/AQABAAEAAAD///z/AQABAAEAAAD+//z/AQABAAEAAAD9//v/AQABAAEAAAD8//v/AQABAAEAAAD7//v/AQABAAEAAAD7//z/AQABAAEAAAD8//z/AQABAAEAAAD9//z/AQABAAEAAAAAAPz/AQABAAEAAAABAPz/AQABAAEAAAABAP3/AQABAAEAAAAAAP3/AQABAAEAAAD6//v/AQABAAEAAAD5////AQABAAEAAAD5//7/AQABAAEAAAD5//3/AQABAAEAAAD5//z/AQABAAEAAAAAAP7/AQABAAEAAAAAAP//AQABAAEAAAAAAAAAAQABAAEAAAAAAAEAAQABAAEAAAD5/wUAAQABAAEAAAD6/wUAAQABAAEAAAD7/wUAAQABAAEAAAD8/wUAAQABAAEAAAD9/wUAAQABAAEAAAD+/wUAAQABAAEAAAD//wUAAQABAAEAAAAAAAUAAQABAAEAAAABAAUAAQABAAEAAAACAAUAAQABAAEAAAADAAUAAQABAAEAAAAEAAUAAQABAAEAAAAFAAUAAQABAAEAAAAGAAUAAQABAAEAAAD6//r/AQABAAEAAAD7//r/AQABAAEAAAD8//r/AQABAAEAAAD9//r/AQABAAEAAAD+//r/AQABAAEAAAD///r/AQABAAEAAAAAAPr/AQABAAEAAAABAPr/AQABAAEAAAACAPr/AQABAAEAAAADAPr/AQABAAEAAAAFAPv/AQABAAEAAAAFAPr/AQABAAEAAAAGAPr/AQABAAEAAAAEAPr/AQABAAEAAAAGAPv/AQABAAEAAAD5//r/AQABAAEAAAD5//v/AQABAAEAAAA=")
+tile_set = SubResource("TileSet_jskob")
+
+[node name="Layer1" type="TileMapLayer" parent="TileMapLayer"]
+texture_filter = 1
+use_parent_material = true
+scale = Vector2(7.16, 7.16)
+tile_map_data = PackedByteArray("AAD9////AQAFAAEAAAD9/wIAAQADAAIAAAD9/wEAAQAGAAEAAAACAAEAAQAGAAEAAAACAAAAAQADAAEAAAACAP//AQADAAEAAAD9/wAAAQAFAAEAAAD+//3/AQAEAAMAAAD///3/AQAEAAIAAAAAAP3/AQAEAAIAAAABAP3/AQAEAAMAAAD+/wIAAQAEAAMAAAD//wIAAQAEAAAAAAAAAAIAAQAEAAAAAAABAAIAAQAEAAMAAAD9//7/AQAGAAEAAAACAAIAAQAFAAIAAAD9//3/AQADAAAAAAACAP3/AQAFAAAAAAACAP7/AQAGAAEAAAD//wMAAQAGAAEAAAAAAAMAAQAGAAEAAAD//wQAAQAGAAEAAAAAAAQAAQAGAAEAAAADAAAAAQAEAAMAAAAEAAAAAQAEAAMAAAADAP//AQAEAAMAAAAEAP//AQAEAAMAAAAFAP//AQAEAAMAAAAFAAAAAQAEAAMAAAD8////AQAEAAMAAAD7////AQAEAAMAAAD6////AQAEAAMAAAD6/wAAAQAEAAMAAAD7/wAAAQAEAAMAAAD8/wAAAQAEAAMAAAD///z/AQAGAAEAAAD///v/AQAGAAEAAAAAAPv/AQAGAAEAAAAAAPz/AQAGAAEAAAA=")
+tile_set = SubResource("TileSet_jskob")
 
 [node name="Sword" parent="." instance=ExtResource("3_twden")]
 visible = false
+z_index = 5
 
 [node name="bomb" parent="." instance=ExtResource("4_w7eve")]
 visible = false
+z_index = 5
 
 [node name="Area2D" parent="." instance=ExtResource("5_cy718")]
 visible = false
+z_index = 5
+
+[node name="Boss" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(-4.03897e-28, -313)
+scale = Vector2(4.03571, 4.03571)
+sprite_frames = SubResource("SpriteFrames_s3ahn")
+animation = &"idle"
+
+[node name="Torch" parent="." instance=ExtResource("9_jskob")]
+position = Vector2(-356, -104)
