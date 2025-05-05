@@ -1,4 +1,6 @@
 Sam -------------------------------------------
+Sword and arrow asset used in game board created by me
+
 pixelfelix
 Knight 16x16
 https://pixelfelix.itch.io/knight-anim-set
