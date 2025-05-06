@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctfdw7drf70lx"]
+[gd_scene load_steps=6 format=3 uid="uid://ctfdw7drf70lx"]
 
 [ext_resource type="Texture2D" uid="uid://dkdr0vuorym7x" path="res://Assets/AlexisAssets/shooting laser-sheet.png" id="1_lm25v"]
 
@@ -24,7 +24,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lm25v"]
+size = Vector2(112, 20)
+
+[node name="Node2D" type="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(0, 0.568627, 1, 1)
@@ -32,3 +35,7 @@ scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_f066t")
 frame = 1
 frame_progress = 0.497966
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_lm25v")

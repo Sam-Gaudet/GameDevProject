@@ -57,6 +57,10 @@ move_down={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://TranslationsFolder/ExcelSheet.en.translation", "res://TranslationsFolder/ExcelSheet.fr.translation")
+
 [layer_names]
 
 2d_physics/layer_1="Player"

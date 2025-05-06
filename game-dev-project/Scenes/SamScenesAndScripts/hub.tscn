@@ -226,7 +226,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(336, 423)
 collision_mask = 6
 
-[node name="Controls2" type="Label" parent="."]
+[node name="ChessBoardControls" type="Label" parent="."]
 offset_left = 11.0
 offset_top = 135.0
 offset_right = 197.0

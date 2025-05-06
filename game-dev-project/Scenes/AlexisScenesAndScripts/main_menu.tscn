@@ -138,7 +138,8 @@ text = "Language"
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Engish" type="Button" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/LanguageHBoxContainer"]
+[node name="English" type="Button" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/LanguageHBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_0pmvj")
 theme_override_fonts/font = ExtResource("1_t0b6g")
@@ -146,10 +147,11 @@ theme_override_font_sizes/font_size = 45
 text = "English"
 
 [node name="French" type="Button" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/LanguageHBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_a0lgb")
 theme_override_font_sizes/font_size = 45
-text = "French"
+text = "Francais"
 
 [node name="Label" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -209,4 +211,9 @@ theme_override_font_sizes/font_size = 40
 text = "Save Settings
 "
 
+[connection signal="pressed" from="CanvasLayer/MainMenuMarginContainer/VBoxContainer/MainMenuVboxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuMarginContainer/VBoxContainer/MainMenuVboxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenuMarginContainer/VBoxContainer/MainMenuVboxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/SettingsMarginContainer/VBoxContainer/LanguageHBoxContainer/English" to="." method="_on_english_pressed"]
+[connection signal="pressed" from="CanvasLayer/SettingsMarginContainer/VBoxContainer/LanguageHBoxContainer/French" to="." method="_on_french_pressed"]
+[connection signal="pressed" from="CanvasLayer/SettingsMarginContainer/VBoxContainer/SaveSettingsButton" to="." method="_on_save_settings_button_pressed"]
