@@ -32,6 +32,9 @@ func _ready():
 	gameoverTimer.autostart = false
 	gameoverTimer.wait_time = 4
 	gameoverTimer.timeout.connect(_on_gameoverTimer_timeout)
+	
+	# Sam - Added this to handle my bomb parry
+	add_to_group("player_attack")
 
 func _process(_delta):
 	if not is_moving and not is_dead and visible:

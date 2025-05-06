@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://bxtm6t7t5o816"]
+[gd_scene load_steps=39 format=4 uid="uid://bxtm6t7t5o816"]
 
 [ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_mtd77"]
 [ext_resource type="Script" uid="uid://ckkwh8sx60g83" path="res://Scenes/SamScenesAndScripts/boss_fight_2.gd" id="1_twden"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b3dn0f3kqrc6n" path="res://Scenes/SamScenesAndScripts/arrow.tscn" id="5_cy718"]
 [ext_resource type="Texture2D" uid="uid://ch27i7fupwrne" path="res://Assets/SamAssets/Castle_1.png" id="6_srs60"]
 [ext_resource type="Texture2D" uid="uid://bpcau4ouluftk" path="res://Assets/SamAssets/Floor_1.png" id="7_ftg7x"]
+[ext_resource type="Texture2D" uid="uid://b3pfx2cmwlmt7" path="res://Assets/SamAssets/DEATH.png" id="8_ew01e"]
 [ext_resource type="Texture2D" uid="uid://diinr1rd1s686" path="res://Assets/SamAssets/IDLE.png" id="8_ftg7x"]
 [ext_resource type="Texture2D" uid="uid://2x8tmg5avwl8" path="res://Assets/SamAssets/HURT.png" id="8_ifhdf"]
 [ext_resource type="PackedScene" uid="uid://dal1m8ay0xbf4" path="res://Scenes/SamScenesAndScripts/torch.tscn" id="9_jskob"]
@@ -57,6 +58,54 @@ texture = ExtResource("7_ftg7x")
 sources/0 = SubResource("TileSetAtlasSource_srs60")
 sources/1 = SubResource("TileSetAtlasSource_ftg7x")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef7g1"]
+atlas = ExtResource("8_ew01e")
+region = Rect2(0, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p73a2"]
+atlas = ExtResource("8_ew01e")
+region = Rect2(96, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7bgv"]
+atlas = ExtResource("8_ew01e")
+region = Rect2(192, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h45qr"]
+atlas = ExtResource("8_ew01e")
+region = Rect2(288, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmeja"]
+atlas = ExtResource("8_ew01e")
+region = Rect2(384, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4e7e"]
+atlas = ExtResource("8_ew01e")
+region = Rect2(480, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahuy3"]
+atlas = ExtResource("8_ew01e")
+region = Rect2(576, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7clh3"]
+atlas = ExtResource("8_ew01e")
+region = Rect2(672, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sywuf"]
+atlas = ExtResource("8_ew01e")
+region = Rect2(768, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7ug3"]
+atlas = ExtResource("8_ew01e")
+region = Rect2(864, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei1mj"]
+atlas = ExtResource("8_ew01e")
+region = Rect2(960, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu24n"]
+atlas = ExtResource("8_ew01e")
+region = Rect2(1056, 0, 96, 84)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_s3ahn"]
 atlas = ExtResource("8_ifhdf")
 region = Rect2(0, 0, 96, 84)
@@ -103,6 +152,47 @@ region = Rect2(576, 0, 96, 84)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s3ahn"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef7g1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p73a2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7bgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h45qr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmeja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4e7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahuy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7clh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sywuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7ug3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ei1mj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu24n")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s3ahn")
@@ -155,6 +245,7 @@ modulate = Color(0.831373, 0.686275, 0.215686, 1)
 z_index = 5
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
 z_index = -15
 
 [node name="Layer0" type="TileMapLayer" parent="TileMapLayer"]
@@ -191,7 +282,28 @@ texture_filter = 1
 position = Vector2(-4.03897e-28, -313)
 scale = Vector2(4.03571, 4.03571)
 sprite_frames = SubResource("SpriteFrames_s3ahn")
-animation = &"idle"
+animation = &"dead"
 
 [node name="Torch" parent="." instance=ExtResource("9_jskob")]
 position = Vector2(-356, -104)
+
+[node name="Torch2" parent="." instance=ExtResource("9_jskob")]
+position = Vector2(-356, 127)
+
+[node name="Torch3" parent="." instance=ExtResource("9_jskob")]
+position = Vector2(-125, 362)
+
+[node name="Torch4" parent="." instance=ExtResource("9_jskob")]
+position = Vector2(132, 364)
+
+[node name="Torch5" parent="." instance=ExtResource("9_jskob")]
+position = Vector2(368, 139)
+
+[node name="Torch6" parent="." instance=ExtResource("9_jskob")]
+position = Vector2(361, -121)
+
+[node name="Torch7" parent="." instance=ExtResource("9_jskob")]
+position = Vector2(123, -347)
+
+[node name="Torch8" parent="." instance=ExtResource("9_jskob")]
+position = Vector2(-128, -351)

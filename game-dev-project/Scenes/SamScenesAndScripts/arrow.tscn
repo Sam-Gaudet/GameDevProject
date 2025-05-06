@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16mfk"]
 size = Vector2(7.11919, 22.381)
 
-[node name="Area2D" type="Node2D"]
+[node name="Area2D" type="Node2D" groups=["attack"]]
 z_index = 10
 script = ExtResource("1_yh704")
 

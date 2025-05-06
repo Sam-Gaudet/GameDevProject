@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dal1m8ay0xbf4"]
 
-[ext_resource type="Script" uid="uid://c70w8m07jupgy" path="res://Scenes/SamScenesAndScripts/torch.gd" id="1_wol7x"]
+[ext_resource type="Script" path="res://Scenes/SamScenesAndScripts/torch.gd" id="1_wol7x"]
 [ext_resource type="Texture2D" uid="uid://dm5htqlyofsfw" path="res://Assets/SamAssets/torches.png" id="2_kelwq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s3ahn"]
@@ -87,8 +87,7 @@ scale = Vector2(4.36961, 4.36961)
 sprite_frames = SubResource("SpriteFrames_vj2hv")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
-position = Vector2(1, -68)
+position = Vector2(-3, -40)
 scale = Vector2(5.08, 5.08)
 color = Color(1, 0.701961, 0, 1)
 texture = SubResource("GradientTexture2D_kelwq")

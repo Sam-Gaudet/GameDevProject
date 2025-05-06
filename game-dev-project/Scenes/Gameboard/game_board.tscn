@@ -189,8 +189,9 @@ position = Vector2(-35.9999, 127.5)
 scale = Vector2(2.58286, 2.5138)
 texture = ExtResource("48_8gdtb")
 
-[node name="MainCharacter" type="RigidBody2D" parent="."]
+[node name="MainCharacter" type="RigidBody2D" parent="." groups=["player_attack"]]
 visible = false
+collision_mask = 9
 gravity_scale = 0.0
 script = ExtResource("46_oa80g")
 
@@ -202,7 +203,7 @@ texture = ExtResource("46_uk3bs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainCharacter"]
 shape = SubResource("CircleShape2D_uk3bs")
 
-[node name="ouch" type="Area2D" parent="MainCharacter"]
+[node name="ouch" type="Area2D" parent="MainCharacter" groups=["player_attack"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainCharacter/ouch"]
 shape = SubResource("CircleShape2D_bv5xx")

@@ -6,7 +6,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgcyh"]
 
-[node name="Warning" type="Node2D"]
+[node name="Warning" type="Node2D" groups=["attack"]]
 z_index = 10
 rotation = -6.28319
 script = ExtResource("1_nxyp4")
