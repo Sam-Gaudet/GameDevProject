@@ -10,6 +10,7 @@ var gravity = 1200
 var last_direction = 1  # 1 = right, -1 = left (default to facing right)
 
 func _physics_process(delta):
+	
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta

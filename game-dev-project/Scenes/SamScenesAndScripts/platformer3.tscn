@@ -1,11 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://cv4pj7011cc60"]
+[gd_scene load_steps=13 format=3 uid="uid://cv4pj7011cc60"]
 
 [ext_resource type="Script" uid="uid://dqdpurbolymav" path="res://Scenes/SamScenesAndScripts/platformer_logic.gd" id="1_tpqbk"]
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="2_jekxf"]
-[ext_resource type="Texture2D" uid="uid://cqaaybjkc8368" path="res://Assets/SamAssets/bg_5.png" id="2_r4n7g"]
-[ext_resource type="PackedScene" uid="uid://dlngourcew8p7" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="3_r4n7g"]
+[ext_resource type="Shader" uid="uid://b3vmibw3matnk" path="res://Scenes/SamScenesAndScripts/chromatic.gdshader" id="2_r4n7g"]
+[ext_resource type="Texture2D" uid="uid://bte3wuqwkulpn" path="res://Assets/AlexisAssets/hearth1.png" id="2_tgdpd"]
 [ext_resource type="PackedScene" uid="uid://du5i5alatbswb" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="3_r4n7g"]
 [ext_resource type="PackedScene" uid="uid://cpvnu34q0avff" path="res://Scenes/SamScenesAndScripts/forest_background.tscn" id="4_jekxf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tgdpd"]
+shader = ExtResource("2_r4n7g")
+shader_parameter/aberration = 0.1
+shader_parameter/strength = 0.01
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g358o"]
 size = Vector2(102, 172.5)
@@ -25,6 +30,34 @@ size = Vector2(44.5, 254.75)
 [node name="Platformer3" type="Node2D"]
 position = Vector2(3, 249)
 script = ExtResource("1_tpqbk")
+
+[node name="Transition" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="TransitionRect" type="ColorRect" parent="Transition"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HeartSprite" type="Sprite2D" parent="Transition"]
+visible = false
+texture_filter = 1
+texture = ExtResource("2_tgdpd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_priority = 2
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_tgdpd")
+offset_right = 1568.0
+offset_bottom = 882.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
 
 [node name="Boss3" type="Area2D" parent="."]
 
