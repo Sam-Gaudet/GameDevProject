@@ -3,7 +3,7 @@ extends Node2D
 #Testing
 func _ready():
 	await get_tree().create_timer(5.0).timeout
-	spawn_ghost()
+	start_multiple_waves()
 
 #Scenes import
 @onready var ZoomSkullthing = preload("res://Scenes/boss projectiles/warning.tscn")

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="1_h41p6"]
 [ext_resource type="Script" uid="uid://dqdpurbolymav" path="res://Scenes/SamScenesAndScripts/platformer_logic.gd" id="1_qj7cj"]
 [ext_resource type="PackedScene" uid="uid://dlngourcew8p7" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_qj7cj"]
-[ext_resource type="PackedScene" path="res://Scenes/SamScenesAndScripts/forest_background.tscn" id="4_wpnnp"]
+[ext_resource type="PackedScene" uid="uid://cpvnu34q0avff" path="res://Scenes/SamScenesAndScripts/forest_background.tscn" id="4_wpnnp"]
 [ext_resource type="Script" uid="uid://dqvbspy6c2jio" path="res://Scenes/Gameboard/main_character.gd" id="5_ro5jx"]
 [ext_resource type="Texture2D" uid="uid://i76c8o64rakq" path="res://Assets/GameboardAssets/hearth.png" id="6_kftpa"]
 [ext_resource type="Texture2D" uid="uid://b6cw6bav8mnrr" path="res://Assets/GameboardAssets/273.png" id="7_hqe6c"]
