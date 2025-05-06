@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cvdewqx85pvyl"]
 
-[ext_resource type="Script" path="res://Scenes/game_over.gd" id="1_14u15"]
+[ext_resource type="Script" uid="uid://detyqk7ptli88" path="res://Scenes/game_over.gd" id="1_14u15"]
 [ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="1_ek8ke"]
 [ext_resource type="Texture2D" uid="uid://dhasar33v5i8h" path="res://Assets/GameboardAssets/background game.png" id="1_ojehl"]
-[ext_resource type="Script" path="res://Scenes/texture_button.gd" id="3_ek8ke"]
-[ext_resource type="Script" path="res://Scenes/texture_button_2.gd" id="4_eoghk"]
+[ext_resource type="Script" uid="uid://cr63ssuccqt23" path="res://Scenes/texture_button.gd" id="3_ek8ke"]
+[ext_resource type="Script" uid="uid://ddqc0tyl05rig" path="res://Scenes/texture_button_2.gd" id="4_eoghk"]
 
 [node name="gameOver" type="Node2D"]
 z_index = 25
