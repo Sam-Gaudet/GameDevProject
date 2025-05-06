@@ -1,16 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3dn0f3kqrc6n"]
+[gd_scene load_steps=5 format=3 uid="uid://b3dn0f3kqrc6n"]
 
 [ext_resource type="Script" uid="uid://bp0djcevlxygu" path="res://Scenes/SamScenesAndScripts/arrow.gd" id="1_yh704"]
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="2_4ijfx"]
+[ext_resource type="Texture2D" uid="uid://7ee5wie32qgl" path="res://Assets/SamAssets/arrow.png" id="3_4ijfx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16mfk"]
+size = Vector2(7.11919, 22.381)
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="Node2D" groups=["attack"]]
+z_index = 10
 script = ExtResource("1_yh704")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.718, 0.26)
+texture = ExtResource("2_4ijfx")
+
+[node name="DamageArea" type="Area2D" parent="." groups=["projectile"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(-1090.72, -1.90735e-06)
+scale = Vector2(23.24, 2.52)
 shape = SubResource("RectangleShape2D_16mfk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.431985, 0.305806)
-texture = ExtResource("2_4ijfx")
+[node name="Sprite2D" type="Sprite2D" parent="DamageArea"]
+texture_filter = 1
+position = Vector2(-1090, 4.00002)
+scale = Vector2(6.78786, 6.78786)
+texture = ExtResource("3_4ijfx")
+
+[node name="Timer" type="Timer" parent="."]

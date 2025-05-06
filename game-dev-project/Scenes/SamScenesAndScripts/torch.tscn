@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://dal1m8ay0xbf4"]
+
+[ext_resource type="Script" path="res://Scenes/SamScenesAndScripts/torch.gd" id="1_wol7x"]
+[ext_resource type="Texture2D" uid="uid://dm5htqlyofsfw" path="res://Assets/SamAssets/torches.png" id="2_kelwq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3ahn"]
+atlas = ExtResource("2_kelwq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkjfu"]
+atlas = ExtResource("2_kelwq")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcg5k"]
+atlas = ExtResource("2_kelwq")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tobc2"]
+atlas = ExtResource("2_kelwq")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef7g1"]
+atlas = ExtResource("2_kelwq")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p73a2"]
+atlas = ExtResource("2_kelwq")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7bgv"]
+atlas = ExtResource("2_kelwq")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h45qr"]
+atlas = ExtResource("2_kelwq")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vj2hv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3ahn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkjfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcg5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tobc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef7g1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p73a2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7bgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h45qr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_wol7x"]
+offsets = PackedFloat32Array(0, 0.675325)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kelwq"]
+gradient = SubResource("Gradient_wol7x")
+fill = 1
+fill_from = Vector2(0.495413, 0.495413)
+
+[node name="Torch" type="Node2D"]
+script = ExtResource("1_wol7x")
+
+[node name="Torch" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(6, -99)
+scale = Vector2(4.36961, 4.36961)
+sprite_frames = SubResource("SpriteFrames_vj2hv")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-3, -40)
+scale = Vector2(5.08, 5.08)
+color = Color(1, 0.701961, 0, 1)
+texture = SubResource("GradientTexture2D_kelwq")
