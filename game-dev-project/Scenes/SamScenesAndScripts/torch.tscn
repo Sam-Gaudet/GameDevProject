@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dal1m8ay0xbf4"]
 
-[ext_resource type="Script" path="res://Scenes/SamScenesAndScripts/torch.gd" id="1_wol7x"]
+[ext_resource type="Script" uid="uid://c70w8m07jupgy" path="res://Scenes/SamScenesAndScripts/torch.gd" id="1_wol7x"]
 [ext_resource type="Texture2D" uid="uid://dm5htqlyofsfw" path="res://Assets/SamAssets/torches.png" id="2_kelwq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s3ahn"]

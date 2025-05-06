@@ -38,6 +38,9 @@ func _ready():
 	invincibility_timer.one_shot = true
 	invincibility_timer.wait_time = 1.0
 	invincibility_timer.timeout.connect(_on_invincibility_timeout)
+	
+	# Sam - Added this to handle my bomb parry
+	add_to_group("player_attack")
 
 func _process(_delta):
 	if not is_moving and not is_dead and visible:
