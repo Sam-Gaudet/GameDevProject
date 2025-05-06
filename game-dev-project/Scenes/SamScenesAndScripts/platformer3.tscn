@@ -2,13 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dqdpurbolymav" path="res://Scenes/SamScenesAndScripts/platformer_logic.gd" id="1_tpqbk"]
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="2_jekxf"]
-<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://cqaaybjkc8368" path="res://Assets/SamAssets/bg_5.png" id="2_r4n7g"]
 [ext_resource type="PackedScene" uid="uid://dlngourcew8p7" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="3_r4n7g"]
-=======
 [ext_resource type="PackedScene" uid="uid://du5i5alatbswb" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="3_r4n7g"]
 [ext_resource type="PackedScene" uid="uid://cpvnu34q0avff" path="res://Scenes/SamScenesAndScripts/forest_background.tscn" id="4_jekxf"]
->>>>>>> 952237eb1b09b2834a9da2beb650bc815ea21f86
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g358o"]
 size = Vector2(102, 172.5)

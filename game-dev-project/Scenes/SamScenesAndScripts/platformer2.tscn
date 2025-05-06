@@ -1,12 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://8r21imrjgorp"]
+[gd_scene load_steps=10 format=3 uid="uid://8r21imrjgorp"]
 
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="1_h41p6"]
 [ext_resource type="Script" uid="uid://dqdpurbolymav" path="res://Scenes/SamScenesAndScripts/platformer_logic.gd" id="1_qj7cj"]
-[ext_resource type="PackedScene" uid="uid://dlngourcew8p7" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_qj7cj"]
-[ext_resource type="PackedScene" path="res://Scenes/SamScenesAndScripts/forest_background.tscn" id="4_wpnnp"]
-[ext_resource type="Script" uid="uid://dqvbspy6c2jio" path="res://Scenes/Gameboard/main_character.gd" id="5_ro5jx"]
-[ext_resource type="Texture2D" uid="uid://i76c8o64rakq" path="res://Assets/GameboardAssets/hearth.png" id="6_kftpa"]
-[ext_resource type="Texture2D" uid="uid://b6cw6bav8mnrr" path="res://Assets/GameboardAssets/273.png" id="7_hqe6c"]
+[ext_resource type="PackedScene" uid="uid://du5i5alatbswb" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_qj7cj"]
+[ext_resource type="PackedScene" uid="uid://cpvnu34q0avff" path="res://Scenes/SamScenesAndScripts/forest_background.tscn" id="4_wpnnp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g358o"]
 size = Vector2(102, 172.5)
@@ -23,81 +20,11 @@ size = Vector2(34.5, 502)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5ing"]
 size = Vector2(44.5, 254.75)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7lkbu"]
-radius = 8.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_orm83"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8gdtb"]
-atlas = ExtResource("7_hqe6c")
-region = Rect2(0, 320, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h0b34"]
-atlas = ExtResource("7_hqe6c")
-region = Rect2(64, 320, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o4ss2"]
-atlas = ExtResource("7_hqe6c")
-region = Rect2(128, 320, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bj4d8"]
-atlas = ExtResource("7_hqe6c")
-region = Rect2(192, 320, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w4giv"]
-atlas = ExtResource("7_hqe6c")
-region = Rect2(256, 320, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ugck4"]
-atlas = ExtResource("7_hqe6c")
-region = Rect2(320, 320, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a3cua"]
-atlas = ExtResource("7_hqe6c")
-region = Rect2(384, 320, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jfovr"]
-atlas = ExtResource("7_hqe6c")
-region = Rect2(448, 320, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_edaxw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8gdtb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h0b34")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o4ss2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bj4d8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w4giv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ugck4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a3cua")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jfovr")
-}],
-"loop": false,
-"name": &"death",
-"speed": 5.0
-}]
-
 [node name="Platformer2" type="Node2D"]
 position = Vector2(7, 246)
 script = ExtResource("1_qj7cj")
 
 [node name="Boss2" type="Area2D" parent="."]
-visible = false
 
 [node name="Boss2Sprite" type="Sprite2D" parent="Boss2"]
 modulate = Color(0.972928, 0.587945, 1.15514e-06, 1)
@@ -144,39 +71,7 @@ position = Vector2(318, 425)
 visible = false
 position = Vector2(-3, 6)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="MainCharacter" type="RigidBody2D" parent="Sprite2D"]
-visible = false
-gravity_scale = 0.0
-script = ExtResource("5_ro5jx")
-
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/MainCharacter"]
-position = Vector2(2.38419e-07, 2.38419e-07)
-scale = Vector2(1.6, 1.6)
-texture = ExtResource("6_kftpa")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/MainCharacter"]
-shape = SubResource("CircleShape2D_7lkbu")
-
-[node name="ouch" type="Area2D" parent="Sprite2D/MainCharacter"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/MainCharacter/ouch"]
-shape = SubResource("CircleShape2D_orm83")
-
-[node name="deathanimation" type="AnimatedSprite2D" parent="Sprite2D/MainCharacter"]
-sprite_frames = SubResource("SpriteFrames_edaxw")
-animation = &"death"
-speed_scale = 4.0
-
-[node name="deathDelay" type="Timer" parent="Sprite2D/MainCharacter"]
-one_shot = true
-
 [connection signal="body_entered" from="Boss2" to="." method="_on_boss_2_body_entered"]
 [connection signal="body_exited" from="Boss2" to="." method="_on_boss_2_body_exited"]
 [connection signal="body_entered" from="Hub" to="." method="_on_hub_body_entered"]
 [connection signal="body_exited" from="Hub" to="." method="_on_hub_body_exited"]
-[connection signal="body_entered" from="Sprite2D/MainCharacter" to="Sprite2D/MainCharacter" method="_on_body_entered"]
-[connection signal="area_entered" from="Sprite2D/MainCharacter/ouch" to="Sprite2D/MainCharacter" method="_on_ouch_area_entered"]
-[connection signal="animation_finished" from="Sprite2D/MainCharacter/deathanimation" to="Sprite2D/MainCharacter" method="_on_deathanimation_animation_finished"]
-[connection signal="timeout" from="Sprite2D/MainCharacter/deathDelay" to="Sprite2D/MainCharacter" method="_on_death_delay_timeout"]
