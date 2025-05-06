@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/texture_button_2.gd" id="4_eoghk"]
 
 [node name="gameOver" type="Node2D"]
-z_index = 20
+z_index = 25
 script = ExtResource("1_14u15")
 
 [node name="Camera2D" type="Camera2D" parent="."]
