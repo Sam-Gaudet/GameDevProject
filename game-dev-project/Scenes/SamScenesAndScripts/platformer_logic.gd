@@ -6,7 +6,7 @@ var player_in_boss_2 : bool = false
 var player_in_boss_3 : bool = false
 
 func _ready():
-	$Boss1/BossDisplayLabel.text = tr("BossDisplayLabel")
+	pass
 
 # Hub -------------------------------------------
 func _on_hub_body_entered(body: Node2D) -> void:

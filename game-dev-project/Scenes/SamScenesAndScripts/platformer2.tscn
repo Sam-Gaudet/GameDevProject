@@ -97,7 +97,6 @@ position = Vector2(7, 246)
 script = ExtResource("1_qj7cj")
 
 [node name="Boss2" type="Area2D" parent="."]
-visible = false
 
 [node name="Boss2Sprite" type="Sprite2D" parent="Boss2"]
 modulate = Color(0.972928, 0.587945, 1.15514e-06, 1)
