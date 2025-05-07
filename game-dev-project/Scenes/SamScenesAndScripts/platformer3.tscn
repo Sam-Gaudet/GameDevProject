@@ -36,7 +36,7 @@ texture = ExtResource("2_jekxf")
 position = Vector2(997.25, 402.12)
 shape = SubResource("RectangleShape2D_g358o")
 
-[node name="Label" type="Label" parent="Boss3"]
+[node name="BossDisplayLabel" type="Label" parent="Boss3"]
 offset_left = 959.0
 offset_top = 323.0
 offset_right = 1053.0

@@ -1,7 +1,59 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6loyos6rbvvf"]
+[gd_scene load_steps=10 format=3 uid="uid://b6loyos6rbvvf"]
 
+[ext_resource type="Script" uid="uid://i5ysuiiq77w7" path="res://Scenes/AlexisScenesAndScripts/boss_fight_1.gd" id="1_puq4g"]
 [ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_v14ti"]
+[ext_resource type="PackedScene" uid="uid://dva5b3giq4v0r" path="res://Scenes/AlexisScenesAndScripts/Boss1 Background.tscn" id="3_puq4g"]
+[ext_resource type="Texture2D" uid="uid://c6xie6cbyytnq" path="res://Assets/AlexisAssets/SpriteSheet.png" id="4_puq4g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnjvd"]
+atlas = ExtResource("4_puq4g")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t65x"]
+atlas = ExtResource("4_puq4g")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvgvc"]
+atlas = ExtResource("4_puq4g")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5bls"]
+atlas = ExtResource("4_puq4g")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_50ann"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnjvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0t65x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvgvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5bls")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="BossFight1" type="Node2D"]
+script = ExtResource("1_puq4g")
 
 [node name="GameBoard" parent="." instance=ExtResource("1_v14ti")]
+modulate = Color(0.0901961, 0.278431, 0.909804, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Node2D" parent="CanvasLayer" instance=ExtResource("3_puq4g")]
+
+[node name="BossAnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(575, 61)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_50ann")
+autoplay = "default"
