@@ -1,9 +1,9 @@
 extends Node2D
-
+@onready var fakeboss = $AnimatedSprite2D
 #Testing
 func _ready():
-	await get_tree().create_timer(5.0).timeout
-	start_multiple_waves()
+	await get_tree().create_timer(7.0).timeout
+	fakeboss.play("die")
 
 #Scenes import
 @onready var ZoomSkullthing = preload("res://Scenes/boss projectiles/warning.tscn")
