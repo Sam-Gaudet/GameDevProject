@@ -1,9 +1,17 @@
 extends Node2D
-@onready var fakeboss = $AnimatedSprite2D
+@onready var fakeboss = $fakeboss
+@onready var galactica = $galactica
+@onready var fade = $FadeOverlay
+var shake_timer = 0.0
+var shake_strength = 5.0
 #Testing
 func _ready():
 	await get_tree().create_timer(7.0).timeout
 	fakeboss.play("die")
+	await get_tree().create_timer(3.0).timeout
+	real_boss_man()
+	await get_tree().create_timer(6.0).timeout
+	start_fight()
 
 #Scenes import
 @onready var ZoomSkullthing = preload("res://Scenes/boss projectiles/warning.tscn")
@@ -49,6 +57,62 @@ var minion_directions = [
 
 
 
+
+func real_boss_man():
+	galactica.visible = true
+	var shake_duration = 3.0
+	var shake_intensity = 10.0
+	shake_nodes([$GameBoard, $fakeboss], 2.0, 4.0)  # Start shaking GameBoard
+
+	var tween = create_tween()
+	tween.tween_property(galactica, "global_position:y", 328, 3.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	await tween.finished
+	start_fade_to_white()
+
+
+func shake_nodes(nodes: Array, duration: float, intensity: float) -> void:
+	var original_positions = {}
+	for node in nodes:
+		original_positions[node] = node.position
+	
+	var timer := Timer.new()
+	timer.wait_time = 0.05
+	timer.one_shot = false
+	add_child(timer)
+	timer.start()
+
+	var time_elapsed := 0.0
+	while time_elapsed < duration:
+		await timer.timeout
+		for node in nodes:
+			var offset = Vector2(randf_range(-intensity, intensity), randf_range(-intensity, intensity))
+			node.position = original_positions[node] + offset
+		time_elapsed += timer.wait_time
+	
+	# Reset all node positions
+	for node in nodes:
+		node.position = original_positions[node]
+	timer.queue_free()
+
+
+func start_fade_to_white():
+	var fade = $FadeOverlay
+	var tween = create_tween()
+	tween.tween_property(fade, "modulate:a", 1.0, 2.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+
+
+func start_fight():
+	fade.visible = false
+	$GameBoard.modulate = Color(4, 4, 4, 0.5)
+	galactica.z_index = -10
+	fakeboss.visible = false
+	start_multiple_waves()
+	
+
+
+
+
+
 func start_multiple_waves():
 	await spawn_waves(5, 1.5)
 	await get_tree().create_timer(0.5).timeout
@@ -57,12 +121,12 @@ func start_multiple_waves():
 	spawn_tile_explosions(5, 1.0)
 	await get_tree().create_timer(2.0).timeout
 	await get_tree().create_timer(2.0).timeout
-	var ghost = preload("res://ghost.gd").new()
-	add_child(ghost)
-	await ghost.play_summon_animation()
 
 
-	
+
+
+
+
 #SKULL WAVE
 func spawn_waves(wave_count: int, delay: float) -> void:
 	for i in range(wave_count):

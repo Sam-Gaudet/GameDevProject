@@ -1,10 +1,9 @@
-[gd_scene load_steps=40 format=3 uid="uid://bd0147i6qu1g2"]
+[gd_scene load_steps=39 format=3 uid="uid://bd0147i6qu1g2"]
 
 [ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_0g4ct"]
 [ext_resource type="Script" uid="uid://ccaogwqk3572d" path="res://Scenes/final_fight.gd" id="1_i5n05"]
 [ext_resource type="Texture2D" uid="uid://cqb7oavaa55v3" path="res://Assets/FinalFightAssets/AnimationSheet_Character.png" id="4_4ahpb"]
 [ext_resource type="Texture2D" uid="uid://cp5ciyglig2ee" path="res://Assets/FinalFightAssets/Agis/Agis.png" id="5_ccadc"]
-[ext_resource type="Texture2D" uid="uid://bf27f2reodlaa" path="res://Assets/FinalFightAssets/s832171791223022656_p922_i1_w2048.jpeg" id="6_egdey"]
 [ext_resource type="Texture2D" uid="uid://dhasar33v5i8h" path="res://Assets/GameboardAssets/background game.png" id="6_i5n05"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ahpb"]
@@ -94,102 +93,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mtq7f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_la1h1")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_la1h1")
@@ -472,7 +375,6 @@ position = Vector2(1, 0)
 script = ExtResource("1_i5n05")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = -100
 position = Vector2(587.5, 347)
 scale = Vector2(8.63286, 7.01227)
 texture = ExtResource("6_i5n05")
@@ -493,21 +395,16 @@ scale = Vector2(8.63286, 7.01227)
 texture = ExtResource("6_i5n05")
 
 [node name="fakeboss" type="AnimatedSprite2D" parent="."]
-position = Vector2(587, 22)
-scale = Vector2(5.28906, 5.28906)
+position = Vector2(586, -5)
+scale = Vector2(6.82812, 6.82812)
 sprite_frames = SubResource("SpriteFrames_i5a2n")
 animation = &"die"
 autoplay = "idle"
 
 [node name="galactica" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-position = Vector2(560, 1500)
+position = Vector2(574, 1349)
 scale = Vector2(7.245, 5.88494)
 sprite_frames = SubResource("SpriteFrames_5uol3")
 autoplay = "default"
 
 [node name="FadeOverlay" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(776.064, 517.25)
-scale = Vector2(1.75788, 1.75788)
-texture = ExtResource("6_egdey")
