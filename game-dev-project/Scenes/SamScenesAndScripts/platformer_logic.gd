@@ -1,8 +1,10 @@
 extends Node2D
 
+# Remind for later!!!!!!!!! Scrap most of this code. Just zoom onto player before black screen, flash heart 3 tines, then zoom in again with heart fading out
 # Transition variables
 @onready var transition_rect = $Transition/TransitionRect
 @onready var heart_sprite = $Transition/HeartSprite
+@onready var camera = $PlayerPlatformer/Camera2D
 var player_position : Vector2
 
 # Existing variables
@@ -16,6 +18,7 @@ func _ready():
 	transition_rect.visible = false
 	heart_sprite.visible = false
 	transition_rect.color = Color(0, 0, 0, 0)  # Start transparent
+	
 
 # Hub -------------------------------------------
 func _on_hub_body_entered(body: Node2D) -> void:
@@ -64,58 +67,56 @@ func _input(event: InputEvent) -> void:
 		
 	if (player_in_boss_1 or player_in_boss_2 or player_in_boss_3) and event.is_action_pressed("ui_accept"):
 		start_boss_transition()
+		
 
 func start_boss_transition():
-	# Store player position and hide player
 	var player = get_node("PlayerPlatformer")
 	player_position = player.global_position
 	player.visible = false
-	
-	# Position heart at player location immediately (but hidden)
+
+	# Position heart at player location (hidden initially)
 	heart_sprite.global_position = player_position
 	heart_sprite.scale = Vector2(1, 1)
 	heart_sprite.modulate = Color(1, 1, 1, 1)
-	
-	# Start transition
-	#transition_rect.visible = true
-	
+	heart_sprite.visible = false
+
+	# Start by zooming camera onto player
+	var zoom_tween = create_tween()
+	zoom_tween.tween_property(camera, "zoom", Vector2(1.2, 1.2), 1).set_ease(Tween.EASE_OUT)
+	zoom_tween.tween_callback(start_flash_sequence)
+
+func start_flash_sequence():
 	# Fade to black
-	var tween = create_tween()
-	tween.tween_property(transition_rect, "color", Color(0, 0, 0, 1), 0.5)
-	tween.tween_callback(flash_heart)
+	transition_rect.visible = true
+	var fade_tween = create_tween()
+	fade_tween.tween_property(transition_rect, "color", Color(0, 0, 0, 1), 0.3)
+	fade_tween.tween_callback(flash_heart)
 
 func flash_heart():
-	# Make heart visible at player position
+	# Show heart at zoomed player position
 	heart_sprite.visible = true
-	
+
 	# Flash heart 3 times
 	var flash_tween = create_tween()
 	for i in 3:
-		flash_tween.tween_property(heart_sprite, "modulate:a", 0.3, 0.2)
-		flash_tween.tween_property(heart_sprite, "modulate:a", 1.0, 0.2)
-		flash_tween.tween_interval(0.1) # Small pause between flashes
-	
-	# After flashing, move to center first, then scale up
-	flash_tween.tween_callback(move_heart_to_center)
+		flash_tween.tween_property(heart_sprite, "modulate:a", 0.3, 0.15)
+		flash_tween.tween_property(heart_sprite, "modulate:a", 1.0, 0.15)
+		flash_tween.tween_interval(0.1)
 
-func move_heart_to_center():
-	# Get the screen center in global coordinates
-	var center = get_viewport().get_visible_rect().size / 2
-	center = get_viewport().canvas_transform.affine_inverse() * center
-	
-	var tween = create_tween()
-	
-	# First just move to center (without scaling)
-	tween.tween_property(heart_sprite, "global_position", center, 0.5).set_ease(Tween.EASE_OUT)
-	
-	# After reaching center, then scale up
-	tween.tween_property(heart_sprite, "scale", Vector2(200, 200), 0.3).set_ease(Tween.EASE_OUT)
-	
-	# Then fade out
-	tween.tween_property(heart_sprite, "modulate:a", 0, 0.5)
-	
-	# Finally change scene
-	tween.tween_callback(change_to_boss_scene)
+	flash_tween.tween_callback(final_zoom_and_fade)
+
+func final_zoom_and_fade():
+	# Zoom in further while fading out heart
+	var final_tween = create_tween()
+
+	# Zoom camera more (adjust these values to your liking)
+	final_tween.tween_property(camera, "zoom", Vector2(0.2, 0.2), 0.8).set_ease(Tween.EASE_IN)
+
+	# Simultaneously fade out heart
+	final_tween.parallel().tween_property(heart_sprite, "modulate:a", 0, 0.8)
+
+	# Change scene when complete
+	final_tween.tween_callback(change_to_boss_scene)
 
 func change_to_boss_scene():
 	if player_in_boss_1:

@@ -110,3 +110,5 @@ position = Vector2(-3, 6)
 [connection signal="body_exited" from="Boss2" to="." method="_on_boss_2_body_exited"]
 [connection signal="body_entered" from="Hub" to="." method="_on_hub_body_entered"]
 [connection signal="body_exited" from="Hub" to="." method="_on_hub_body_exited"]
+
+[editable path="PlayerPlatformer"]
