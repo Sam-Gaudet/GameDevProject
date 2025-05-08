@@ -92,5 +92,27 @@ func clear_attacks():
 
 
 func win():
+	$trophy.position = Vector2(0, 0)
+	
+	$trophy.visible = true
+	$trophy.scale = Vector2(0.01, 0.01)  # Start tiny (almost invisible)
+	$trophy.monitoring = true
 	Global.last_level_completed = "Level2"
-	$trophy.position(0.0)
+
+	# Tween to normal size
+	var tween = create_tween()
+	tween.tween_property($trophy, "scale", Vector2(1, 1), 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+
+
+func _on_trophy_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+	# Scale up trophy
+		var tween = create_tween()
+		tween.tween_property($trophy, "scale", Vector2(6, 6), 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+
+	# Wait, then hide/remove trophy
+		await tween.finished
+		$trophy.visible = false
+		$trophy.monitoring = false  # Stop further triggers

@@ -135,12 +135,30 @@ func _on_invincibility_timeout():
 
 
 func win():
-	var fade = $"../FadeWin" # Adjust this path based on where your fade node is
+	var fade = $"../FadeWin"
 	fade.visible = true
+	# Healing effect
+	life = 3
+	# Start fade animation
 	var tween = create_tween()
 	tween.tween_property(fade, "modulate:a", 1.0, 2.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
 
+	# Start explosions (not awaited fully)
 	var explosion_scene = preload("res://Scenes/boss projectiles/winboom.tscn")
+	spawn_explosions(explosion_scene)
+
+	await get_tree().create_timer(3.0).timeout
+	print("Changing scene now...")
+	match Global.last_level_completed:
+		"Level1", "Level2":
+			get_tree().call_deferred("change_scene_to_file", "res://Scenes/SamScenesAndScripts/hub.tscn")
+		"Level3":
+			get_tree().call_deferred("change_scene_to_file", "res://Scenes/winscene.tscn")
+
+
+func spawn_explosions(explosion_scene):
+	# Run this in the background without blocking the main flow
+	await get_tree().create_timer(0.1).timeout  # Optional slight delay before first
 	for i in range(20):
 		var explosion = explosion_scene.instantiate()
 		var x = randi_range(0, get_viewport_rect().size.x)
@@ -148,7 +166,6 @@ func win():
 		explosion.position = Vector2(x, y)
 		get_tree().current_scene.add_child(explosion)
 		await get_tree().create_timer(randf_range(0.05, 0.2)).timeout
-
 
 
 

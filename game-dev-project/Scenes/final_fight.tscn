@@ -606,6 +606,8 @@ scale = Vector2(1.75788, 1.75788)
 texture = ExtResource("6_egdey")
 
 [node name="trophy" type="Area2D" parent="." groups=["win"]]
+visible = false
+texture_filter = 1
 position = Vector2(-345, 296)
 scale = Vector2(2, 2)
 
@@ -616,3 +618,5 @@ texture = ExtResource("16_i5m1n")
 [node name="trophy" type="CollisionShape2D" parent="trophy"]
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_i5m1n")
+
+[connection signal="body_entered" from="trophy" to="." method="_on_trophy_body_entered"]

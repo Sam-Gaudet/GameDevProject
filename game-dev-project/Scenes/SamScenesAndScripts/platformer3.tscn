@@ -95,11 +95,12 @@ position = Vector2(324, 430)
 
 [node name="Boss3Sprite" type="AnimatedSprite2D" parent="Boss3"]
 modulate = Color(0.734492, 0.000885221, 0.812406, 1)
-position = Vector2(1004, 394.12)
+texture_filter = 1
+position = Vector2(981, 417.12)
 scale = Vector2(3.5625, 3.5625)
 sprite_frames = SubResource("SpriteFrames_86dwe")
 autoplay = "default"
-frame_progress = 0.927088
+frame_progress = 0.718602
 flip_h = true
 
 [node name="Boss3Trigger" type="CollisionShape2D" parent="Boss3"]
@@ -114,6 +115,7 @@ offset_bottom = 346.0
 metadata/_edit_use_anchors_ = true
 
 [node name="forest_background" parent="." instance=ExtResource("4_jekxf")]
+position = Vector2(-69, 70)
 
 [connection signal="body_entered" from="Hub" to="." method="_on_hub_body_entered"]
 [connection signal="body_exited" from="Hub" to="." method="_on_hub_body_exited"]
