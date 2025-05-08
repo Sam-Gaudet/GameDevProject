@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bd0147i6qu1g2"]
+[gd_scene load_steps=49 format=3 uid="uid://bd0147i6qu1g2"]
 
 [ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_0g4ct"]
 [ext_resource type="Script" uid="uid://ccaogwqk3572d" path="res://Scenes/final_fight.gd" id="1_i5n05"]
@@ -6,6 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://cp5ciyglig2ee" path="res://Assets/FinalFightAssets/Agis/Agis.png" id="5_ccadc"]
 [ext_resource type="Texture2D" uid="uid://bf27f2reodlaa" path="res://Assets/FinalFightAssets/s832171791223022656_p922_i1_w2048.jpeg" id="6_egdey"]
 [ext_resource type="Texture2D" uid="uid://dhasar33v5i8h" path="res://Assets/GameboardAssets/background game.png" id="6_i5n05"]
+[ext_resource type="Texture2D" uid="uid://ccnee84afbf53" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_4.png" id="7_53jd3"]
+[ext_resource type="Texture2D" uid="uid://cviwb4uwg63xd" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_8.png" id="7_egdey"]
+[ext_resource type="Script" uid="uid://7if8afeoacvf" path="res://Scenes/backFinal.gd" id="7_qbqs6"]
+[ext_resource type="Texture2D" uid="uid://dkrchrlk2hhn7" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_7.png" id="8_n3q6i"]
+[ext_resource type="Texture2D" uid="uid://dgpvrfg2pet6r" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_6.png" id="9_4gmg8"]
+[ext_resource type="Texture2D" uid="uid://bphen2505lrmv" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_5.png" id="10_q5y2a"]
+[ext_resource type="Texture2D" uid="uid://bk06rbhlo2ybr" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_3.png" id="11_i5m1n"]
+[ext_resource type="Texture2D" uid="uid://bivjjo1ji8nxc" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_2.png" id="12_wwst1"]
+[ext_resource type="Texture2D" uid="uid://drb53iio332hu" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_1.png" id="13_11ctd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ahpb"]
 atlas = ExtResource("4_4ahpb")
@@ -471,7 +480,92 @@ animations = [{
 position = Vector2(1, 0)
 script = ExtResource("1_i5n05")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+visible = false
+script = ExtResource("7_qbqs6")
+
+[node name="sky1" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(801, 393)
+scale = Vector2(2.52778, 2.52778)
+texture = ExtResource("7_egdey")
+
+[node name="sky2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(2418, 390)
+scale = Vector2(2.52778, 2.52778)
+texture = ExtResource("7_egdey")
+
+[node name="rock1" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(801, 393)
+scale = Vector2(2.52778, 2.52778)
+texture = ExtResource("8_n3q6i")
+
+[node name="rock2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(2418, 390)
+scale = Vector2(2.52778, 2.52778)
+texture = ExtResource("8_n3q6i")
+
+[node name="mountain1" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(801, 393)
+scale = Vector2(2.52778, 2.52778)
+texture = ExtResource("9_4gmg8")
+
+[node name="mountain2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(2418, 390)
+scale = Vector2(2.52778, 2.52778)
+texture = ExtResource("9_4gmg8")
+
+[node name="bip1" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(801, 393)
+scale = Vector2(2.52778, 2.52778)
+texture = ExtResource("10_q5y2a")
+
+[node name="bip2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(2418, 390)
+scale = Vector2(2.52778, 2.52778)
+texture = ExtResource("10_q5y2a")
+
+[node name="bop1" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(801, 393)
+scale = Vector2(2.52778, 2.52778)
+texture = ExtResource("7_53jd3")
+
+[node name="bop2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(2418, 390)
+scale = Vector2(2.52778, 2.52778)
+texture = ExtResource("7_53jd3")
+
+[node name="wood1" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(801, 393)
+scale = Vector2(2.52778, 2.52778)
+texture = ExtResource("11_i5m1n")
+
+[node name="wood2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(2418, 390)
+scale = Vector2(2.52778, 2.52778)
+texture = ExtResource("11_i5m1n")
+
+[node name="ground1" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(801, 393)
+scale = Vector2(2.52778, 2.52778)
+texture = ExtResource("12_wwst1")
+
+[node name="ground2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(2418, 390)
+scale = Vector2(2.52778, 2.52778)
+texture = ExtResource("12_wwst1")
+
+[node name="three1" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(801, 393)
+scale = Vector2(2.52778, 2.52778)
+texture = ExtResource("13_11ctd")
+
+[node name="three2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(2418, 390)
+scale = Vector2(2.52778, 2.52778)
+texture = ExtResource("13_11ctd")
+
+[node name="black" type="Sprite2D" parent="."]
 z_index = -100
 position = Vector2(587.5, 347)
 scale = Vector2(8.63286, 7.01227)
@@ -483,14 +577,8 @@ z_index = 10
 position = Vector2(576, 328)
 
 [node name="Camera2D" type="Camera2D" parent="GameBoard"]
-position = Vector2(-4, -6)
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
 visible = false
-z_index = 10
-position = Vector2(587.5, 347)
-scale = Vector2(8.63286, 7.01227)
-texture = ExtResource("6_i5n05")
+position = Vector2(-4, -6)
 
 [node name="fakeboss" type="AnimatedSprite2D" parent="."]
 position = Vector2(587, 22)

@@ -184,7 +184,7 @@ debug_color = Color(0.820336, 0.353676, 0.511924, 0.415686)
 
 [node name="screen" type="Sprite2D" parent="."]
 visible = false
-z_index = 20
+z_index = 40
 position = Vector2(-35.9999, 127.5)
 scale = Vector2(2.58286, 2.5138)
 texture = ExtResource("48_8gdtb")

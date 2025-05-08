@@ -17,9 +17,13 @@ func _ready():
 
 func start_warning() -> void:
 	for i in range(2):
-		tile_sprite.modulate = Color.DARK_RED
+		tile_sprite.modulate = Color.DARK_VIOLET
 		await get_tree().create_timer(blink_interval).timeout
-		tile_sprite.modulate = Color.ORANGE_RED
+		tile_sprite.modulate = Color.WHITE
+		await get_tree().create_timer(blink_interval).timeout
+		tile_sprite.modulate = Color.DARK_VIOLET
+		await get_tree().create_timer(blink_interval).timeout
+		tile_sprite.modulate = Color.WHITE
 		await get_tree().create_timer(blink_interval).timeout
 
 

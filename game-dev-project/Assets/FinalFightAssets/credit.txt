@@ -1,0 +1,9 @@
+background: 
+https://shiroze.itch.io/starry-night-parallax-background
+
+vfx :
+https://codemanu.itch.io/vfx-free-pack
+https://pimen.itch.io/holy-spell-effect
+
+agis:
+https://papoycore.itch.io/free-agis
