@@ -269,6 +269,6 @@ func launch_planet_attack():
 	add_child(planet2)
 
 func trophy():
-	$trophy.position(586.0, 296.0)
+	$trophy.position = Vector2(586, 296)
 	$trophy.visible = true
 	Global.last_level_completed = "Level3"

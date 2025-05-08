@@ -585,6 +585,7 @@ visible = false
 position = Vector2(-4, -6)
 
 [node name="fakeboss" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(587, 22)
 scale = Vector2(5.28906, 5.28906)
 sprite_frames = SubResource("SpriteFrames_i5a2n")
