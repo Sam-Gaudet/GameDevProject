@@ -44,9 +44,6 @@ animations = [{
 [node name="BossFight1" type="Node2D"]
 script = ExtResource("1_puq4g")
 
-[node name="GameBoard" parent="." instance=ExtResource("1_v14ti")]
-modulate = Color(0.0901961, 0.278431, 0.909804, 1)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
@@ -57,3 +54,6 @@ position = Vector2(575, 61)
 scale = Vector2(7, 7)
 sprite_frames = SubResource("SpriteFrames_50ann")
 autoplay = "default"
+
+[node name="GameBoard2" parent="." instance=ExtResource("1_v14ti")]
+modulate = Color(0.0727445, 0, 0.952592, 1)
