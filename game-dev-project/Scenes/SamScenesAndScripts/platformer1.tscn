@@ -65,23 +65,9 @@ script = ExtResource("1_ms48t")
 [node name="Boss1" type="Area2D" parent="."]
 position = Vector2(10, 251)
 
-[node name="Boss1Sprite" type="Sprite2D" parent="Boss1"]
-modulate = Color(0.878431, 0, 0, 1)
-position = Vector2(1000.25, 397.87)
-scale = Vector2(0.800614, 0.800614)
-texture = ExtResource("1_c0qil")
-
 [node name="Boss1Trigger" type="CollisionShape2D" parent="Boss1"]
 position = Vector2(997.25, 402.12)
 shape = SubResource("RectangleShape2D_g358o")
-
-[node name="BossDisplayLabel" type="Label" parent="Boss1"]
-offset_left = 953.0
-offset_top = 324.0
-offset_right = 1047.0
-offset_bottom = 347.0
-text = "Hi im a boss"
-metadata/_edit_use_anchors_ = true
 
 [node name="TempBossAnimatedSprite2D" type="AnimatedSprite2D" parent="Boss1"]
 position = Vector2(994, 445)

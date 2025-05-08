@@ -6,6 +6,8 @@ extends Node2D
 const GRID_SIZE = 7
 const TILE_SIZE = 64
 
+@onready var Dialogue_box = $Dialogue
+@onready var Dialogue_sprite = $"Dialogue face"
 @onready var boss_sprite = $CanvasLayer/BossAnimatedSprite2D
 @onready var projectile_parent = $"."  # Or self, if you want to add them here
 
@@ -20,6 +22,8 @@ var attack_pattern = [
 var current_pattern_index = 0
 
 func _ready():
+	Dialogue_box.visible = false
+	Dialogue_sprite.visible = false
 	boss_sprite.visible = false
 	start_boss_appearance()
 	Global.current_level = "1"
@@ -27,6 +31,9 @@ func _ready():
 func start_boss_appearance():
 	await get_tree().create_timer(5).timeout
 	boss_sprite.visible = true
+	Dialogue_sprite.visible = true
+	Dialogue_box.visible = true
+
 
 	spawn_attack_cycle()
 	await get_tree().create_timer(5).timeout
