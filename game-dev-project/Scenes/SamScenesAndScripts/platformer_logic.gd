@@ -17,7 +17,8 @@ func _ready():
 	# Initialize transition elements as hidden
 	transition_rect.visible = false
 	heart_sprite.visible = false
-	transition_rect.color = Color(0, 0, 0, 0)  # Start transparent
+	#transition_rect.color = Color(0, 0, 0, 0)  # Start transparent
+	%Boss.play("idle")
 	
 
 # Hub -------------------------------------------
@@ -72,22 +73,41 @@ func _input(event: InputEvent) -> void:
 func start_boss_transition():
 	var player = get_node("PlayerPlatformer")
 	player_position = player.global_position
-	player.visible = false
+	print(player_position)
+	player.visible = true
+	
+	# Calculate the camera's current offset from player
+	var camera_offset = Vector2(0, 0)  # Your known camera offset
+	var target_position = player_position + camera_offset
 
+	# Debug prints to verify positions
+	print("Camera current position: ", camera.global_position)
+	print("Target camera position: ", target_position)
+	
 	# Position heart at player location (hidden initially)
-	heart_sprite.global_position = player_position
-	heart_sprite.scale = Vector2(1, 1)
-	heart_sprite.modulate = Color(1, 1, 1, 1)
-	heart_sprite.visible = false
+	heart_sprite.position = target_position
+	print(heart_sprite.position)
+	#heart_sprite.scale = Vector2(1, 1)
+	#heart_sprite.modulate = Color(1, 1, 1, 1)
+
+	# Start by moving camera to center on player (with its offset)
+	var move_tween = create_tween()
+	move_tween.tween_property(camera, "global_position", target_position, 1).set_ease(Tween.EASE_OUT)
+
+	# Simultaneously zoom in
+	move_tween.parallel().tween_property(camera, "zoom", Vector2(1.7, 1.7), 1).set_ease(Tween.EASE_OUT)
 
 	# Start by zooming camera onto player
 	var zoom_tween = create_tween()
-	zoom_tween.tween_property(camera, "zoom", Vector2(1.2, 1.2), 1).set_ease(Tween.EASE_OUT)
+	zoom_tween.tween_property(camera, "zoom", Vector2(1.7, 1.7), 1.5).set_ease(Tween.EASE_OUT)
+	
 	zoom_tween.tween_callback(start_flash_sequence)
 
 func start_flash_sequence():
 	# Fade to black
 	transition_rect.visible = true
+	heart_sprite.visible = true
+	print("reached")
 	var fade_tween = create_tween()
 	fade_tween.tween_property(transition_rect, "color", Color(0, 0, 0, 1), 0.3)
 	fade_tween.tween_callback(flash_heart)
@@ -95,6 +115,7 @@ func start_flash_sequence():
 func flash_heart():
 	# Show heart at zoomed player position
 	heart_sprite.visible = true
+	print("reached")
 
 	# Flash heart 3 times
 	var flash_tween = create_tween()
@@ -102,6 +123,7 @@ func flash_heart():
 		flash_tween.tween_property(heart_sprite, "modulate:a", 0.3, 0.15)
 		flash_tween.tween_property(heart_sprite, "modulate:a", 1.0, 0.15)
 		flash_tween.tween_interval(0.1)
+		print("reacher")
 
 	flash_tween.tween_callback(final_zoom_and_fade)
 
@@ -110,7 +132,7 @@ func final_zoom_and_fade():
 	var final_tween = create_tween()
 
 	# Zoom camera more (adjust these values to your liking)
-	final_tween.tween_property(camera, "zoom", Vector2(0.2, 0.2), 0.8).set_ease(Tween.EASE_IN)
+	final_tween.tween_property(camera, "zoom", Vector2(100, 100), 1).set_ease(Tween.EASE_IN)
 
 	# Simultaneously fade out heart
 	final_tween.parallel().tween_property(heart_sprite, "modulate:a", 0, 0.8)
