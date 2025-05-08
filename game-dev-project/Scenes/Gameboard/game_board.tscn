@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cfie0mfxbb5ed"]
+[gd_scene load_steps=26 format=3 uid="uid://cfie0mfxbb5ed"]
 
 [ext_resource type="Script" uid="uid://18wcj2jaknpp" path="res://Scenes/Gameboard/game_board.gd" id="1_8iux8"]
 [ext_resource type="Script" uid="uid://7lhiqqsvopn3" path="res://Scenes/Gameboard/camera.gd" id="2_h6sja"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://rf3xdt6kmvpp" path="res://Assets/GameboardAssets/GelatinMonoTTF.ttf" id="5_gsrb0"]
 [ext_resource type="Texture2D" uid="uid://d2i7u7itukj8t" path="res://Assets/GameboardAssets/green heart.png" id="5_uk3bs"]
 [ext_resource type="Texture2D" uid="uid://cvmubg66kvtga" path="res://Assets/GameboardAssets/solid-red-background-14148727243CA.jpg" id="11_ptfbb"]
+[ext_resource type="Texture2D" uid="uid://bf27f2reodlaa" path="res://Assets/FinalFightAssets/s832171791223022656_p922_i1_w2048.jpeg" id="11_vxeql"]
 [ext_resource type="Script" uid="uid://dqvbspy6c2jio" path="res://Scenes/Gameboard/main_character.gd" id="46_oa80g"]
 [ext_resource type="Texture2D" uid="uid://i76c8o64rakq" path="res://Assets/GameboardAssets/hearth.png" id="46_uk3bs"]
 [ext_resource type="Texture2D" uid="uid://dhasar33v5i8h" path="res://Assets/GameboardAssets/background game.png" id="48_8gdtb"]
@@ -83,6 +84,8 @@ animations = [{
 "name": &"death",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ptfbb"]
 
 [node name="GameBoard" type="Node2D"]
 script = ExtResource("1_8iux8")
@@ -182,13 +185,6 @@ scale = Vector2(0.228646, 0.256709)
 shape = SubResource("RectangleShape2D_fleov")
 debug_color = Color(0.820336, 0.353676, 0.511924, 0.415686)
 
-[node name="screen" type="Sprite2D" parent="."]
-visible = false
-z_index = 20
-position = Vector2(-35.9999, 127.5)
-scale = Vector2(2.58286, 2.5138)
-texture = ExtResource("48_8gdtb")
-
 [node name="MainCharacter" type="RigidBody2D" parent="." groups=["player_attack"]]
 visible = false
 z_index = 30
@@ -218,6 +214,11 @@ speed_scale = 4.0
 [node name="deathDelay" type="Timer" parent="MainCharacter"]
 one_shot = true
 
+[node name="detector" type="Area2D" parent="MainCharacter"]
+
+[node name="winzone" type="CollisionShape2D" parent="MainCharacter/detector"]
+shape = SubResource("CircleShape2D_ptfbb")
+
 [node name="board immage" type="Sprite2D" parent="."]
 visible = false
 self_modulate = Color(1, 1, 1, 0.490196)
@@ -225,7 +226,21 @@ position = Vector2(2.6226e-06, 0)
 scale = Vector2(0.233333, 0.261377)
 texture = ExtResource("11_ptfbb")
 
+[node name="FadeWin" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("11_vxeql")
+
+[node name="screen" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(9.00003, 290)
+scale = Vector2(4.54571, 3.1135)
+texture = ExtResource("48_8gdtb")
+
 [connection signal="body_entered" from="MainCharacter" to="MainCharacter" method="_on_body_entered"]
 [connection signal="area_entered" from="MainCharacter/ouch" to="MainCharacter" method="_on_ouch_area_entered"]
 [connection signal="animation_finished" from="MainCharacter/deathanimation" to="MainCharacter" method="_on_deathanimation_animation_finished"]
 [connection signal="timeout" from="MainCharacter/deathDelay" to="MainCharacter" method="_on_death_delay_timeout"]
+[connection signal="area_entered" from="MainCharacter/detector" to="MainCharacter" method="_on_detector_area_entered"]

@@ -108,6 +108,8 @@ func take_damage():
 	if life == 0:
 		is_dead = true
 		blackscreen.visible = true
+		blackscreen.z_index = 100
+		player.z_index = 200
 		death_timer.start()
 		is_moving = true 
 		gameoverTimer.wait_time = 2
@@ -130,3 +132,26 @@ func start_blinking():
 func _on_invincibility_timeout():
 	can_take_damage = true
 	player.modulate.a = 1.0  # Ensure player is visible again
+
+
+func win():
+	var fade = $"../FadeWin" # Adjust this path based on where your fade node is
+	fade.visible = true
+	var tween = create_tween()
+	tween.tween_property(fade, "modulate:a", 1.0, 2.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+
+	var explosion_scene = preload("res://Scenes/boss projectiles/winboom.tscn")
+	for i in range(20):
+		var explosion = explosion_scene.instantiate()
+		var x = randi_range(0, get_viewport_rect().size.x)
+		var y = randi_range(0, get_viewport_rect().size.y)
+		explosion.position = Vector2(x, y)
+		get_tree().current_scene.add_child(explosion)
+		await get_tree().create_timer(randf_range(0.05, 0.2)).timeout
+
+
+
+
+func _on_detector_area_entered(area: Area2D) -> void:
+	if area.is_in_group("win"):
+		win()

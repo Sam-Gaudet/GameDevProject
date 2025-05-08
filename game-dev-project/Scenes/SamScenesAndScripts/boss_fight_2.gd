@@ -23,6 +23,8 @@ var boss_health = 3
 var is_boss_defeated = false
 
 func _ready():
+	Global.current_level = "2"
+
 	boss_anim.play("idle")
 	await get_tree().create_timer(7.0).timeout
 	start_attack_cycle()
@@ -81,9 +83,14 @@ func boss_defeated():
 	clear_attacks()
 	boss_anim.play("dead")
 	print("BOSS DEFEATED!")
-	# Add victory logic here
+	win()
 
 func clear_attacks():
 	for child in get_children():
 		if child.is_in_group("attack"):
 			child.queue_free()
+
+
+func win():
+	Global.last_level_completed = "Level2"
+	$trophy.position(0.0)

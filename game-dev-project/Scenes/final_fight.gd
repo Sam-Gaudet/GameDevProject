@@ -1,9 +1,18 @@
 extends Node2D
-
+@onready var fakeboss = $fakeboss
+@onready var galactica = $galactica
+@onready var fade = $FadeOverlay
+var shake_timer = 0.0
+var shake_strength = 5.0
 #Testing
 func _ready():
-	await get_tree().create_timer(5.0).timeout
-	start_multiple_waves()
+	Global.current_level = "3"
+	await get_tree().create_timer(7.0).timeout
+	fakeboss.play("die")
+	await get_tree().create_timer(3.0).timeout
+	real_boss_man()
+	await get_tree().create_timer(6.0).timeout
+	start_fight()
 
 #Scenes import
 @onready var ZoomSkullthing = preload("res://Scenes/boss projectiles/warning.tscn")
@@ -14,6 +23,7 @@ func _ready():
 @onready var MinionScene = preload("res://Scenes/boss projectiles/minion.tscn")
 @onready var ghost_scene = preload("res://Ghost.tscn")
 @onready var minion_scene = preload("res://Scenes/boss projectiles/minion.tscn")
+@onready var planet_scene := preload("res://Scenes/boss projectiles/divine_sword.tscn")
 #Pre set Pattern
 var left_wall_patterns = [2, 4, 1, 3, 5, 2, 4, 3, 1, 5]
 var right_wall_patterns = [4, 2, 5, 3, 1, 5, 2, 4, 1, 3]
@@ -31,38 +41,92 @@ var explosion_patterns = [
 	[[0, 1], [0, 2], [0, 4], [1, 3], [1, 4], [1, 5], [2, 0], [2, 1], [2, 3], [3, 0], [3, 1], [3, 2], [3, 5], [4, 1], [4, 2], [4, 4], [4, 5], [4, 6], [5, 0], [5, 1], [5, 3], [5, 4], [5, 5], [6, 0], [6, 3], [6, 5], [6, 6]],
 	[[0, 2], [0, 3], [0, 4], [1, 2], [1, 3], [1, 5], [2, 0], [2, 2], [2, 4], [3, 4], [3, 5], [3, 6], [4, 1], [4, 3], [4, 5], [4, 6], [5, 1], [5, 3], [5, 4], [5, 6], [6, 0], [6, 1], [6, 2], [6, 4]],
 	[[0, 0], [0, 1], [0, 2], [1, 1], [1, 2], [1, 3], [2, 2], [2, 3], [2, 4], [3, 2], [3, 3], [3, 4], [4, 1], [4, 2], [4, 3], [4, 5], [5, 0], [5, 1], [5, 2], [5, 3], [6, 0], [6, 2], [6, 3], [6, 5]],
-	[[0, 3], [0, 4], [1, 2], [1, 3], [1, 4], [2, 2], [2, 4], [3, 0], [3, 1], [3, 3], [3, 4], [4, 1], [4, 3], [4, 4], [5, 2], [5, 3], [5, 5], [6, 1], [6, 3], [6, 4]],
-	[[0, 0],[0, 1], [0, 2], [0, 3], [0, 4], [1, 1], [1, 3], [1, 5], [2, 1], [2, 2], [2, 4], [3, 0], [3, 2], [3, 5], [4, 1], [4, 3], [4, 4], [5, 0], [5, 2], [5, 4], [6, 2], [6, 5]]
-]
-
-
-var minion_directions = [
-	Vector2(-1, -1),  # top-left
-	Vector2(0, -1),   # up
-	Vector2(1, -1),   # top-right
-	Vector2(1, 0),    # right
-	Vector2(1, 1),    # bottom-right
-	Vector2(0, 1),    # down
-	Vector2(-1, 1)    # bottom-left
+	[[0, 3], [0, 4], [1, 2], [1, 3], [1, 4], [2, 2], [2, 4], [3, 0], [3, 1], [3, 3], [3, 4], [4, 1], [4, 3], [4, 4], [5, 2], [5, 3], [5, 5], [6, 1], [6, 3], [6, 4], [1,6], [2,6], [3,6], [4,6] ],
+	[[0, 0],[0, 1], [0, 2], [0, 3], [0, 4], [1, 1], [1, 3], [1, 5], [2, 1], [2, 2], [2, 4], [3, 0], [3, 2], [3, 5], [4, 1], [4, 3], [4, 4], [5, 0], [5, 2], [5, 4], [6, 2], [6, 5],[1,6], [2,6], [3,6], [5,6]]
 ]
 
 
 
 
+func real_boss_man():
+	galactica.visible = true
+	var shake_duration = 3.0
+	var shake_intensity = 10.0
+	shake_nodes([$GameBoard, $fakeboss], 2.0, 4.0)  # Start shaking GameBoard
+
+	var tween = create_tween()
+	tween.tween_property(galactica, "global_position:y", 328, 3.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	await tween.finished
+	start_fade_to_white()
+
+
+func shake_nodes(nodes: Array, duration: float, intensity: float) -> void:
+	var original_positions = {}
+	for node in nodes:
+		original_positions[node] = node.position
+	
+	var timer := Timer.new()
+	timer.wait_time = 0.05
+	timer.one_shot = false
+	add_child(timer)
+	timer.start()
+
+	var time_elapsed := 0.0
+	while time_elapsed < duration:
+		await timer.timeout
+		for node in nodes:
+			var offset = Vector2(randf_range(-intensity, intensity), randf_range(-intensity, intensity))
+			node.position = original_positions[node] + offset
+		time_elapsed += timer.wait_time
+	
+	# Reset all node positions
+	for node in nodes:
+		node.position = original_positions[node]
+	timer.queue_free()
+
+
+func start_fade_to_white():
+	var fade = $FadeOverlay
+	var tween = create_tween()
+	tween.tween_property(fade, "modulate:a", 1.0, 2.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+
+
+
+
+
+
+
+
+func start_fight():
+	fade.visible = false
+	$GameBoard.modulate = Color(4, 4, 4, 0.5)
+	galactica.z_index = -10
+	fakeboss.visible = false
+	$black.visible = false
+	$CanvasLayer.visible = true
+	start_multiple_waves()
+	
+
+
+
+
+#WAVES START
 func start_multiple_waves():
 	await spawn_waves(5, 1.5)
 	await get_tree().create_timer(0.5).timeout
 	await spawn_walls(10, 1)
 	await get_tree().create_timer(1.0).timeout
-	spawn_tile_explosions(5, 1.0)
-	await get_tree().create_timer(2.0).timeout
-	await get_tree().create_timer(2.0).timeout
-	var ghost = preload("res://ghost.gd").new()
-	add_child(ghost)
-	await ghost.play_summon_animation()
+	spawn_tile_explosions(5, 1.2)
+	await get_tree().create_timer(6.0).timeout
+	launch_planet_attack()
+	await get_tree().create_timer(18).timeout
+	trophy()
 
 
-	
+
+
+
+
 #SKULL WAVE
 func spawn_waves(wave_count: int, delay: float) -> void:
 	for i in range(wave_count):
@@ -73,11 +137,13 @@ func spawn_waves(wave_count: int, delay: float) -> void:
 			spawn_zoom_skull(Vector2(580, 180), true)
 		await get_tree().create_timer(delay).timeout
 
-func start_skulls_wave(wave_index: int):
+func start_skulls_wave(wave_index: int) -> void:
 	var pattern = wave_patterns[wave_index % wave_patterns.size()]
 	for y_pos in pattern:
 		spawn_skull("left", y_pos)
+		await get_tree().create_timer(0.2).timeout  # slight delay between skulls
 		spawn_skull("right", y_pos)
+		await get_tree().create_timer(0.2).timeout
 
 func spawn_skull(side: String, y_pos: float):
 	var Skull = Skullthing.instantiate()
@@ -89,7 +155,7 @@ func spawn_skull(side: String, y_pos: float):
 		Skull.global_position = Vector2(1200, y_pos)
 		Skull.direction = Vector2.LEFT
 		Skull.scale.x *= -1
-	Skull.speed = 200.0
+	Skull.base_speed = 200.0
 	Skull.amplitude = randf_range(10.0, 40.0)
 	Skull.frequency = randf_range(1.5, 3.0)
 	add_child(Skull)
@@ -106,7 +172,7 @@ func spawn_skull(side: String, y_pos: float):
 #SKULL WALL
 func start_skull_wall(wall_index: int):
 	var total_slots = 8
-	var skull_spacing = (560 - 104) / total_slots
+	var skull_spacing = (560 - 200) / total_slots
 
 	var left_gap = left_wall_patterns[wall_index % left_wall_patterns.size()]
 	var right_gap = right_wall_patterns[wall_index % right_wall_patterns.size()]
@@ -146,6 +212,10 @@ func spawn_wall_skull(slot_index: int, side: String):
 
 	add_child(Skull)
 
+
+
+
+
 #Zooming skull
 func spawn_zoom_skull(position: Vector2, from_right := false):
 	var skull = ZoomSkullthing.instantiate()
@@ -182,36 +252,23 @@ func spawn_one_explosion_wave(wave_index: int) -> void:
 		tile.global_position = Vector2(start_x + x_index * tile_size, start_y + y_index * tile_size)
 		add_child(tile)
 
-func spawn_ghost():
-	var ghost = ghost_scene.instantiate()
-	add_child(ghost)
-	ghost.global_position = Vector2(1300, 300)  # Entering from right
-	ghost.summon_callback = summon_minions 
 
 
 
 
+func launch_planet_attack():
+	var planet1 = planet_scene.instantiate()
+	planet1.position = Vector2(-100, 300)  # From left
+	add_child(planet1)
 
+	await get_tree().create_timer(3.0).timeout
 
+	var planet2 = planet_scene.instantiate()
+	planet2.position = Vector2(1200, 200)  # From right
+	planet2.set_direction(Vector2(-1, 0.5))  # Angle toward center
+	add_child(planet2)
 
-
-
-
-#roaming ghost
-func summon_minions():
-	for dir in minion_directions:
-		var minion = minion_scene.instantiate()
-		add_child(minion)
-		minion.global_position = Vector2(900, 300)  # Right side
-		minion.set_direction(dir)
-
-	call_deferred("summon_minions_from_left")  # Avoid blocking this frame
-
-
-func summon_minions_from_left():
-	await get_tree().create_timer(1.0).timeout
-	for dir in minion_directions:
-		var minion = minion_scene.instantiate()
-		add_child(minion)
-		minion.global_position = Vector2(300, 300)  # Left side
-		minion.set_direction(dir)
+func trophy():
+	$trophy.position(586.0, 296.0)
+	$trophy.visible = true
+	Global.last_level_completed = "Level3"

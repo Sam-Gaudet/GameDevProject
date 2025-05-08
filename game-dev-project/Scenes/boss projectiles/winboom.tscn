@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://cogff3cuo68f"]
+
+[ext_resource type="Texture2D" uid="uid://2oavynr84xaa" path="res://Assets/FinalFightAssets/Boom/Super Pixel Effects Mini Pack 1/spritesheet/fx1_splatter_small_red/spritesheet.png" id="1_x5h8o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu8ln"]
+atlas = ExtResource("1_x5h8o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t85ub"]
+atlas = ExtResource("1_x5h8o")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucoya"]
+atlas = ExtResource("1_x5h8o")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtgr8"]
+atlas = ExtResource("1_x5h8o")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwilb"]
+atlas = ExtResource("1_x5h8o")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1o0k"]
+atlas = ExtResource("1_x5h8o")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1maxj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cu8ln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t85ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucoya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtgr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwilb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1o0k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="winboom" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1maxj")
+autoplay = "default"
+frame_progress = 0.208984
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_1maxj")
+autoplay = "default"
+frame_progress = 0.157061
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+rotation = 3.14159
+sprite_frames = SubResource("SpriteFrames_1maxj")
+autoplay = "default"
+frame_progress = 0.911644

@@ -1,78 +1,51 @@
-[gd_scene load_steps=21 format=3 uid="uid://dot4ege4pqkjl"]
+[gd_scene load_steps=15 format=3 uid="uid://dot4ege4pqkjl"]
 
-[ext_resource type="Texture2D" uid="uid://d1f8e5khxf5jg" path="res://Assets/FinalFightAssets/floating_skull_enemy/style_C/spritesheet/spritesheet.png" id="1_j6hlm"]
 [ext_resource type="Script" uid="uid://2413qul520qd" path="res://Scenes/boss projectiles/skull.gd" id="1_yyl6e"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yyl6e"]
-atlas = ExtResource("1_j6hlm")
-region = Rect2(0, 0, 42, 42)
+[ext_resource type="Texture2D" uid="uid://lsa467i1xw3s" path="res://Assets/FinalFightAssets/darkspells/Dark VFX 1/Dark VFX 1 (40x32).png" id="2_yyl6e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b76qk"]
-atlas = ExtResource("1_j6hlm")
-region = Rect2(42, 0, 42, 42)
+atlas = ExtResource("2_yyl6e")
+region = Rect2(0, 0, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jxro4"]
-atlas = ExtResource("1_j6hlm")
-region = Rect2(84, 0, 42, 42)
+atlas = ExtResource("2_yyl6e")
+region = Rect2(40, 0, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nmjso"]
-atlas = ExtResource("1_j6hlm")
-region = Rect2(126, 0, 42, 42)
+atlas = ExtResource("2_yyl6e")
+region = Rect2(80, 0, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c3hdd"]
-atlas = ExtResource("1_j6hlm")
-region = Rect2(0, 42, 42, 42)
+atlas = ExtResource("2_yyl6e")
+region = Rect2(120, 0, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7tfml"]
-atlas = ExtResource("1_j6hlm")
-region = Rect2(42, 42, 42, 42)
+atlas = ExtResource("2_yyl6e")
+region = Rect2(160, 0, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qyl5n"]
-atlas = ExtResource("1_j6hlm")
-region = Rect2(84, 42, 42, 42)
+atlas = ExtResource("2_yyl6e")
+region = Rect2(200, 0, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6ca4"]
-atlas = ExtResource("1_j6hlm")
-region = Rect2(126, 42, 42, 42)
+atlas = ExtResource("2_yyl6e")
+region = Rect2(240, 0, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_acbcq"]
-atlas = ExtResource("1_j6hlm")
-region = Rect2(0, 84, 42, 42)
+atlas = ExtResource("2_yyl6e")
+region = Rect2(280, 0, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d1oea"]
-atlas = ExtResource("1_j6hlm")
-region = Rect2(42, 84, 42, 42)
+atlas = ExtResource("2_yyl6e")
+region = Rect2(320, 0, 40, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddxa4"]
-atlas = ExtResource("1_j6hlm")
-region = Rect2(84, 84, 42, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e3snj"]
-atlas = ExtResource("1_j6hlm")
-region = Rect2(126, 84, 42, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gpbud"]
-atlas = ExtResource("1_j6hlm")
-region = Rect2(0, 126, 42, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vunye"]
-atlas = ExtResource("1_j6hlm")
-region = Rect2(42, 126, 42, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qbm2d"]
-atlas = ExtResource("1_j6hlm")
-region = Rect2(84, 126, 42, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ieq5n"]
-atlas = ExtResource("1_j6hlm")
-region = Rect2(126, 126, 42, 42)
+atlas = ExtResource("2_yyl6e")
+region = Rect2(360, 0, 40, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sd0w6"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yyl6e")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b76qk")
 }, {
@@ -102,21 +75,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ddxa4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e3snj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gpbud")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vunye")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qbm2d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ieq5n")
 }],
 "loop": true,
 "name": &"default",
@@ -130,11 +88,12 @@ radius = 16.0
 script = ExtResource("1_yyl6e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-2.6226e-06, -2.6226e-06)
 scale = Vector2(1.90476, 1.90476)
 sprite_frames = SubResource("SpriteFrames_sd0w6")
 autoplay = "default"
-frame_progress = 0.173726
+frame_progress = 0.760003
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["projectile"]]
 shape = SubResource("CircleShape2D_7wd6x")
