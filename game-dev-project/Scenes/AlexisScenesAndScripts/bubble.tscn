@@ -1,15 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjsah8c7syj71"]
+[gd_scene load_steps=4 format=3 uid="uid://bjsah8c7syj71"]
 
 [ext_resource type="Texture2D" uid="uid://c33pmfltcakjr" path="res://Assets/AlexisAssets/Bubbles/Coloured/16x16/bubble_3.png" id="1_lpqqq"]
+[ext_resource type="Script" uid="uid://ddfl1ntdbxpm2" path="res://Scenes/AlexisScenesAndScripts/bubble.gd" id="1_w22cf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lpqqq"]
 radius = 28.0179
 
-[node name="Node2D" type="Area2D"]
+[node name="Node2D" type="Area2D" groups=["projectile"]]
+z_index = 10
+script = ExtResource("1_w22cf")
 
 [node name="BubbleSprite2D" type="Sprite2D" parent="."]
 scale = Vector2(3, 3)
 texture = ExtResource("1_lpqqq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["projectile"]]
 shape = SubResource("CircleShape2D_lpqqq")
