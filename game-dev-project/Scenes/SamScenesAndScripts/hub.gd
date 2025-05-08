@@ -11,6 +11,10 @@ var player_in_door_3 : bool = false
 @onready var portal3_anim = $Door3/TestPortal
 
 func _ready():
+	#tranlation localization
+	$Controls.text = tr("Controls")
+	$ChessBoardControls.text = tr("ChessBoard")
+
 	# Start all portal animations when the scene loads
 	portal1_anim.play("portal")
 	portal2_anim.play("portal")

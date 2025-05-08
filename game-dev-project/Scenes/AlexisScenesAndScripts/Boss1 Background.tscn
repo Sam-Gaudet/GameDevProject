@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dva5b3giq4v0r"]
+
+[ext_resource type="Texture2D" uid="uid://lsa5rmndxm18" path="res://Assets/AlexisAssets/layers/far.png" id="1_n67yl"]
+[ext_resource type="Texture2D" uid="uid://bebi5mfu28ibn" path="res://Assets/AlexisAssets/layers/sand.png" id="2_n0c7f"]
+[ext_resource type="Texture2D" uid="uid://cu0ca73o06miy" path="res://Assets/AlexisAssets/layers/foreground-1.png" id="2_uora1"]
+[ext_resource type="Texture2D" uid="uid://cmb1f88pg0qnr" path="res://Assets/AlexisAssets/layers/foreground-2.png" id="3_eelg7"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ParallaxBackground" type="Node" parent="."]
+
+[node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground"]
+repeat_size = Vector2(1150, 0)
+autoscroll = Vector2(30, 0)
+repeat_times = 5
+
+[node name="Far" type="Sprite2D" parent="ParallaxBackground/Parallax2D"]
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("1_n67yl")
+centered = false
+
+[node name="Parallax2D4" type="Parallax2D" parent="ParallaxBackground"]
+repeat_size = Vector2(765, 0)
+autoscroll = Vector2(40, 0)
+repeat_times = 5
+
+[node name="Sand" type="Sprite2D" parent="ParallaxBackground/Parallax2D4"]
+position = Vector2(-1, 53)
+scale = Vector2(3, 3)
+texture = ExtResource("2_n0c7f")
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="ParallaxBackground"]
+repeat_size = Vector2(765, 0)
+autoscroll = Vector2(100, 0)
+repeat_times = 5
+
+[node name="Foreground1" type="Sprite2D" parent="ParallaxBackground/Parallax2D2"]
+position = Vector2(0, 96)
+scale = Vector2(3, 3)
+texture = ExtResource("2_uora1")
+centered = false
+
+[node name="Parallax2D3" type="Parallax2D" parent="ParallaxBackground"]
+repeat_size = Vector2(765, 0)
+autoscroll = Vector2(100, 0)
+repeat_times = 5
+
+[node name="Foreground2" type="Sprite2D" parent="ParallaxBackground/Parallax2D3"]
+position = Vector2(0, 96)
+scale = Vector2(3, 3)
+texture = ExtResource("3_eelg7")
+centered = false

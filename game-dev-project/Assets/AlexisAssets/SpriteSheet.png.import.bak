@@ -1,0 +1,43 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://c6xie6cbyytnq"
+<<<<<<< HEAD
+path="res://.godot/imported/SpriteSheet.png-888220676fff692b0fde8b2f8437bdec.ctex"
+=======
+path="res://.godot/imported/SpriteSheet.png-ee1f47c07399dbe140ec30526961c5d9.ctex"
+>>>>>>> 9bf9497498578098ad7973cb3d3dac3a159259d8
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+<<<<<<< HEAD
+source_file="res://Assets/AlexisAssets/Ninja Adventure - Asset Pack/Actor/Monsters/AxolotBlue/SpriteSheet.png"
+dest_files=["res://.godot/imported/SpriteSheet.png-888220676fff692b0fde8b2f8437bdec.ctex"]
+=======
+source_file="res://Assets/AlexisAssets/SpriteSheet.png"
+dest_files=["res://.godot/imported/SpriteSheet.png-ee1f47c07399dbe140ec30526961c5d9.ctex"]
+>>>>>>> 9bf9497498578098ad7973cb3d3dac3a159259d8
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1

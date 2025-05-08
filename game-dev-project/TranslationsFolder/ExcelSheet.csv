@@ -1,0 +1,19 @@
+﻿msgid,en,fr
+GameTitle,Platformer,Platformeur
+LanguageLabel,Language,Langue
+MasterLabel,Master,Maitre
+MusicLabel,Music,Musique
+SFXLabel,Sound Effects,effets special
+SaveSettingsButton,Save Settings,enregistrer les parametres
+Controls,Platformer:\Left - A / Left arrow\Right - D /Right arrow\Jump - Space / Up arrow\Interact - Enter / Space,Platformeur:\Gauche - A / Fleche gauche\Droite - D / Fleche droite\Sauter - Espace / Fleche vers le haut\Interagir - Entree / Espace
+MainMenuLabel,Main Menu,Menu Principal
+BossesLabel,Bosses,Bosses
+BossDisplayLabel,Hi Im a boss,Bonjours je suis un boss
+menu,Main Menu,Menu Principal
+restart,Restart,Recommencer
+Play,Play,Jouer
+Options,Options,Parametres
+Quit,Quit,Quitter
+English,English,Anglais
+French,French,Francais
+ChessBoard,Chess board:\Up - W / Up arrow\Down - S / Down arrow\Left - A / Left arrow\Right - D / Right arrow,Echiquier:\Haut - W / Fleche haut\Bas - S / Fleche bas\Gauche - A / Fleche gauche\Droite - D / Fleche droite

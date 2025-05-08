@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ddfk3oa0rxcvf" path="res://Scenes/AlexisScenesAndScripts/main_menu.gd" id="1_0pmvj"]
 [ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="1_t0b6g"]
 [ext_resource type="StyleBox" uid="uid://fqksfxp6mp8g" path="res://Assets/AlexisAssets/ButtonTheme.tres" id="2_3ccvf"]
-[ext_resource type="Texture2D" uid="uid://dxspf404ehykq" path="res://Assets/AlexisAssets/FlowersBG.jpg" id="2_a7f27"]
+[ext_resource type="PackedScene" uid="uid://cpvnu34q0avff" path="res://Scenes/SamScenesAndScripts/forest_background.tscn" id="2_a7f27"]
 [ext_resource type="StyleBox" uid="uid://dx270757cfgt6" path="res://Assets/AlexisAssets/ButtonHover.tres" id="2_ro21a"]
 [ext_resource type="StyleBox" uid="uid://dd11joxjfo11o" path="res://Assets/AlexisAssets/ButtonPressed.tres" id="4_o5lx2"]
 
@@ -56,12 +56,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0pmvj")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-offset_right = 1152.0
-offset_bottom = 648.0
-texture = ExtResource("2_a7f27")
-metadata/_edit_use_anchors_ = true
+[node name="ForestBackground" parent="." instance=ExtResource("2_a7f27")]
+position = Vector2(711, 507)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -81,7 +77,8 @@ metadata/_edit_use_anchors_ = true
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenuMarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/MainMenuMarginContainer/VBoxContainer"]
+[node name="GameTitle" type="Label" parent="CanvasLayer/MainMenuMarginContainer/VBoxContainer"]
+modulate = Color(0, 0.77898, 0.259117, 1)
 layout_mode = 2
 theme = SubResource("Theme_ro21a")
 theme_override_fonts/font = ExtResource("1_t0b6g")
@@ -141,7 +138,8 @@ text = "Language"
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Engish" type="Button" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/LanguageHBoxContainer"]
+[node name="English" type="Button" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/LanguageHBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_0pmvj")
 theme_override_fonts/font = ExtResource("1_t0b6g")
@@ -149,10 +147,11 @@ theme_override_font_sizes/font_size = 45
 text = "English"
 
 [node name="French" type="Button" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/LanguageHBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_a0lgb")
 theme_override_font_sizes/font_size = 45
-text = "French"
+text = "Francais"
 
 [node name="Label" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -163,7 +162,7 @@ text = "Audio"
 [node name="MasterHBoxContainer" type="HBoxContainer" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/MasterHBoxContainer"]
+[node name="MasterLabel" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/MasterHBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Master"
@@ -178,7 +177,7 @@ tick_count = 10
 [node name="MusicHBoxContainer2" type="HBoxContainer" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/MusicHBoxContainer2"]
+[node name="MusicLabel" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/MusicHBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 55
 text = "Music"
@@ -193,7 +192,7 @@ tick_count = 10
 [node name="sfxHBoxContainer3" type="HBoxContainer" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/sfxHBoxContainer3"]
+[node name="SFXLabel" type="Label" parent="CanvasLayer/SettingsMarginContainer/VBoxContainer/sfxHBoxContainer3"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 55
 text = "Sound Effects"
@@ -212,4 +211,9 @@ theme_override_font_sizes/font_size = 40
 text = "Save Settings
 "
 
+[connection signal="pressed" from="CanvasLayer/MainMenuMarginContainer/VBoxContainer/MainMenuVboxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuMarginContainer/VBoxContainer/MainMenuVboxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenuMarginContainer/VBoxContainer/MainMenuVboxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/SettingsMarginContainer/VBoxContainer/LanguageHBoxContainer/English" to="." method="_on_english_pressed"]
+[connection signal="pressed" from="CanvasLayer/SettingsMarginContainer/VBoxContainer/LanguageHBoxContainer/French" to="." method="_on_french_pressed"]
+[connection signal="pressed" from="CanvasLayer/SettingsMarginContainer/VBoxContainer/SaveSettingsButton" to="." method="_on_save_settings_button_pressed"]

@@ -97,7 +97,6 @@ position = Vector2(7, 246)
 script = ExtResource("1_qj7cj")
 
 [node name="Boss2" type="Area2D" parent="."]
-visible = false
 
 [node name="Boss2Sprite" type="Sprite2D" parent="Boss2"]
 modulate = Color(0.972928, 0.587945, 1.15514e-06, 1)
@@ -109,7 +108,7 @@ texture = ExtResource("1_h41p6")
 position = Vector2(997.25, 402.12)
 shape = SubResource("RectangleShape2D_g358o")
 
-[node name="Label" type="Label" parent="Boss2"]
+[node name="BossDisplayLabel" type="Label" parent="Boss2"]
 offset_left = 953.0
 offset_top = 324.0
 offset_right = 1047.0
