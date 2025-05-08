@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bd0147i6qu1g2"]
+[gd_scene load_steps=51 format=3 uid="uid://bd0147i6qu1g2"]
 
 [ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_0g4ct"]
 [ext_resource type="Script" uid="uid://ccaogwqk3572d" path="res://Scenes/final_fight.gd" id="1_i5n05"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bk06rbhlo2ybr" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_3.png" id="11_i5m1n"]
 [ext_resource type="Texture2D" uid="uid://bivjjo1ji8nxc" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_2.png" id="12_wwst1"]
 [ext_resource type="Texture2D" uid="uid://drb53iio332hu" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_1.png" id="13_11ctd"]
+[ext_resource type="Texture2D" uid="uid://bwnp4nl2lxwn2" path="res://Assets/GameboardAssets/Item__71.png" id="16_i5m1n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ahpb"]
 atlas = ExtResource("4_4ahpb")
@@ -476,6 +477,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_i5m1n"]
+radius = 9.0
+
 [node name="FinalFight" type="Node2D"]
 position = Vector2(1, 0)
 script = ExtResource("1_i5n05")
@@ -599,3 +603,15 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(776.064, 517.25)
 scale = Vector2(1.75788, 1.75788)
 texture = ExtResource("6_egdey")
+
+[node name="trophy" type="Area2D" parent="." groups=["win"]]
+position = Vector2(-345, 296)
+scale = Vector2(2, 2)
+
+[node name="trophyimasge" type="Sprite2D" parent="trophy"]
+scale = Vector2(2, 2)
+texture = ExtResource("16_i5m1n")
+
+[node name="trophy" type="CollisionShape2D" parent="trophy"]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_i5m1n")

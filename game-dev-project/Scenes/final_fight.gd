@@ -6,6 +6,7 @@ var shake_timer = 0.0
 var shake_strength = 5.0
 #Testing
 func _ready():
+	Global.current_level = "3"
 	await get_tree().create_timer(7.0).timeout
 	fakeboss.play("die")
 	await get_tree().create_timer(3.0).timeout
@@ -118,8 +119,8 @@ func start_multiple_waves():
 	spawn_tile_explosions(5, 1.2)
 	await get_tree().create_timer(6.0).timeout
 	launch_planet_attack()
-	await get_tree().create_timer(13).timeout
-	win()
+	await get_tree().create_timer(18).timeout
+	trophy()
 
 
 
@@ -267,22 +268,7 @@ func launch_planet_attack():
 	planet2.set_direction(Vector2(-1, 0.5))  # Angle toward center
 	add_child(planet2)
 
-func win():
-	var fade = $FadeOverlay
-	fade.visible = true
-	var tween = create_tween()
-	tween.tween_property(fade, "modulate:a", 1.0, 2.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
-
-	# Load explosion scene
-	var explosion_scene = preload("res://Scenes/boss projectiles/winboom.tscn")
-
-	# Spawn explosions across the screen during the fade
-	for i in range(20):
-		var explosion = explosion_scene.instantiate()
-		var x = randi_range(0, get_viewport_rect().size.x)
-		var y = randi_range(0, get_viewport_rect().size.y)
-		explosion.position = Vector2(x, y)
-		add_child(explosion)
-
-		# Optional: stagger the spawn slightly for variation
-		await get_tree().create_timer(randf_range(0.05, 0.2)).timeout
+func trophy():
+	$trophy.position(586.0, 296.0)
+	$trophy.visible = true
+	Global.last_level_completed = "Level3"

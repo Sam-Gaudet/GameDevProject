@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://bxtm6t7t5o816"]
+[gd_scene load_steps=41 format=4 uid="uid://bxtm6t7t5o816"]
 
 [ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_mtd77"]
 [ext_resource type="Script" uid="uid://ckkwh8sx60g83" path="res://Scenes/SamScenesAndScripts/boss_fight_2.gd" id="1_twden"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://diinr1rd1s686" path="res://Assets/SamAssets/IDLE.png" id="8_ftg7x"]
 [ext_resource type="Texture2D" uid="uid://2x8tmg5avwl8" path="res://Assets/SamAssets/HURT.png" id="8_ifhdf"]
 [ext_resource type="PackedScene" uid="uid://dal1m8ay0xbf4" path="res://Scenes/SamScenesAndScripts/torch.tscn" id="9_jskob"]
+[ext_resource type="Texture2D" uid="uid://bwnp4nl2lxwn2" path="res://Assets/GameboardAssets/Item__71.png" id="12_1i0qf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_srs60"]
 texture = ExtResource("6_srs60")
@@ -237,6 +238,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bri00"]
+radius = 9.0
+
 [node name="BossFight2" type="Node2D"]
 script = ExtResource("1_twden")
 
@@ -307,3 +311,17 @@ position = Vector2(123, -347)
 
 [node name="Torch8" parent="." instance=ExtResource("9_jskob")]
 position = Vector2(-128, -351)
+
+[node name="trophy" type="Area2D" parent="." groups=["win"]]
+position = Vector2(-345, 296)
+scale = Vector2(2, 2)
+
+[node name="trophyimasge" type="Sprite2D" parent="trophy"]
+position = Vector2(-251, -145.5)
+scale = Vector2(2, 2)
+texture = ExtResource("12_1i0qf")
+
+[node name="trophy" type="CollisionShape2D" parent="trophy"]
+position = Vector2(-251, -144.5)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_bri00")
