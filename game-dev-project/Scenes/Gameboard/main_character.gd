@@ -108,8 +108,8 @@ func take_damage():
 	if life == 0:
 		is_dead = true
 		blackscreen.visible = true
-		blackscreen.z_index = 1000
-		player.z_index = 2000
+		blackscreen.z_index = 10000000
+		player.z_index = 20002222
 		death_timer.start()
 		is_moving = true 
 		gameoverTimer.wait_time = 2
