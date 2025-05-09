@@ -3,11 +3,13 @@
 importer="csv_translation"
 type="Translation"
 uid="uid://b24aymyjv2eeq"
-valid=false
 
 [deps]
 
+files=["res://TranslationsFolder/ExcelSheet.en.translation", "res://TranslationsFolder/ExcelSheet.fr.translation"]
+
 source_file="res://TranslationsFolder/ExcelSheet.csv"
+dest_files=["res://TranslationsFolder/ExcelSheet.en.translation", "res://TranslationsFolder/ExcelSheet.fr.translation"]
 
 [params]
 

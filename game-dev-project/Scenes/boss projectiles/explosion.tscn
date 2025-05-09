@@ -138,6 +138,7 @@ texture = ExtResource("3_23xvl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["projectile"]]
 modulate = Color(1, 0.266667, 1, 1)
+texture_filter = 1
 position = Vector2(35.5556, 35.5556)
 scale = Vector2(0.987654, 0.987654)
 sprite_frames = SubResource("SpriteFrames_o7wle")

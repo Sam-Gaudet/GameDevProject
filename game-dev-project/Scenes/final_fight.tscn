@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bd0147i6qu1g2"]
+[gd_scene load_steps=63 format=3 uid="uid://bd0147i6qu1g2"]
 
 [ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_0g4ct"]
 [ext_resource type="Script" uid="uid://ccaogwqk3572d" path="res://Scenes/final_fight.gd" id="1_i5n05"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bivjjo1ji8nxc" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_2.png" id="12_wwst1"]
 [ext_resource type="Texture2D" uid="uid://drb53iio332hu" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_1.png" id="13_11ctd"]
 [ext_resource type="Texture2D" uid="uid://bwnp4nl2lxwn2" path="res://Assets/GameboardAssets/Item__71.png" id="16_i5m1n"]
+[ext_resource type="Texture2D" uid="uid://cypabsif65gpj" path="res://Assets/GameboardAssets/glitch sprite sheet.png" id="17_wwst1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ahpb"]
 atlas = ExtResource("4_4ahpb")
@@ -480,6 +481,84 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_i5m1n"]
 radius = 9.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uol3"]
+atlas = ExtResource("17_wwst1")
+region = Rect2(0, 0, 220, 275)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4cat"]
+atlas = ExtResource("17_wwst1")
+region = Rect2(220, 0, 220, 275)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jckl"]
+atlas = ExtResource("17_wwst1")
+region = Rect2(440, 0, 220, 275)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nn1x"]
+atlas = ExtResource("17_wwst1")
+region = Rect2(660, 0, 220, 275)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6sf1"]
+atlas = ExtResource("17_wwst1")
+region = Rect2(880, 0, 220, 275)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qday"]
+atlas = ExtResource("17_wwst1")
+region = Rect2(0, 275, 220, 275)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgu4g"]
+atlas = ExtResource("17_wwst1")
+region = Rect2(220, 275, 220, 275)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muvq4"]
+atlas = ExtResource("17_wwst1")
+region = Rect2(440, 275, 220, 275)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4f73"]
+atlas = ExtResource("17_wwst1")
+region = Rect2(660, 275, 220, 275)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbtpw"]
+atlas = ExtResource("17_wwst1")
+region = Rect2(880, 275, 220, 275)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ktoww"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uol3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4cat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jckl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nn1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6sf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qday")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgu4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muvq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4f73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbtpw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 14.0
+}]
+
 [node name="FinalFight" type="Node2D"]
 position = Vector2(1, 0)
 script = ExtResource("1_i5n05")
@@ -571,6 +650,7 @@ texture = ExtResource("13_11ctd")
 
 [node name="black" type="Sprite2D" parent="."]
 z_index = -100
+texture_filter = 1
 position = Vector2(587.5, 347)
 scale = Vector2(8.63286, 7.01227)
 texture = ExtResource("6_i5n05")
@@ -578,6 +658,7 @@ texture = ExtResource("6_i5n05")
 [node name="GameBoard" parent="." instance=ExtResource("1_0g4ct")]
 modulate = Color(1, 0, 0, 1)
 z_index = 10
+texture_filter = 1
 position = Vector2(576, 328)
 
 [node name="Camera2D" type="Camera2D" parent="GameBoard"]
@@ -585,6 +666,7 @@ visible = false
 position = Vector2(-4, -6)
 
 [node name="fakeboss" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(587, 22)
 scale = Vector2(5.28906, 5.28906)
 sprite_frames = SubResource("SpriteFrames_i5a2n")
@@ -600,11 +682,14 @@ autoplay = "default"
 
 [node name="FadeOverlay" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
+texture_filter = 1
 position = Vector2(776.064, 517.25)
 scale = Vector2(1.75788, 1.75788)
 texture = ExtResource("6_egdey")
 
 [node name="trophy" type="Area2D" parent="." groups=["win"]]
+visible = false
+texture_filter = 1
 position = Vector2(-345, 296)
 scale = Vector2(2, 2)
 
@@ -615,3 +700,14 @@ texture = ExtResource("16_i5m1n")
 [node name="trophy" type="CollisionShape2D" parent="trophy"]
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_i5m1n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 4096
+position = Vector2(572, 281.75)
+scale = Vector2(6.2, 3.04909)
+sprite_frames = SubResource("SpriteFrames_ktoww")
+autoplay = "default"
+frame_progress = 0.0306338
+
+[connection signal="body_entered" from="trophy" to="." method="_on_trophy_body_entered"]

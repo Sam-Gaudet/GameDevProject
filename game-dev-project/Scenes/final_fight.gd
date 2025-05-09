@@ -269,6 +269,27 @@ func launch_planet_attack():
 	add_child(planet2)
 
 func trophy():
-	$trophy.position(586.0, 296.0)
+	$trophy.position = Vector2(577, 296)
+	await get_tree().create_timer(0.5)
 	$trophy.visible = true
+	$trophy.scale = Vector2(0.01, 0.01)  # Start tiny (almost invisible)
+	$trophy.monitoring = true
 	Global.last_level_completed = "Level3"
+
+	# Tween to normal size
+	var tween = create_tween()
+	tween.tween_property($trophy, "scale", Vector2(1, 1), 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+
+
+func _on_trophy_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+	# Scale up trophy
+		var tween = create_tween()
+		tween.tween_property($trophy, "scale", Vector2(6, 6), 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+
+	# Wait, then hide/remove trophy
+		await tween.finished
+		$trophy.visible = false
+		$trophy.monitoring = false  # Stop further triggers

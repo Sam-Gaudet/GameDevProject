@@ -238,7 +238,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1i0qf"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bri00"]
 radius = 9.0
 
 [node name="BossFight2" type="Node2D"]
@@ -313,15 +313,15 @@ position = Vector2(123, -347)
 position = Vector2(-128, -351)
 
 [node name="trophy" type="Area2D" parent="." groups=["win"]]
-visible = false
-texture_filter = 1
 position = Vector2(-345, 296)
 scale = Vector2(2, 2)
 
 [node name="trophyimasge" type="Sprite2D" parent="trophy"]
+position = Vector2(-291, -150)
 scale = Vector2(2, 2)
 texture = ExtResource("12_1i0qf")
 
 [node name="trophy" type="CollisionShape2D" parent="trophy"]
+position = Vector2(-292.5, -148.5)
 scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_1i0qf")
+shape = SubResource("CircleShape2D_bri00")

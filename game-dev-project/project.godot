@@ -29,6 +29,7 @@ projectile=""
 player_attack="For bomb throw"
 attack=""
 planet=""
+player=""
 
 [input]
 

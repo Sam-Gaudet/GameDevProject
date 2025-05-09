@@ -160,7 +160,7 @@ sprite_frames = SubResource("SpriteFrames_pyvrv")
 autoplay = "default"
 frame_progress = 0.810753
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["projectile"]]
 position = Vector2(-408, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

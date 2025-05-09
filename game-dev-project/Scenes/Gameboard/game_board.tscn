@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cfie0mfxbb5ed"]
+[gd_scene load_steps=27 format=3 uid="uid://cfie0mfxbb5ed"]
 
 [ext_resource type="Script" uid="uid://18wcj2jaknpp" path="res://Scenes/Gameboard/game_board.gd" id="1_8iux8"]
 [ext_resource type="Script" uid="uid://7lhiqqsvopn3" path="res://Scenes/Gameboard/camera.gd" id="2_h6sja"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b6cw6bav8mnrr" path="res://Assets/GameboardAssets/273.png" id="4_oa80g"]
 [ext_resource type="FontFile" uid="uid://rf3xdt6kmvpp" path="res://Assets/GameboardAssets/GelatinMonoTTF.ttf" id="5_gsrb0"]
 [ext_resource type="Texture2D" uid="uid://d2i7u7itukj8t" path="res://Assets/GameboardAssets/green heart.png" id="5_uk3bs"]
+[ext_resource type="Texture2D" uid="uid://m8dx5i81rekp" path="res://Scenes/Gameboard/Red-Light-PNG-Image-HD.png" id="10_hk3xa"]
 [ext_resource type="Texture2D" uid="uid://cvmubg66kvtga" path="res://Assets/GameboardAssets/solid-red-background-14148727243CA.jpg" id="11_ptfbb"]
 [ext_resource type="Texture2D" uid="uid://bf27f2reodlaa" path="res://Assets/FinalFightAssets/s832171791223022656_p922_i1_w2048.jpeg" id="11_vxeql"]
 [ext_resource type="Script" uid="uid://dqvbspy6c2jio" path="res://Scenes/Gameboard/main_character.gd" id="46_oa80g"]
@@ -185,8 +186,7 @@ scale = Vector2(0.228646, 0.256709)
 shape = SubResource("RectangleShape2D_fleov")
 debug_color = Color(0.820336, 0.353676, 0.511924, 0.415686)
 
-[node name="MainCharacter" type="RigidBody2D" parent="." groups=["player_attack"]]
-visible = false
+[node name="MainCharacter" type="RigidBody2D" parent="." groups=["player", "player_attack"]]
 z_index = 30
 collision_mask = 9
 gravity_scale = 0.0
@@ -196,6 +196,12 @@ script = ExtResource("46_oa80g")
 position = Vector2(2.38419e-07, 2.38419e-07)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("46_uk3bs")
+
+[node name="PointLight2D" type="PointLight2D" parent="MainCharacter/Sprite2D"]
+position = Vector2(-1.49012e-07, -1.49012e-07)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("10_hk3xa")
+texture_scale = 0.05
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainCharacter"]
 shape = SubResource("CircleShape2D_uk3bs")
