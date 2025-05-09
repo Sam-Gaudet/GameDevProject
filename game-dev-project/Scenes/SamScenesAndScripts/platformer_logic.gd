@@ -5,6 +5,7 @@ extends Node2D
 @onready var transition_rect = $Transition/TransitionRect
 @onready var heart_sprite = $Transition/HeartSprite
 @onready var camera = $PlayerPlatformer/Camera2D
+@onready var animated_sprite = $PlayerPlatformer/AnimatedSprite2D
 var player_position : Vector2
 
 # Existing variables
@@ -18,7 +19,6 @@ func _ready():
 	transition_rect.visible = false
 	heart_sprite.visible = false
 	#transition_rect.color = Color(0, 0, 0, 0)  # Start transparent
-	%Boss.play("idle")
 	
 
 # Hub -------------------------------------------
@@ -72,6 +72,9 @@ func _input(event: InputEvent) -> void:
 
 func start_boss_transition():
 	var player = get_node("PlayerPlatformer")
+	if player.has_method("set_movement_enabled"):
+		player.set_movement_enabled(false)  
+		animated_sprite.play("idle")
 	player_position = player.global_position
 	print(player_position)
 	player.visible = true

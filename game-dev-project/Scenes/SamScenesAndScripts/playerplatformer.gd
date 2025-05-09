@@ -57,3 +57,7 @@ func _update_animations(direction):
 	else:  # Not moving
 		animated_sprite.play("idle")
 		animated_sprite.flip_h = last_direction < 0
+
+func set_movement_enabled(enabled: bool):
+	set_process_input(enabled)
+	set_physics_process(enabled)

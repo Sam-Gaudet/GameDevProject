@@ -1652,7 +1652,7 @@ tile_set = SubResource("TileSet_hqe6c")
 
 [node name="Castle" type="TileMapLayer" parent="CanvasLayer2/TileMapLayer"]
 modulate = Color(0.783523, 0.783523, 0.783523, 1)
-tile_map_data = PackedByteArray("AAD/////AAAAABYAAAD//wAAAAAAABcAAAAAAP//AAABABYAAAAAAAAAAAABABcAAAA=")
+tile_map_data = PackedByteArray("AAD/////AAAUAAwAAAD//wAAAAAUAA0AAAAAAP//AAAVAAwAAAAAAAAAAAAVAA0AAAAEAP3/AAAYAAwAAAAEAP7/AAAYAA0AAAAFAP3/AAAZAAwAAAAFAP7/AAAZAA0AAAD6//3/AAAYAAwAAAD6//7/AAAYAA0AAAD7//3/AAAZAAwAAAD7//7/AAAZAA0AAAA=")
 tile_set = SubResource("TileSet_orm83")
 
 [node name="Boss2" type="Area2D" parent="."]
