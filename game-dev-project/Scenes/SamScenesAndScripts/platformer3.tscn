@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cv4pj7011cc60"]
+[gd_scene load_steps=14 format=3 uid="uid://cv4pj7011cc60"]
 
 [ext_resource type="Script" uid="uid://dqdpurbolymav" path="res://Scenes/SamScenesAndScripts/platformer_logic.gd" id="1_tpqbk"]
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="2_jekxf"]
-[ext_resource type="Shader" path="res://Scenes/SamScenesAndScripts/chromatic.gdshader" id="2_r4n7g"]
+[ext_resource type="Shader" uid="uid://bwtity1bwaoio" path="res://Scenes/SamScenesAndScripts/chromatic.gdshader" id="2_r4n7g"]
 [ext_resource type="Texture2D" uid="uid://bte3wuqwkulpn" path="res://Assets/AlexisAssets/hearth1.png" id="2_tgdpd"]
 [ext_resource type="PackedScene" uid="uid://du5i5alatbswb" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="3_r4n7g"]
 [ext_resource type="PackedScene" uid="uid://cpvnu34q0avff" path="res://Scenes/SamScenesAndScripts/forest_background.tscn" id="4_jekxf"]
@@ -26,45 +26,6 @@ size = Vector2(34.5, 502)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5ing"]
 size = Vector2(44.5, 254.75)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tgdpd"]
-atlas = ExtResource("2_r4n7g")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ybut8"]
-atlas = ExtResource("2_r4n7g")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_spps7"]
-atlas = ExtResource("2_r4n7g")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q41a0"]
-atlas = ExtResource("2_r4n7g")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_86dwe"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tgdpd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ybut8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_spps7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q41a0")
-}],
-"loop": true,
-"name": &"default",
-"speed": 6.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g358o"]
-size = Vector2(102, 172.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybut8"]
 size = Vector2(313, 208)
@@ -103,13 +64,19 @@ offset_bottom = 882.0
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
+[node name="forest_background" parent="." instance=ExtResource("4_jekxf")]
+position = Vector2(-69, 70)
+
 [node name="Boss3" type="Area2D" parent="."]
 
-[node name="Boss3Sprite" type="Sprite2D" parent="Boss3"]
+[node name="Boss3Sprite" type="AnimatedSprite2D" parent="Boss3"]
 modulate = Color(0.734492, 0.000885221, 0.812406, 1)
-position = Vector2(1000.25, 397.87)
-scale = Vector2(0.800614, 0.800614)
-texture = ExtResource("2_jekxf")
+texture_filter = 1
+position = Vector2(981, 417.12)
+scale = Vector2(3.5625, 3.5625)
+autoplay = "default"
+frame_progress = 0.718602
+flip_h = true
 
 [node name="Boss3Trigger" type="CollisionShape2D" parent="Boss3"]
 position = Vector2(997.25, 402.12)
@@ -153,35 +120,8 @@ shape = SubResource("RectangleShape2D_u5ing")
 [node name="PlayerPlatformer" parent="." instance=ExtResource("3_r4n7g")]
 position = Vector2(324, 430)
 
-[node name="Boss3" type="Area2D" parent="."]
-
-[node name="Boss3Sprite" type="AnimatedSprite2D" parent="Boss3"]
-modulate = Color(0.734492, 0.000885221, 0.812406, 1)
-texture_filter = 1
-position = Vector2(981, 417.12)
-scale = Vector2(3.5625, 3.5625)
-sprite_frames = SubResource("SpriteFrames_86dwe")
-autoplay = "default"
-frame_progress = 0.718602
-flip_h = true
-
-[node name="Boss3Trigger" type="CollisionShape2D" parent="Boss3"]
-position = Vector2(997.25, 402.12)
-shape = SubResource("RectangleShape2D_g358o")
-
-[node name="Label" type="Label" parent="Boss3"]
-offset_left = 959.0
-offset_top = 323.0
-offset_right = 1053.0
-offset_bottom = 346.0
-metadata/_edit_use_anchors_ = true
-
-[node name="forest_background" parent="." instance=ExtResource("4_jekxf")]
-position = Vector2(-69, 70)
-
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(997, 372)
-script = ExtResource("6_tgdpd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-15.5, 1)
@@ -193,13 +133,11 @@ offset_left = -108.5
 offset_top = -38.0
 offset_right = 124.5
 offset_bottom = -15.0
-theme_override_fonts/font = ExtResource("7_ybut8")
-theme_override_font_sizes/font_size = 23
 text = "Prepare yourself for battle"
 
-[connection signal="body_entered" from="Hub" to="." method="_on_hub_body_entered"]
-[connection signal="body_exited" from="Hub" to="." method="_on_hub_body_exited"]
 [connection signal="body_entered" from="Boss3" to="." method="_on_boss_3_body_entered"]
 [connection signal="body_exited" from="Boss3" to="." method="_on_boss_3_body_exited"]
+[connection signal="body_entered" from="Hub" to="." method="_on_hub_body_entered"]
+[connection signal="body_exited" from="Hub" to="." method="_on_hub_body_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

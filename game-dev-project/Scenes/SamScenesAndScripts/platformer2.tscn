@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqdpurbolymav" path="res://Scenes/SamScenesAndScripts/platformer_logic.gd" id="1_qj7cj"]
 [ext_resource type="Texture2D" uid="uid://bte3wuqwkulpn" path="res://Assets/AlexisAssets/hearth1.png" id="2_5ogck"]
-[ext_resource type="PackedScene" uid="uid://dlngourcew8p7" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_qj7cj"]
+[ext_resource type="PackedScene" uid="uid://du5i5alatbswb" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_qj7cj"]
 [ext_resource type="PackedScene" uid="uid://cpvnu34q0avff" path="res://Scenes/SamScenesAndScripts/forest_background.tscn" id="4_wpnnp"]
 [ext_resource type="Texture2D" uid="uid://b3pfx2cmwlmt7" path="res://Assets/SamAssets/DEATH.png" id="5_hqe6c"]
 [ext_resource type="Texture2D" uid="uid://2x8tmg5avwl8" path="res://Assets/SamAssets/HURT.png" id="6_7lkbu"]
