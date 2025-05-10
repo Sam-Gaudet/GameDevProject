@@ -29,6 +29,14 @@ https://xzany.itch.io/free-knight-2d-pixel-art
 engineering15
 https://engineering15.itch.io/pixel-pack
 
+OPP 2017 - Castle tiles
+opp2017castle
+https://openpixelproject.itch.io/opp2017castle
+
+nikllamadev
+Dungeon Animated Tiles and Set Pieces
+https://nikllamadev.itch.io/dungeon-castle-pixel-art-asset-pack-free
+
 (Possible use)
 https://kayillustrations.itch.io/parallax-sunset-mountains
 https://free-game-assets.itch.io/free-sky-with-clouds-background-pixel-art-set
