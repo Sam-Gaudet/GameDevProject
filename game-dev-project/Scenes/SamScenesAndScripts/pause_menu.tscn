@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpe1myrr8qswa"]
+
+[ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="1_64o8y"]
+
+[node name="PauseMenu" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5
+offset = Vector2(576, 324)
+transform = Transform2D(1, 0, 0, 1, 576, 324)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+scale = Vector2(3.76, 1.64)
+texture = ExtResource("1_64o8y")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -57.0
+offset_top = -165.0
+offset_right = 57.0
+offset_bottom = -142.0
+text = "HELLO WORLD"
+metadata/_edit_use_anchors_ = true

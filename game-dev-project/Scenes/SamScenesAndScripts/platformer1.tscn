@@ -1,49 +1,19 @@
-[gd_scene load_steps=16 format=3 uid="uid://cmne264dkm6l5"]
+[gd_scene load_steps=13 format=3 uid="uid://cmne264dkm6l5"]
 
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="1_c0qil"]
 [ext_resource type="Script" uid="uid://dqdpurbolymav" path="res://Scenes/SamScenesAndScripts/platformer_logic.gd" id="1_ms48t"]
-[ext_resource type="PackedScene" uid="uid://dlngourcew8p7" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_g358o"]
+[ext_resource type="PackedScene" uid="uid://du5i5alatbswb" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_g358o"]
+[ext_resource type="Texture2D" uid="uid://bte3wuqwkulpn" path="res://Assets/AlexisAssets/hearth1.png" id="2_kc33n"]
+[ext_resource type="Shader" uid="uid://bwtity1bwaoio" path="res://Scenes/SamScenesAndScripts/chromatic.gdshader" id="2_u5ing"]
 [ext_resource type="PackedScene" uid="uid://cpvnu34q0avff" path="res://Scenes/SamScenesAndScripts/forest_background.tscn" id="2_ywuxp"]
-[ext_resource type="Texture2D" uid="uid://c6xie6cbyytnq" path="res://Assets/AlexisAssets/SpriteSheet.png" id="4_ywuxp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kc33n"]
+shader = ExtResource("2_u5ing")
+shader_parameter/aberration = 0.1
+shader_parameter/strength = 0.01
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g358o"]
 size = Vector2(102, 172.5)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vnjvd"]
-atlas = ExtResource("4_ywuxp")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0t65x"]
-atlas = ExtResource("4_ywuxp")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mvgvc"]
-atlas = ExtResource("4_ywuxp")
-region = Rect2(0, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x5bls"]
-atlas = ExtResource("4_ywuxp")
-region = Rect2(0, 48, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_u5ing"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vnjvd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0t65x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mvgvc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x5bls")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ms48t"]
 size = Vector2(1168, 180)
@@ -60,6 +30,36 @@ size = Vector2(44.5, 254.75)
 [node name="Platformer1" type="Node2D"]
 script = ExtResource("1_ms48t")
 
+[node name="Transition" type="CanvasLayer" parent="."]
+layer = 3
+follow_viewport_enabled = true
+
+[node name="TransitionRect" type="ColorRect" parent="Transition"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 905.0
+offset_bottom = 509.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HeartSprite" type="Sprite2D" parent="Transition"]
+texture_filter = 1
+texture = ExtResource("2_kc33n")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_priority = 2
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_kc33n")
+offset_right = 1568.0
+offset_bottom = 882.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
 [node name="forest_background" parent="." instance=ExtResource("2_ywuxp")]
 
 [node name="Boss1" type="Area2D" parent="."]
@@ -68,12 +68,6 @@ position = Vector2(10, 251)
 [node name="Boss1Trigger" type="CollisionShape2D" parent="Boss1"]
 position = Vector2(997.25, 402.12)
 shape = SubResource("RectangleShape2D_g358o")
-
-[node name="TempBossAnimatedSprite2D" type="AnimatedSprite2D" parent="Boss1"]
-position = Vector2(994, 445)
-scale = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_u5ing")
-autoplay = "default"
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(10, 251)

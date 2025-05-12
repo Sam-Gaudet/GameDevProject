@@ -120,7 +120,7 @@ func deflect_bomb():
 	
 	# Store current position and calculate arc
 	var start_pos = bomb_sprite.global_position
-	var arc_height = 5  # Same as throw arc
+	var arc_height = 15  # Same as throw arc
 	
 	# Return to boss with identical arc movement
 	var return_tween = create_tween()

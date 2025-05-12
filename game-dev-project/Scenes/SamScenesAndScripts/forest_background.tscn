@@ -14,7 +14,7 @@
 [node name="ForestBackground" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-layer = -1
+layer = -3
 
 [node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
 modulate = Color(0.513726, 0.913725, 1, 1)
@@ -104,20 +104,37 @@ scale = Vector2(0.685309, 0.64537)
 texture = ExtResource("7_nel0x")
 centered = false
 
-[node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+layer = -1
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground2"]
 modulate = Color(0.470588, 0.733333, 0.380392, 1)
+z_index = 1
 texture_filter = 1
 position = Vector2(-4, 13)
 motion_mirroring = Vector2(1754, 0)
 
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer8"]
 position = Vector2(2, -4)
 scale = Vector2(0.685309, 0.64537)
 texture = ExtResource("8_7s3tr")
 centered = false
 
 [node name="ParallaxForeground" type="ParallaxBackground" parent="."]
-layer = 1
+layer = 2
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxForeground"]
+visible = false
+modulate = Color(0.470588, 0.733333, 0.380392, 1)
+texture_filter = 1
+position = Vector2(-4, 13)
+motion_mirroring = Vector2(1754, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxForeground/ParallaxLayer8"]
+position = Vector2(2, -4)
+scale = Vector2(0.685309, 0.64537)
+texture = ExtResource("8_7s3tr")
+centered = false
 
 [node name="ParallaxLayer9" type="ParallaxLayer" parent="ParallaxForeground"]
 modulate = Color(0.407843, 0.666667, 0.321569, 1)
@@ -139,7 +156,7 @@ motion_scale = Vector2(1.5, 1.1)
 motion_mirroring = Vector2(1754, 0)
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxForeground/ParallaxLayer10"]
-position = Vector2(2, -4)
+position = Vector2(-1, 41)
 scale = Vector2(0.685309, 0.64537)
 texture = ExtResource("10_k2tvy")
 centered = false
