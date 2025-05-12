@@ -20,6 +20,7 @@ func _ready():
 
 func animate_label(label: Label) -> void:
 	label.visible = true
+	$bonk.play()
 
 
 	var tween = create_tween()

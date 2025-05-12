@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://bd0147i6qu1g2"]
+[gd_scene load_steps=64 format=3 uid="uid://bd0147i6qu1g2"]
 
 [ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_0g4ct"]
 [ext_resource type="Script" uid="uid://ccaogwqk3572d" path="res://Scenes/final_fight.gd" id="1_i5n05"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://drb53iio332hu" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_1.png" id="13_11ctd"]
 [ext_resource type="Texture2D" uid="uid://bwnp4nl2lxwn2" path="res://Assets/GameboardAssets/Item__71.png" id="16_i5m1n"]
 [ext_resource type="Texture2D" uid="uid://cypabsif65gpj" path="res://Assets/GameboardAssets/glitch sprite sheet.png" id="17_wwst1"]
+[ext_resource type="AudioStream" uid="uid://bswhuv2yvgxn2" path="res://Assets/FinalFightAssets/song for game(quick).mp3" id="18_11ctd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ahpb"]
 atlas = ExtResource("4_4ahpb")
@@ -709,5 +710,9 @@ scale = Vector2(6.2, 3.04909)
 sprite_frames = SubResource("SpriteFrames_ktoww")
 autoplay = "default"
 frame_progress = 0.0306338
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_11ctd")
+volume_db = 0.99
 
 [connection signal="body_entered" from="trophy" to="." method="_on_trophy_body_entered"]

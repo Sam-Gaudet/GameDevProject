@@ -11,7 +11,7 @@ func _ready():
 	fakeboss.play("die")
 	await get_tree().create_timer(3.0).timeout
 	real_boss_man()
-	await get_tree().create_timer(6.0).timeout
+	await get_tree().create_timer(8.0).timeout
 	start_fight()
 
 #Scenes import
@@ -61,6 +61,7 @@ func real_boss_man():
 
 
 func shake_nodes(nodes: Array, duration: float, intensity: float) -> void:
+	$AudioStreamPlayer2D.play()
 	var original_positions = {}
 	for node in nodes:
 		original_positions[node] = node.position
@@ -88,7 +89,7 @@ func shake_nodes(nodes: Array, duration: float, intensity: float) -> void:
 func start_fade_to_white():
 	var fade = $FadeOverlay
 	var tween = create_tween()
-	tween.tween_property(fade, "modulate:a", 1.0, 2.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+	tween.tween_property(fade, "modulate:a", 1.0, 6.0).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
 
 
 
