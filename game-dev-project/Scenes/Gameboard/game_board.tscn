@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cfie0mfxbb5ed"]
+[gd_scene load_steps=28 format=3 uid="uid://cfie0mfxbb5ed"]
 
 [ext_resource type="Script" uid="uid://18wcj2jaknpp" path="res://Scenes/Gameboard/game_board.gd" id="1_8iux8"]
 [ext_resource type="Script" uid="uid://7lhiqqsvopn3" path="res://Scenes/Gameboard/camera.gd" id="2_h6sja"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://m8dx5i81rekp" path="res://Scenes/Gameboard/Red-Light-PNG-Image-HD.png" id="10_hk3xa"]
 [ext_resource type="Texture2D" uid="uid://cvmubg66kvtga" path="res://Assets/GameboardAssets/solid-red-background-14148727243CA.jpg" id="11_ptfbb"]
 [ext_resource type="Texture2D" uid="uid://bf27f2reodlaa" path="res://Assets/FinalFightAssets/s832171791223022656_p922_i1_w2048.jpeg" id="11_vxeql"]
+[ext_resource type="AudioStream" uid="uid://sndi5qme270s" path="res://Assets/GameboardAssets/single-beep_C_major.wav" id="14_a6kam"]
 [ext_resource type="Script" uid="uid://dqvbspy6c2jio" path="res://Scenes/Gameboard/main_character.gd" id="46_oa80g"]
 [ext_resource type="Texture2D" uid="uid://i76c8o64rakq" path="res://Assets/GameboardAssets/hearth.png" id="46_uk3bs"]
 [ext_resource type="Texture2D" uid="uid://dhasar33v5i8h" path="res://Assets/GameboardAssets/background game.png" id="48_8gdtb"]
@@ -176,6 +177,9 @@ pivot_offset = Vector2(108, 223)
 theme_override_fonts/font = ExtResource("5_gsrb0")
 theme_override_font_sizes/font_size = 500
 
+[node name="bonk" type="AudioStreamPlayer2D" parent="Countdown"]
+stream = ExtResource("14_a6kam")
+
 [node name="gamearea" type="Area2D" parent="."]
 visible = false
 
@@ -187,6 +191,7 @@ shape = SubResource("RectangleShape2D_fleov")
 debug_color = Color(0.820336, 0.353676, 0.511924, 0.415686)
 
 [node name="MainCharacter" type="RigidBody2D" parent="." groups=["player", "player_attack"]]
+visible = false
 z_index = 30
 collision_mask = 9
 gravity_scale = 0.0

@@ -1,38 +1,74 @@
-[gd_scene load_steps=12 format=3 uid="uid://c4va1grgwsxu1"]
+[gd_scene load_steps=21 format=3 uid="uid://c4va1grgwsxu1"]
 
 [ext_resource type="Script" uid="uid://cwob6ilfkxbh5" path="res://Scenes/boss projectiles/wall_skull.gd" id="1_w8ajp"]
-[ext_resource type="Texture2D" uid="uid://b8mtjjtisj18n" path="res://Assets/FinalFightAssets/darkspells/Holy VFX 02/Holy VFX 02.png" id="2_w8ajp"]
+[ext_resource type="Texture2D" uid="uid://dvh6rd5r4n31c" path="res://Assets/FinalFightAssets/floating_skull_enemy/style_E/spritesheet/spritesheet.png" id="2_w8ajp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_46w5m"]
 radius = 13.2816
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tgn85"]
 atlas = ExtResource("2_w8ajp")
-region = Rect2(96, 0, 48, 48)
+region = Rect2(0, 0, 42, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktxk6"]
 atlas = ExtResource("2_w8ajp")
-region = Rect2(144, 0, 48, 48)
+region = Rect2(42, 0, 42, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_etbmr"]
 atlas = ExtResource("2_w8ajp")
-region = Rect2(192, 0, 48, 48)
+region = Rect2(84, 0, 42, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_56vfk"]
 atlas = ExtResource("2_w8ajp")
-region = Rect2(240, 0, 48, 48)
+region = Rect2(126, 0, 42, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dcag"]
 atlas = ExtResource("2_w8ajp")
-region = Rect2(144, 0, 48, 48)
+region = Rect2(0, 42, 42, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vf1fl"]
 atlas = ExtResource("2_w8ajp")
-region = Rect2(192, 0, 48, 48)
+region = Rect2(42, 42, 42, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7sumi"]
 atlas = ExtResource("2_w8ajp")
-region = Rect2(240, 0, 48, 48)
+region = Rect2(84, 42, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbv4h"]
+atlas = ExtResource("2_w8ajp")
+region = Rect2(126, 42, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hd5x"]
+atlas = ExtResource("2_w8ajp")
+region = Rect2(0, 84, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unp1y"]
+atlas = ExtResource("2_w8ajp")
+region = Rect2(42, 84, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlxg2"]
+atlas = ExtResource("2_w8ajp")
+region = Rect2(84, 84, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4anjf"]
+atlas = ExtResource("2_w8ajp")
+region = Rect2(126, 84, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5ttb"]
+atlas = ExtResource("2_w8ajp")
+region = Rect2(0, 126, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unbrw"]
+atlas = ExtResource("2_w8ajp")
+region = Rect2(42, 126, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihf3i"]
+atlas = ExtResource("2_w8ajp")
+region = Rect2(84, 126, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra8tt"]
+atlas = ExtResource("2_w8ajp")
+region = Rect2(126, 126, 42, 42)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hbv4h"]
 animations = [{
@@ -50,9 +86,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_56vfk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tgn85")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_5dcag")
 }, {
 "duration": 1.0,
@@ -60,10 +93,37 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7sumi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbv4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hd5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unp1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlxg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4anjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5ttb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unbrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihf3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra8tt")
 }],
 "loop": true,
-"name": &"default",
-"speed": 6.0
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [node name="WallSkull" type="Area2D" groups=["projectile"]]
@@ -75,10 +135,9 @@ scale = Vector2(1.90476, 1.90476)
 shape = SubResource("CircleShape2D_46w5m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.555671, 0.118503, 1, 1)
 texture_filter = 1
-position = Vector2(0, -4)
-scale = Vector2(1, 1.5)
+position = Vector2(5.68434e-14, 0)
+scale = Vector2(1.92, 1.92)
 sprite_frames = SubResource("SpriteFrames_hbv4h")
-autoplay = "default"
-frame_progress = 0.892847
+animation = &"new_animation"
+autoplay = "new_animation"
