@@ -1,7 +1,8 @@
-[gd_scene load_steps=41 format=4 uid="uid://bxtm6t7t5o816"]
+[gd_scene load_steps=42 format=4 uid="uid://bxtm6t7t5o816"]
 
 [ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_mtd77"]
 [ext_resource type="Script" uid="uid://bl6wjpo7ijs3i" path="res://Scenes/SamScenesAndScripts/boss_fight_2.gd" id="1_twden"]
+[ext_resource type="PackedScene" uid="uid://cany8rxhephm" path="res://Scenes/SamScenesAndScripts/pause_menu.tscn" id="2_bri00"]
 [ext_resource type="PackedScene" uid="uid://doyoe204anemg" path="res://Scenes/SamScenesAndScripts/sword.tscn" id="3_twden"]
 [ext_resource type="PackedScene" uid="uid://cc8at4yy374j8" path="res://Scenes/boss projectiles/bomb.tscn" id="4_w7eve"]
 [ext_resource type="PackedScene" uid="uid://b3dn0f3kqrc6n" path="res://Scenes/SamScenesAndScripts/arrow.tscn" id="5_cy718"]
@@ -244,6 +245,33 @@ radius = 9.0
 [node name="BossFight2" type="Node2D"]
 script = ExtResource("1_twden")
 
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="PauseMenu" parent="PauseMenu" instance=ExtResource("2_bri00")]
+z_index = 20
+
+[node name="PauseMenu" parent="PauseMenu/PauseMenu" index="0"]
+visible = false
+
+[node name="Transition" type="CanvasLayer" parent="."]
+layer = 3
+follow_viewport_enabled = true
+
+[node name="TransitionRect" type="ColorRect" parent="Transition"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1817.0
+offset_top = -914.0
+offset_right = -912.0
+offset_bottom = -405.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.97781, 1.97509)
+color = Color(0, 0, 0, 1)
+
 [node name="GameBoard" parent="." instance=ExtResource("1_mtd77")]
 modulate = Color(0.831373, 0.686275, 0.215686, 1)
 z_index = 5
@@ -325,3 +353,5 @@ texture = ExtResource("12_1i0qf")
 [node name="trophy" type="CollisionShape2D" parent="trophy"]
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_1i0qf")
+
+[editable path="PauseMenu/PauseMenu"]

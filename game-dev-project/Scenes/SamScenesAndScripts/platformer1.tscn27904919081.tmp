@@ -131,7 +131,7 @@ position = Vector2(997.25, 402.12)
 shape = SubResource("RectangleShape2D_g358o")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Boss1"]
-layer = 2
+layer = 5
 follow_viewport_enabled = true
 
 [node name="DialogueBoss" parent="Boss1/CanvasLayer" instance=ExtResource("6_y57ts")]
@@ -179,7 +179,7 @@ autoplay = "portal"
 flip_h = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Hub"]
-layer = 2
+layer = 5
 follow_viewport_enabled = true
 
 [node name="Dialogue" parent="Hub/CanvasLayer" instance=ExtResource("6_y57ts")]

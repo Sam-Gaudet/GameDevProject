@@ -11,6 +11,9 @@ const TILE_SIZE = 64
 @onready var boss_sprite = $CanvasLayer/BossAnimatedSprite2D
 @onready var projectile_parent = $"."  # Or self, if you want to add them here
 
+@onready var transition_rect = $Transition/TransitionRect
+@onready var pause_menu = $PauseMenu/PauseMenu/PauseMenu
+
 var attack_pattern = [
 	{"type": "bubble", "position": Vector2(0, -500), "end_position": Vector2(0, 1200), "movement": "down"},
 	{"type": "tendril", "position": Vector2(-700, 0), "end_position": Vector2(1500, 0), "movement": "right"},
@@ -22,11 +25,33 @@ var attack_pattern = [
 var current_pattern_index = 0
 
 func _ready():
+	LevelManager.print_level_status()
+	# Start with black screen
+	transition_rect.color = Color(0, 0, 0, 1)
+	transition_rect.visible = true
+	
 	Dialogue_box.visible = false
 	Dialogue_sprite.visible = false
 	boss_sprite.visible = false
 	start_boss_appearance()
 	Global.current_level = "1"
+	
+	pause_menu.visible = true
+	
+	# Set up pause menu content
+	var menu_content = {
+		"instructions": "Defeat boss 1",
+		"story": "Current story progress...",
+		"task": "Dodge n stuff:",
+		"controls": "Movement: WASD\nJump: Space"
+	}
+	
+	pause_menu.set_content(menu_content)
+	pause_menu.close_menu()  # Start close
+	
+	var fade_tween = create_tween()
+	fade_tween.tween_property(transition_rect, "color:a", 0, 1.0)
+	
 
 func start_boss_appearance():
 	await get_tree().create_timer(5).timeout
@@ -50,6 +75,8 @@ func spawn_attack_cycle():
 
 		current_pattern_index = (current_pattern_index + 1) % attack_pattern.size()
 		await get_tree().create_timer(3.0).timeout
+	
+	win()
 
 
 func spawn_bubble(attack):
@@ -78,5 +105,16 @@ func clear_attacks():
 			child.queue_free()
 
 func win():
-	Global.last_level_completed = "Level2"
 	$trophy.position = Vector2(0, 0)
+	$trophy.visible = true
+	$trophy.scale = Vector2(0.01, 0.01)
+	$trophy.monitoring = true
+	Global.last_level_completed = "Level1"
+	
+	LevelManager.unlock_level("level2")	
+
+	LevelManager.print_level_status()
+	
+	# Tween to normal size
+	var tween = create_tween()
+	tween.tween_property($trophy, "scale", Vector2(1, 1), 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
