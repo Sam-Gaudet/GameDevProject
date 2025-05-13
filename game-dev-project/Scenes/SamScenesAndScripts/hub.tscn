@@ -1,15 +1,20 @@
-[gd_scene load_steps=22 format=3 uid="uid://dkj8ofhjk827m"]
+[gd_scene load_steps=24 format=3 uid="uid://dkj8ofhjk827m"]
 
 [ext_resource type="Script" uid="uid://ca2xbuqxro322" path="res://Scenes/SamScenesAndScripts/hub.gd" id="1_bhjrh"]
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="1_ypb1b"]
 [ext_resource type="PackedScene" uid="uid://du5i5alatbswb" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="2_bhjrh"]
 [ext_resource type="PackedScene" uid="uid://cpvnu34q0avff" path="res://Scenes/SamScenesAndScripts/forest_background.tscn" id="2_xakg3"]
-[ext_resource type="PackedScene" path="res://Scenes/SamScenesAndScripts/pause_menu.tscn" id="3_md1j0"]
+[ext_resource type="Shader" uid="uid://bwtity1bwaoio" path="res://Scenes/SamScenesAndScripts/chromatic.gdshader" id="3_dwfiy"]
+[ext_resource type="PackedScene" uid="uid://cany8rxhephm" path="res://Scenes/SamScenesAndScripts/pause_menu.tscn" id="3_md1j0"]
 [ext_resource type="Texture2D" uid="uid://13xpsaboxi18" path="res://Assets/SamAssets/Dimensional_Portal.png" id="4_cxyaf"]
-[ext_resource type="PackedScene" path="res://Scenes/SamScenesAndScripts/dialogue.tscn" id="4_o5gap"]
+[ext_resource type="PackedScene" uid="uid://dfs1v8o23car6" path="res://Scenes/SamScenesAndScripts/dialogue.tscn" id="4_o5gap"]
 [ext_resource type="PackedScene" uid="uid://cifpnmy1ws14e" path="res://Scenes/SamScenesAndScripts/sign.tscn" id="6_cxyaf"]
+[ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="8_md1j0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dmd4q"]
+shader = ExtResource("3_dwfiy")
+shader_parameter/aberration = 0.1
+shader_parameter/strength = 0.01
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aj2dl"]
 size = Vector2(2725, 180)
@@ -21,10 +26,7 @@ size = Vector2(30.75, 508.5)
 size = Vector2(34.5, 502)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmd4q"]
-size = Vector2(79, 174.75)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5gap"]
-size = Vector2(178, 198.25)
+size = Vector2(154.5, 188.75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dmd4q"]
 atlas = ExtResource("4_cxyaf")
@@ -76,6 +78,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5gap"]
+size = Vector2(178, 198.25)
+
 [node name="Hub" type="Node2D"]
 position = Vector2(3, 246)
 script = ExtResource("1_bhjrh")
@@ -85,6 +90,9 @@ layer = 5
 
 [node name="PauseMenu" parent="PauseMenu" instance=ExtResource("3_md1j0")]
 z_index = 20
+
+[node name="PauseMenu" parent="PauseMenu/PauseMenu" index="0"]
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_priority = 2
@@ -118,12 +126,26 @@ shape = SubResource("RectangleShape2D_cxyaf")
 [node name="MainMenu" type="Area2D" parent="."]
 
 [node name="MainMenuCollision" type="CollisionShape2D" parent="MainMenu"]
-position = Vector2(34, 405.375)
+position = Vector2(71.75, 398.375)
 shape = SubResource("RectangleShape2D_dmd4q")
 
-[node name="Dialogue" parent="MainMenu" instance=ExtResource("4_o5gap")]
+[node name="TestPortal" type="AnimatedSprite2D" parent="MainMenu"]
+texture_filter = 1
+position = Vector2(63, 392)
+scale = Vector2(6.61719, 6.61719)
+sprite_frames = SubResource("SpriteFrames_pnljh")
+animation = &"portal"
+autoplay = "portal"
+frame_progress = 0.267573
+flip_h = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="MainMenu"]
+layer = 4
+follow_viewport_enabled = true
+
+[node name="Dialogue" parent="MainMenu/CanvasLayer" instance=ExtResource("4_o5gap")]
 unique_name_in_owner = true
-position = Vector2(40, 311)
+position = Vector2(59, 504)
 
 [node name="Door1" type="Area2D" parent="."]
 position = Vector2(968, -8)
@@ -141,21 +163,21 @@ scale = Vector2(0.800614, 0.800614)
 texture = ExtResource("1_ypb1b")
 
 [node name="TestPortal" type="AnimatedSprite2D" parent="Door1"]
-modulate = Color(0.890082, 0, 0.224112, 1)
+modulate = Color(0, 0, 1, 1)
 texture_filter = 1
 position = Vector2(614, 392)
 scale = Vector2(6.61719, 6.61719)
 sprite_frames = SubResource("SpriteFrames_pnljh")
 animation = &"portal"
+autoplay = "portal"
 frame_progress = 0.267573
 
-[node name="Boss" type="Label" parent="Door1"]
-offset_left = 595.0
-offset_top = 298.0
-offset_right = 645.0
-offset_bottom = 321.0
-text = "Boss 1"
-metadata/_edit_use_anchors_ = true
+[node name="CanvasLayer" type="CanvasLayer" parent="Door1"]
+layer = 4
+follow_viewport_enabled = true
+
+[node name="Dialogue" parent="Door1/CanvasLayer" instance=ExtResource("4_o5gap")]
+position = Vector2(1591, 504)
 
 [node name="Door2" type="Area2D" parent="."]
 position = Vector2(1155, -14)
@@ -173,21 +195,21 @@ scale = Vector2(0.800614, 0.800614)
 texture = ExtResource("1_ypb1b")
 
 [node name="TestPortal" type="AnimatedSprite2D" parent="Door2"]
-modulate = Color(0.980529, 0.500418, 0, 1)
+modulate = Color(0, 0.12549, 0.137255, 1)
 texture_filter = 1
 position = Vector2(629, 400)
 scale = Vector2(6.61719, 6.61719)
 sprite_frames = SubResource("SpriteFrames_pnljh")
 animation = &"portal"
+autoplay = "portal"
 frame_progress = 0.548532
 
-[node name="Boss" type="Label" parent="Door2"]
-offset_left = 607.0
-offset_top = 296.0
-offset_right = 657.0
-offset_bottom = 319.0
-text = "Boss 2"
-metadata/_edit_use_anchors_ = true
+[node name="CanvasLayer" type="CanvasLayer" parent="Door2"]
+layer = 4
+follow_viewport_enabled = true
+
+[node name="Dialogue" parent="Door2/CanvasLayer" instance=ExtResource("4_o5gap")]
+position = Vector2(1795, 504)
 
 [node name="Door3" type="Area2D" parent="."]
 position = Vector2(1342, -20)
@@ -205,75 +227,61 @@ scale = Vector2(0.800614, 0.800614)
 texture = ExtResource("1_ypb1b")
 
 [node name="TestPortal" type="AnimatedSprite2D" parent="Door3"]
-modulate = Color(0.879125, 0.00106658, 0.943515, 1)
+modulate = Color(1, 0, 0, 1)
 texture_filter = 1
 position = Vector2(643, 406)
 scale = Vector2(6.61719, 6.61719)
 sprite_frames = SubResource("SpriteFrames_pnljh")
 animation = &"portal"
+autoplay = "portal"
 frame_progress = 0.548532
 
-[node name="Boss" type="Label" parent="Door3"]
-offset_left = 624.0
-offset_top = 307.0
-offset_right = 674.0
-offset_bottom = 330.0
-text = "Boss 3"
-metadata/_edit_use_anchors_ = true
+[node name="CanvasLayer" type="CanvasLayer" parent="Door3"]
+layer = 4
+follow_viewport_enabled = true
+
+[node name="Dialogue" parent="Door3/CanvasLayer" instance=ExtResource("4_o5gap")]
+position = Vector2(1999, 504)
 
 [node name="ManMenuSign" parent="." instance=ExtResource("6_cxyaf")]
-position = Vector2(163, 435)
+position = Vector2(545, 452)
 
 [node name="MainMenuLabel" type="Label" parent="ManMenuSign"]
-offset_left = -44.0
-offset_top = -51.0
-offset_right = 44.0
-offset_bottom = -2.0
+texture_filter = 1
+offset_left = -43.0
+offset_top = -60.0
+offset_right = -4.0
+offset_bottom = -31.0
+scale = Vector2(2.24001, 2.24001)
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("8_md1j0")
 text = "Main menu
 <-"
 horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="BossesSign" parent="." instance=ExtResource("6_cxyaf")]
-position = Vector2(512, 433)
+position = Vector2(894, 450)
 
 [node name="BossesLabel" type="Label" parent="BossesSign"]
-offset_left = -44.0
-offset_top = -51.0
-offset_right = 44.0
-offset_bottom = -2.0
+texture_filter = 1
+offset_left = -43.0
+offset_top = -60.0
+offset_right = -4.0
+offset_bottom = -31.0
+scale = Vector2(2.24001, 2.24001)
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("8_md1j0")
 text = "Bosses
 ->"
 horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="PlayerPlatformer" parent="." instance=ExtResource("2_bhjrh")]
-position = Vector2(336, 423)
+position = Vector2(718, 438)
 collision_mask = 6
-
-[node name="ChessBoardControls" type="Label" parent="."]
-offset_left = 11.0
-offset_top = 135.0
-offset_right = 197.0
-offset_bottom = 262.0
-text = "Chess board:
-Up - W / Up  arrow
-Down - S / Down arrow
-Left - A / Left arrow
-Right - D / Right arrow"
-metadata/_edit_use_anchors_ = true
-
-[node name="Controls" type="Label" parent="."]
-offset_left = 11.0
-offset_top = 5.0
-offset_right = 197.0
-offset_bottom = 132.0
-text = "Platformer:
-Left - A / Left arrow
-Right - D / Right arrow
-Jump - Space / Up arrow
-Interact - Enter / Space"
-metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="MainMenu" to="." method="_on_main_menu_body_entered"]
 [connection signal="body_exited" from="MainMenu" to="." method="_on_main_menu_body_exited"]

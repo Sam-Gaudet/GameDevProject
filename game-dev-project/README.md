@@ -37,6 +37,13 @@ nikllamadev
 Dungeon Animated Tiles and Set Pieces
 https://nikllamadev.itch.io/dungeon-castle-pixel-art-asset-pack-free
 
+srtoasty
+A downloadable asset pack
+https://srtoasty.itch.io/ui-assets-pack-2
+
+
+https://dreammix.itch.io/keyboard-keys-for-ui
+
 (Possible use)
 https://kayillustrations.itch.io/parallax-sunset-mountains
 https://free-game-assets.itch.io/free-sky-with-clouds-background-pixel-art-set

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b6loyos6rbvvf"]
+[gd_scene load_steps=13 format=3 uid="uid://b6loyos6rbvvf"]
 
 [ext_resource type="Script" uid="uid://i5ysuiiq77w7" path="res://Scenes/AlexisScenesAndScripts/boss_fight_1.gd" id="1_puq4g"]
 [ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_v14ti"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://0tv7itvfrdu5" path="res://Assets/AlexisAssets/Faceset.png" id="5_vnjvd"]
 [ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="6_0t65x"]
 [ext_resource type="PackedScene" uid="uid://cany8rxhephm" path="res://Scenes/SamScenesAndScripts/pause_menu.tscn" id="7_mvgvc"]
-[ext_resource type="Texture2D" uid="uid://bwnp4nl2lxwn2" path="res://Assets/GameboardAssets/Item__71.png" id="8_x5bls"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vnjvd"]
 atlas = ExtResource("4_puq4g")
@@ -44,9 +43,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_50ann"]
-radius = 9.0
 
 [node name="BossFight1" type="Node2D"]
 script = ExtResource("1_puq4g")
@@ -106,19 +102,5 @@ offset_bottom = -248.0
 theme_override_fonts/font = ExtResource("6_0t65x")
 theme_override_font_sizes/font_size = 40
 text = "aaaa"
-
-[node name="trophy" type="Area2D" parent="." groups=["win"]]
-visible = false
-texture_filter = 1
-position = Vector2(-345, 296)
-scale = Vector2(2, 2)
-
-[node name="trophyimasge" type="Sprite2D" parent="trophy"]
-scale = Vector2(2, 2)
-texture = ExtResource("8_x5bls")
-
-[node name="trophy" type="CollisionShape2D" parent="trophy"]
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_50ann")
 
 [editable path="PauseMenu/PauseMenu"]

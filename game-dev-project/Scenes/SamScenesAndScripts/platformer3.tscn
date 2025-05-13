@@ -1,11 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://cv4pj7011cc60"]
+[gd_scene load_steps=26 format=3 uid="uid://cv4pj7011cc60"]
 
 [ext_resource type="Script" uid="uid://dqdpurbolymav" path="res://Scenes/SamScenesAndScripts/platformer_logic.gd" id="1_tpqbk"]
+[ext_resource type="PackedScene" uid="uid://cany8rxhephm" path="res://Scenes/SamScenesAndScripts/pause_menu.tscn" id="2_cek5l"]
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="2_jekxf"]
 [ext_resource type="Shader" uid="uid://bwtity1bwaoio" path="res://Scenes/SamScenesAndScripts/chromatic.gdshader" id="2_r4n7g"]
 [ext_resource type="Texture2D" uid="uid://bte3wuqwkulpn" path="res://Assets/AlexisAssets/hearth1.png" id="2_tgdpd"]
 [ext_resource type="PackedScene" uid="uid://du5i5alatbswb" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="3_r4n7g"]
 [ext_resource type="PackedScene" uid="uid://cpvnu34q0avff" path="res://Scenes/SamScenesAndScripts/forest_background.tscn" id="4_jekxf"]
+[ext_resource type="Texture2D" uid="uid://13xpsaboxi18" path="res://Assets/SamAssets/Dimensional_Portal.png" id="6_ybut8"]
+[ext_resource type="PackedScene" uid="uid://dfs1v8o23car6" path="res://Scenes/SamScenesAndScripts/dialogue.tscn" id="7_86dwe"]
+[ext_resource type="PackedScene" uid="uid://cifpnmy1ws14e" path="res://Scenes/SamScenesAndScripts/sign.tscn" id="8_q41a0"]
+[ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="9_86dwe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tgdpd"]
 shader = ExtResource("2_r4n7g")
@@ -24,8 +29,58 @@ size = Vector2(30.75, 508.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ywuxp"]
 size = Vector2(34.5, 502)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5ing"]
-size = Vector2(44.5, 254.75)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgdpd"]
+size = Vector2(174.5, 254.75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmd4q"]
+atlas = ExtResource("6_ybut8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5gap"]
+atlas = ExtResource("6_ybut8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md1j0"]
+atlas = ExtResource("6_ybut8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwfiy"]
+atlas = ExtResource("6_ybut8")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g51e"]
+atlas = ExtResource("6_ybut8")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6csd"]
+atlas = ExtResource("6_ybut8")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_spps7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmd4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5gap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md1j0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwfiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g51e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6csd")
+}],
+"loop": true,
+"name": &"portal",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybut8"]
 size = Vector2(313, 208)
@@ -33,6 +88,12 @@ size = Vector2(313, 208)
 [node name="Platformer3" type="Node2D"]
 position = Vector2(3, 249)
 script = ExtResource("1_tpqbk")
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="PauseMenu" parent="PauseMenu" instance=ExtResource("2_cek5l")]
+z_index = 20
 
 [node name="Transition" type="CanvasLayer" parent="."]
 layer = 3
@@ -82,13 +143,13 @@ flip_h = true
 position = Vector2(997.25, 402.12)
 shape = SubResource("RectangleShape2D_g358o")
 
-[node name="Label" type="Label" parent="Boss3"]
-offset_left = 959.0
-offset_top = 323.0
-offset_right = 1053.0
-offset_bottom = 346.0
-text = "Hi im a boss"
-metadata/_edit_use_anchors_ = true
+[node name="CanvasLayer" type="CanvasLayer" parent="Boss3"]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="DialogueBoss" parent="Boss3/CanvasLayer" instance=ExtResource("7_86dwe")]
+unique_name_in_owner = true
+position = Vector2(1004, 504)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -114,11 +175,46 @@ shape = SubResource("RectangleShape2D_ywuxp")
 [node name="Hub" type="Area2D" parent="."]
 
 [node name="HubTrigger" type="CollisionShape2D" parent="Hub"]
-position = Vector2(15.75, 364.375)
-shape = SubResource("RectangleShape2D_u5ing")
+position = Vector2(80.75, 364.375)
+shape = SubResource("RectangleShape2D_tgdpd")
+
+[node name="TestPortal" type="AnimatedSprite2D" parent="Hub"]
+modulate = Color(1, 0, 0, 1)
+texture_filter = 1
+position = Vector2(56, 406)
+scale = Vector2(6.61719, 6.61719)
+sprite_frames = SubResource("SpriteFrames_spps7")
+animation = &"portal"
+autoplay = "portal"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Hub"]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="Dialogue" parent="Hub/CanvasLayer" instance=ExtResource("7_86dwe")]
+unique_name_in_owner = true
+position = Vector2(58, 504)
+
+[node name="BossesSign" parent="." instance=ExtResource("8_q41a0")]
+position = Vector2(324, 450)
+
+[node name="BossesLabel" type="Label" parent="BossesSign"]
+texture_filter = 1
+offset_left = -43.0
+offset_top = -60.0
+offset_right = -4.0
+offset_bottom = -31.0
+scale = Vector2(2.24001, 2.24001)
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("9_86dwe")
+text = "Boss 3
+->"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="PlayerPlatformer" parent="." instance=ExtResource("3_r4n7g")]
-position = Vector2(324, 430)
+position = Vector2(213, 436)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(997, 372)
@@ -141,3 +237,5 @@ text = "Prepare yourself for battle"
 [connection signal="body_exited" from="Hub" to="." method="_on_hub_body_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+
+[editable path="PauseMenu/PauseMenu"]
