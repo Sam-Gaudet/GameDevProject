@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=4 uid="uid://cany8rxhephm"]
 
-[ext_resource type="Script" uid="uid://bbc242hp6n3gl" path="res://Scenes/SamScenesAndScripts/pause_menu.gd" id="1_ig7gg"]
+[ext_resource type="Script" path="res://Scenes/SamScenesAndScripts/pause_menu.gd" id="1_ig7gg"]
 [ext_resource type="Texture2D" uid="uid://cchp854pax1jp" path="res://Assets/SamAssets/UI books & more.png" id="2_2lh1y"]
 [ext_resource type="Texture2D" uid="uid://b0bqqfg0ou68j" path="res://Assets/SamAssets/Keyboard Letters and Symbols.png" id="2_rutes"]
 [ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="3_2lh1y"]

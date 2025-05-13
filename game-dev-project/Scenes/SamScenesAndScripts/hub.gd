@@ -60,6 +60,7 @@ func _on_door_2_body_entered(body: Node2D) -> void:
 		if LevelManager.is_level_unlocked("level2"):
 			portal2_dialogue.show_text("Travel to boss fight 2")
 		else:
+			$Door2/CanvasLayer/Dialogue/DialogueLayer/ControlsLayer.modulate.a = 0.0
 			portal2_dialogue.show_text("Locked - defeat boss 1")
 
 func _on_door_2_body_exited(body: Node2D) -> void:
@@ -74,6 +75,7 @@ func _on_door_3_body_entered(body: Node2D) -> void:
 		if LevelManager.is_level_unlocked("level3"):
 			portal3_dialogue.show_text("Travel to boss fight 3")
 		else:
+			$Door3/CanvasLayer/Dialogue/DialogueLayer/ControlsLayer.modulate.a = 0.0
 			portal3_dialogue.show_text("Locked - defeat boss 2")
 
 func _on_door_3_body_exited(body: Node2D) -> void:

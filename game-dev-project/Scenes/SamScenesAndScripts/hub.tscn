@@ -293,3 +293,5 @@ collision_mask = 6
 [connection signal="body_exited" from="Door3" to="." method="_on_door_3_body_exited"]
 
 [editable path="PauseMenu/PauseMenu"]
+[editable path="Door2/CanvasLayer/Dialogue"]
+[editable path="Door3/CanvasLayer/Dialogue"]
