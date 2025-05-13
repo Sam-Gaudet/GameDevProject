@@ -15,3 +15,39 @@ Options,Options,Parametres
 Quit,Quit,Quitter
 English,English,Anglais
 French,French,Francais
+SaveSettings,Save settings, Sauvegarder parametres
+MainMenu,Main menu\n<-,Menu principal\n<-
+TravelMainMenu,Travel to main menu,Voyagez au menu principal
+TravelBoss1,Travel to boss fight 1,Voyager au combat boss 1
+TravelBoss2,Travel to boss fight 2,Voyager au combat de boss 2
+NoTravelBoss2,Locked - defeat boss 1,Barre - vaincre le boss 1
+TravelBoss3,Travel to boss fight 3,Voyager au combat de boss 3
+NoTravelBoss3,Locked - defeat boss 2,Barre - vaincre le boss 2
+TravelHub,Travel to hub,Voyager au hub
+FightBoss1,Fight boss 1, Vaincre boss 1
+FightBoss2,Fight boss 2, Vaincre boss 2
+FightBoss3,Fight boss 3, Vaincre boss 3
+Story,Story,Histoire
+Objective,Objective:,Objectif:
+Controls,Controls,Controles
+MainStory,Main Story here, Histoire principale ici
+MainControls,Escape - Close/Open notes\nEnter/Spacebar - Interact\nMoving:\nA/Left arrow - Left\nD/Right arrow - Right\nW/Up arrow/Spacebar - Jump,Echapper - Fermer/Ouvrir notes\nEntree/Espace - Interagir\nBouger:\nA/Fleche gauche - Gauche\nD/Fleche Droite - Droite\nW/Fleche haut/Espace - Sauter
+NoBossInstructions,All bosses defeated,Tous les bosses vaincus
+NoBossTask,All bosses defeated,Tous les boss vaincus
+Boss3Instructions,Defeat boss 3,Vaincre boss 3
+Boss3Task,Find and defeat boss 3,Trouver et vaincre boss 3
+Boss2Instructions,Defeat boss 2,Vaincre boss 2
+Boss2Task,Find and defeat boss 2,Trouver et vaincre boss 2
+Boss1Instructions,Defeat boss 1,Vaincre boss 1
+Boss1Task,Find and defeat boss 1,Trouver et vaincre boss 1
+GameBoss1Story,Boss 1 Story here.. EDIT ME,Histoire boss 1 ici.. EDIT ME
+GameBoss1Task,Avoid incoming attacks from.. EDIT ME,Éviter attaques.. EDIT ME
+GameBoss1Controls,Escape - Close/Open notes\nMoving:\nAW/Up arrow - Up\nA/Left arrow - Left\nS/Down arrow - Down\nD/Right arrow - Right,Echapper - Fermer/Ouvrir notes\nBouger:\nW/Fleche en haut - Monter\nA/Fleche gauche - Gauche\nS/Fleche bas - Descendre\nD/Fleche droite - Droite
+GameBoss1Instructions,Dodge attacks to defeat boss,Eviter attaques pour battre boss
+GameBoss2Story,This boss is a fallen night.. EDIT ME,Histoire boss 2 ici.. EDIT ME
+GameBoss2Task,Avoid red damage zones to avoid attacks + throw bombs back with Enter or Space while in red zone to defeat boss,Eviter zones rouges pour eviter attaques + renvoyez bombes avec Entree ou Espace dans la zone rouge pour vaincre le boss
+GameBoss2Controls,Escape - Close/Open notes\nEnter/Spacebar - Throw bomb back\nMoving:\nAW/Up arrow - Up\nA/Left arrow - Left\nS/Down arrow - Down\nD/Right arrow - Right,Echapper - Fermer/Ouvrir notes\nEntree/Espace - Renvoyer une bombe\nBouger:\nW/Fleche haut - Monter\nA/Fleche gauche - Gauche\nS/Fleche bas - Descendre\nD/Fleche droite - Droite
+GameBoss2Instructions,Dodge attacks / Throw bomb backs with Enter,
+GameBoss3Story,Boss 3 Story here.. EDIT ME,Histoire boss 3 ici.. EDIT ME
+GameBoss3Task,Avoid incoming attacks from.. EDIT ME,Éviter attaques.. EDIT ME
+GameBoss3Controls,Escape - Close/Open notes\nMoving:\nAW/Up arrow - Up\nA/Left arrow - Left\nS/Down arrow - Down\nD/Right arrow - Right,Echapper - Fermer/Ouvrir notes\nBouger:\nW/Fleche en haut - Monter\nA/Fleche gauche - Gauche\nS/Fleche bas - Descendre\nD/Fleche droite - Droite

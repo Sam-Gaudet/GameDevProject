@@ -3135,14 +3135,14 @@ script = ExtResource("1_ig7gg")
 
 [node name="Insturctions" type="TileMapLayer" parent="PauseMenu"]
 texture_filter = 1
-position = Vector2(9, -39)
+position = Vector2(-15, -39)
 scale = Vector2(4.2, 4.2)
-tile_map_data = PackedByteArray("AAAEAPz/AAABABMAAAAFAPz/AAABABAAAAAGAPz/AAABABAAAAAHAPz/AAABABAAAAAIAPz/AAABABAAAAAFAP3/AAAhAAUAAAAGAP3/AAAhAAUAAAAHAP3/AAAhAAUAAAAIAP3/AAAiAAUAAAAGAP7/AAAhAAgAAAAFAP7/AAAhAAgAAAAIAP7/AAAiAAgAAAAHAP7/AAAhAAgAAAAEAP3/AAAgAAUAAAAEAP7/AAAgAAgAAAA=")
+tile_map_data = PackedByteArray("AAAEAPz/AAABABMAAAAFAPz/AAABABAAAAAGAPz/AAABABAAAAAHAPz/AAABABAAAAAIAPz/AAABABAAAAAFAP3/AAAhAAUAAAAGAP3/AAAhAAUAAAAHAP3/AAAhAAUAAAAIAP3/AAAiAAUAAAAGAP7/AAAhAAcAAAAFAP7/AAAhAAcAAAAIAP7/AAAiAAcAAAAHAP7/AAAhAAcAAAAEAP3/AAAgAAUAAAAEAP7/AAAgAAcAAAAEAP//AAAgAAgAAAAFAP//AAAhAAgAAAAGAP//AAAhAAgAAAAHAP//AAAhAAgAAAAIAP//AAAiAAgAAAA=")
 tile_set = SubResource("TileSet_4nnqf")
 
 [node name="TinyBook" type="TileMapLayer" parent="PauseMenu/Insturctions"]
 texture_filter = 1
-position = Vector2(120.238, -49.7619)
+position = Vector2(121.429, -49.7619)
 scale = Vector2(0.8, 0.8)
 tile_map_data = PackedByteArray("AAAAAP//AAAfAAsAAAD8////AgACAAAAAAD9////AgADAAAAAAA=")
 tile_set = SubResource("TileSet_4nnqf")
@@ -3150,9 +3150,9 @@ tile_set = SubResource("TileSet_4nnqf")
 [node name="NotesLabel" type="Label" parent="PauseMenu/Insturctions"]
 modulate = Color(0, 0, 0, 1)
 texture_filter = 1
-offset_left = 79.5238
+offset_left = 80.9524
 offset_top = -64.5238
-offset_right = 126.524
+offset_right = 127.953
 offset_bottom = -51.5238
 scale = Vector2(1.14286, 1.14286)
 theme_override_fonts/font = ExtResource("3_2lh1y")
@@ -3170,7 +3170,7 @@ offset_right = 119.667
 offset_bottom = -36.2857
 scale = Vector2(1.14286, 1.14286)
 theme_override_fonts/font = ExtResource("3_2lh1y")
-text = "Objective:"
+text = "Objective"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -3178,17 +3178,18 @@ metadata/_edit_use_anchors_ = true
 modulate = Color(0, 0, 0, 1)
 texture_filter = 1
 offset_left = 71.4286
-offset_top = -36.4286
-offset_right = 119.429
-offset_bottom = -23.4286
-scale = Vector2(1.14286, 1.14286)
+offset_top = -37.1429
+offset_right = 161.429
+offset_bottom = 25.8571
+scale = Vector2(0.761906, 0.761906)
+theme_override_constants/line_spacing = -4
 theme_override_fonts/font = ExtResource("3_2lh1y")
-text = "Fight boss 1"
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "Theres a lot story elements here to fit in but "
+autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Book" type="TileMapLayer" parent="PauseMenu"]
+visible = false
 texture_filter = 1
 position = Vector2(0, 111)
 scale = Vector2(4.2, 4.2)
@@ -3278,7 +3279,6 @@ scale = Vector2(0.761906, 0.761906)
 theme_override_constants/line_spacing = -4
 theme_override_fonts/font = ExtResource("3_2lh1y")
 text = "Theres a lot story elements here to fit in but I think I found a way to fix this is wonderfull look at all the possible text"
-horizontal_alignment = 1
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 

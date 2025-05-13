@@ -276,6 +276,10 @@ func trophy():
 	$trophy.scale = Vector2(0.01, 0.01)  # Start tiny (almost invisible)
 	$trophy.monitoring = true
 	Global.last_level_completed = "Level3"
+	
+	LevelManager.unlock_level("gamecomplete")
+	LevelManager.print_level_status()
+	
 
 	# Tween to normal size
 	var tween = create_tween()
