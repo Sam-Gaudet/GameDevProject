@@ -91,6 +91,12 @@ layer = 5
 [node name="PauseMenu" parent="PauseMenu" instance=ExtResource("2_y7lsg")]
 z_index = 20
 
+[node name="Insturctions" parent="PauseMenu/PauseMenu/PauseMenu" index="0"]
+position = Vector2(-15, -39)
+
+[node name="TinyBook" parent="PauseMenu/PauseMenu/PauseMenu/Insturctions" index="0"]
+position = Vector2(121.429, -49.7619)
+
 [node name="Transition" type="CanvasLayer" parent="."]
 layer = 3
 follow_viewport_enabled = true

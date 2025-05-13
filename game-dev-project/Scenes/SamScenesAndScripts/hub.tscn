@@ -94,6 +94,12 @@ z_index = 20
 [node name="PauseMenu" parent="PauseMenu/PauseMenu" index="0"]
 visible = false
 
+[node name="Insturctions" parent="PauseMenu/PauseMenu/PauseMenu" index="0"]
+position = Vector2(-15, -39)
+
+[node name="TinyBook" parent="PauseMenu/PauseMenu/PauseMenu/Insturctions" index="0"]
+position = Vector2(121.429, -49.7619)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_priority = 2
 layer = 2
