@@ -54,10 +54,10 @@ func _ready():
 	
 	# Set up pause menu content
 	var menu_content = {
-		"instructions": "Defeat boss 1",
-		"story": "Current story progress...",
-		"task": "Dodge n stuff:",
-		"controls": "Movement: WASD\nJump: Space"
+		"story": "GameBoss2Story",
+		"task" : "GameBoss2Task",
+		"controls": "GameBoss2Controls",
+		"instructions": "GameBoss2Instructions"
 	}
 	
 	pause_menu.set_content(menu_content)

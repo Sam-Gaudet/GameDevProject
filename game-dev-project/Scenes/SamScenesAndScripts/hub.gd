@@ -18,14 +18,25 @@ func _ready():
 	portal1_dialogue.hide_dialogue()
 	portal2_dialogue.hide_dialogue()
 	portal3_dialogue.hide_dialogue()
-	
 	# Set up pause menu content
+	
 	var menu_content = {
-		"instructions": "Defeat boss 1",
-		"story": "Current story progress...",
-		"task": "Current objectives:",
-		"controls": "Movement: WASD\nJump: Space"
+		"story": "MainStory",
+		"controls": "MainControls"
 	}
+	
+	if LevelManager.is_level_unlocked("gamecomplete"):
+		menu_content["instructions"] = "NoBossInstructions"
+		menu_content["task"] = "NoBossTask"
+	elif LevelManager.is_level_unlocked("level3"):
+		menu_content["instructions"] = "Boss3Instructions"
+		menu_content["task"] = "Boss3Task"
+	elif LevelManager.is_level_unlocked("level2"):
+		menu_content["instructions"] = "Boss2Instructions"
+		menu_content["task"] = "Boss2Task"
+	elif LevelManager.is_level_unlocked("level1"):
+		menu_content["instructions"] = "Boss1Instructions"
+		menu_content["task"] = "Boss1Task"
 	
 	pause_menu.set_content(menu_content)
 	pause_menu.close_menu()  # Start close
@@ -35,7 +46,7 @@ func _ready():
 func _on_main_menu_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerPlatformer":
 		player_in_main_menu = true
-		main_menu_dialogue.show_text("Travel to main menu")
+		main_menu_dialogue.show_text("TravelMainMenu")
 	
 func _on_main_menu_body_exited(body: Node2D) -> void:
 	if body.name == "PlayerPlatformer":
@@ -46,7 +57,7 @@ func _on_main_menu_body_exited(body: Node2D) -> void:
 func _on_door_1_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerPlatformer":
 		player_in_door_1 = true
-		portal1_dialogue.show_text("Travel to boss fight 1")
+		portal1_dialogue.show_text("TravelBoss1")
 
 func _on_door_1_body_exited(body: Node2D) -> void:
 	if body.name == "PlayerPlatformer":
@@ -58,10 +69,10 @@ func _on_door_2_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerPlatformer":
 		player_in_door_2 = true
 		if LevelManager.is_level_unlocked("level2"):
-			portal2_dialogue.show_text("Travel to boss fight 2")
+			portal2_dialogue.show_text("TravelBoss2")
 		else:
 			$Door2/CanvasLayer/Dialogue/DialogueLayer/ControlsLayer.modulate.a = 0.0
-			portal2_dialogue.show_text("Locked - defeat boss 1")
+			portal2_dialogue.show_text("NoTravelBoss2")
 
 func _on_door_2_body_exited(body: Node2D) -> void:
 	if body.name == "PlayerPlatformer":
@@ -73,10 +84,10 @@ func _on_door_3_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerPlatformer":
 		player_in_door_3 = true
 		if LevelManager.is_level_unlocked("level3"):
-			portal3_dialogue.show_text("Travel to boss fight 3")
+			portal3_dialogue.show_text("TravelBoss3")
 		else:
 			$Door3/CanvasLayer/Dialogue/DialogueLayer/ControlsLayer.modulate.a = 0.0
-			portal3_dialogue.show_text("Locked - defeat boss 2")
+			portal3_dialogue.show_text("NoTravelBoss3")
 
 func _on_door_3_body_exited(body: Node2D) -> void:
 	if body.name == "PlayerPlatformer":

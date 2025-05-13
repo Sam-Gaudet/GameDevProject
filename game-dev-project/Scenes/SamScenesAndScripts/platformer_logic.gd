@@ -18,6 +18,7 @@ var player_in_boss_3 : bool = false
 @onready var pause_menu = $PauseMenu/PauseMenu/PauseMenu
 
 var is_transitioning_to_boss: bool = false
+var current_boss_target : String = "none"
 
 func _ready():
 	# Initialize transition elements as hidden
@@ -28,61 +29,78 @@ func _ready():
 	boss_dialogue.hide_dialogue()
 	
 	pause_menu.visible = true
-	
 	# Set up pause menu content
 	var menu_content = {
-		"instructions": "Find boss 1",
-		"story": "Current story progress...",
-		"task": "Current objectives:",
-		"controls": "Movement: WASD\nJump: Space"
+		"story": "MainStory",
+		"controls": "MainControls"
 	}
+	
+	if LevelManager.is_level_unlocked("gamecomplete"):
+		menu_content["instructions"] = "NoBossInstructions"
+		menu_content["task"] = "NoBossTask"
+	elif LevelManager.is_level_unlocked("level3"):
+		menu_content["instructions"] = "Boss3Instructions"
+		menu_content["task"] = "Boss3Task"
+	elif LevelManager.is_level_unlocked("level2"):
+		menu_content["instructions"] = "Boss2Instructions"
+		menu_content["task"] = "Boss2Task"
+	elif LevelManager.is_level_unlocked("level1"):
+		menu_content["instructions"] = "Boss1Instructions"
+		menu_content["task"] = "Boss1Task"
 	
 	pause_menu.set_content(menu_content)
 	pause_menu.close_menu()  # Start close
+
 
 # Hub -------------------------------------------
 func _on_hub_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerPlatformer":
 		player_in_hub = true
-		hub_dialogue.show_text("Travel to hub")
+		current_boss_target = "none"
+		hub_dialogue.show_text("TravelHub")
 
 func _on_hub_body_exited(body: Node2D) -> void:
 	if body.name == "PlayerPlatformer":
 		player_in_hub = false
 		hub_dialogue.hide_dialogue()
-		
 
 # Boss 1 -------------------------------------------
 func _on_boss_1_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerPlatformer":
 		player_in_boss_1 = true
-		boss_dialogue.show_text("Fight boss 1")
+		current_boss_target = "boss1"
+		boss_dialogue.show_text("FightBoss1")
 
 func _on_boss_1_body_exited(body: Node2D) -> void:
 	if body.name == "PlayerPlatformer":
 		player_in_boss_1 = false
+		current_boss_target = "none"
 		boss_dialogue.hide_dialogue()
 
 # Boss 2 -------------------------------------------
 func _on_boss_2_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerPlatformer":
 		player_in_boss_2 = true
-		boss_dialogue.show_text("Fight boss 2")
+		current_boss_target = "boss2"
+		boss_dialogue.show_text("FightBoss2")
 
 func _on_boss_2_body_exited(body: Node2D) -> void:
 	if body.name == "PlayerPlatformer":
 		player_in_boss_2 = false
+		current_boss_target = "none"
 		boss_dialogue.hide_dialogue()
 		
 # Boss 3 -------------------------------------------
 func _on_boss_3_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerPlatformer":
 		player_in_boss_3 = true
-		boss_dialogue.show_text("Fight boss 3")
+		current_boss_target = "boss3"
+		boss_dialogue.show_text("FightBoss3")
 
 func _on_boss_3_body_exited(body: Node2D) -> void:
 	if body.name == "PlayerPlatformer":
 		player_in_boss_3 = false
+		current_boss_target = "none"
 		boss_dialogue.hide_dialogue()
 
 func _input(event: InputEvent) -> void:
@@ -137,11 +155,26 @@ func flash_heart():
 func show_boss_warning():
 	# Set special boss warning content
 	var boss_warning_content = {
-		"instructions": "BOSS WARNING",
-		"story": "Prepare for battle!",
-		"task": "This will be a tough fight.",
-		"controls": "Good luck!"
-	}
+			}
+	match current_boss_target:
+		"boss1":
+			boss_warning_content = {
+				"story": "GameBoss1Story",
+				"task" : "GameBoss1Task",
+				"controls": "GameBoss1Controls",
+			}
+		"boss2":
+			boss_warning_content = {
+				"story": "GameBoss2Story",
+				"task" : "GameBoss2Task",
+				"controls": "GameBoss2Controls",
+			}
+		"boss3":
+			boss_warning_content = {
+				"story": "GameBoss3Story",
+				"task" : "GameBoss3Task",
+				"controls": "GameBoss3Controls",
+			}
 	
 	pause_menu.set_content(boss_warning_content)
 	pause_menu.show_only_book_and_notes()

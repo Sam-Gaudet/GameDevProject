@@ -1003,7 +1003,7 @@ script = ExtResource("1_xa44v")
 texture_filter = 1
 position = Vector2(0, -34)
 scale = Vector2(4.2, 4.2)
-tile_map_data = PackedByteArray("AAD+/wAAAAAOABAAAAD//wAAAAAOABAAAAAAAAAAAAAOABAAAAABAAAAAAAOABAAAAACAAAAAAAPABMAAAD9/wAAAAAOABMAAAA=")
+tile_map_data = PackedByteArray("AAD+/wAAAAAOABAAAAD//wAAAAAOABAAAAAAAAAAAAAOABAAAAABAAAAAAAOABAAAAACAAAAAAAOABAAAAD9/wAAAAAOABAAAAADAAAAAAAPABMAAAD8/wAAAAAOABMAAAA=")
 tile_set = SubResource("TileSet_4m0n4")
 
 [node name="Sprite2D" type="Sprite2D" parent="DialogueLayer"]
@@ -1020,9 +1020,9 @@ tile_set = SubResource("TileSet_dq1vg")
 [node name="DialogueDetails" type="Label" parent="DialogueLayer"]
 modulate = Color(0, 0, 0, 1)
 texture_filter = 1
-offset_left = -38.8095
+offset_left = -62.8571
 offset_top = 0.714286
-offset_right = 50.1905
+offset_right = 77.1429
 offset_bottom = 13.7143
 scale = Vector2(0.9, 0.9)
 theme_override_fonts/font = ExtResource("2_fgijn")

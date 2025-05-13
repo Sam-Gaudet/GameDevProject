@@ -5,7 +5,8 @@ const SAVE_FILE := "user://level_progress.save"
 var unlocked_levels := {
 	"level1": true,  # First level is always unlocked
 	"level2": false,
-	"level3": false
+	"level3": false,
+	"gamecomplete": false
 }
 
 func _ready():
@@ -38,7 +39,8 @@ func reset_progress():
 	unlocked_levels = {
 		"level1": true,
 		"level2": false,
-		"level3": false
+		"level3": false,
+		"gamecomplete": false
 	}
 	save_progress()
 	
