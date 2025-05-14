@@ -52,3 +52,5 @@ GameBoss2Instructions,Dodge attacks / Throw bomb backs with Enter,
 GameBoss3Story,Boss 3 Story here.. EDIT ME,Histoire boss 3 ici.. EDIT ME
 GameBoss3Task,Avoid incoming attacks from.. EDIT ME,Éviter attaques.. EDIT ME
 GameBoss3Controls,Escape - Close/Open notes\nMoving:\nAW/Up arrow - Up\nA/Left arrow - Left\nS/Down arrow - Down\nD/Right arrow - Right,Echapper - Fermer/Ouvrir notes\nBouger:\nW/Fleche en haut - Monter\nA/Fleche gauche - Gauche\nS/Fleche bas - Descendre\nD/Fleche droite - Droite
+GameOver,Game over,Jeu terminee
+MainMenu,Main Menu,Menu principale

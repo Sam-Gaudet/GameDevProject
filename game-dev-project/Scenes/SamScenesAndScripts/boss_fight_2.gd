@@ -99,7 +99,7 @@ func start_attack_cycle():
 				return
 				
 			spawn_attack(attack)
-			await get_tree().create_timer(1.0).timeout  # Slightly faster bombs in loop
+			await get_tree().create_timer(2.0).timeout  # Slightly faster bombs in loop
 
 	if not is_boss_defeated:
 		boss_defeated()
