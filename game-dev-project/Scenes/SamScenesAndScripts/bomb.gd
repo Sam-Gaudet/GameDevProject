@@ -85,6 +85,9 @@ func _show_warning_and_fuse():
 		_explode()
 
 func _explode():
+	#bomb/AttackSound.play()
+	#$AudioStreamPlayer2D.play()
+	print("Should play explosion sound")
 	can_be_parried = false
 	parry_area.visible = false
 	parry_collision.disabled = true
@@ -158,6 +161,8 @@ func _explode_at_boss():
 	print("Exploding at boss position: ", boss_position)
 	print("Explosion node position: ", explosion_anim.global_position)
 	
+	#$bomb/AttackSound.play()
+	#$AudioStreamPlayer2D.play()
 	# Make visible and play animation
 	explosion_anim.visible = true
 	damage_area.visible = true

@@ -14,6 +14,8 @@ const ARROW_DISTANCE: float = 800.0 # how far the arrow travels
 @onready var arrow_sprite = $DamageArea/Sprite2D
 @onready var damage_collision = $DamageArea/CollisionShape2D
 
+static var first_time := true
+
 func _ready():
 	# Initial setup
 	damage_area.visible = false
@@ -21,7 +23,7 @@ func _ready():
 	arrow_sprite.modulate.a = 0
 	
 	# Position based on attack direction (exactly like sword)
-	position = Vector2(0, (index - GRID_SIZE/2) * TILE_SIZE)
+	position = Vector2(0, (index - GRID_SIZE / 2) * TILE_SIZE)
 	
 	# Flip the entire attack if needed (like sword code)
 	if flip:
@@ -33,7 +35,12 @@ func _ready():
 	arrow_sprite.rotation_degrees = 0 # Reset any sprite rotation
 	
 	await _play_warning()
-	_attack()
+	
+	if first_time:
+		first_time = false
+		queue_free()
+	else:
+		_attack()
 
 func _play_warning():
 	# Blink red twice (same as sword)
@@ -45,6 +52,7 @@ func _play_warning():
 		await get_tree().create_timer(0.3).timeout
 
 func _attack():
+	$AttackSound.play()
 	warning_sprite.visible = false
 	arrow_sprite.visible = true
 	damage_area.visible = true

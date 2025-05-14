@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://8r21imrjgorp"]
+[gd_scene load_steps=58 format=4 uid="uid://8r21imrjgorp"]
 
 [ext_resource type="Script" uid="uid://dqdpurbolymav" path="res://Scenes/SamScenesAndScripts/platformer_logic.gd" id="1_qj7cj"]
 [ext_resource type="Texture2D" uid="uid://bte3wuqwkulpn" path="res://Assets/AlexisAssets/hearth1.png" id="2_5ogck"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://dfs1v8o23car6" path="res://Scenes/SamScenesAndScripts/dialogue.tscn" id="8_8qy05"]
 [ext_resource type="PackedScene" uid="uid://cifpnmy1ws14e" path="res://Scenes/SamScenesAndScripts/sign.tscn" id="11_edaxw"]
 [ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="12_8qy05"]
+[ext_resource type="AudioStream" uid="uid://qpeskfhqxsic" path="res://Assets/SamAssets/mountain-knight-castle-medieval-fantasy-orchestral-music-264986.mp3" id="15_qr0rh"]
+[ext_resource type="AudioStream" uid="uid://cohvlk353tdql" path="res://Assets/SamAssets/ambience-wind-blowing-through-trees-01-186986.mp3" id="16_2l41c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_orm83"]
 shader = ExtResource("3_7lkbu")
@@ -1668,6 +1670,24 @@ layer = 5
 [node name="PauseMenu" parent="PauseMenu" instance=ExtResource("2_gob1g")]
 z_index = 20
 
+[node name="Transition2" type="CanvasLayer" parent="."]
+layer = 6
+follow_viewport_enabled = true
+
+[node name="TransitionRect" type="ColorRect" parent="Transition2"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -955.0
+offset_top = -607.0
+offset_right = -50.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+color = Color(0, 0, 0, 1)
+
 [node name="Transition" type="CanvasLayer" parent="."]
 layer = 3
 follow_viewport_enabled = true
@@ -1683,10 +1703,13 @@ visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1056.0
-offset_bottom = 486.0
+offset_left = -955.0
+offset_top = -607.0
+offset_right = 101.0
+offset_bottom = -121.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -1804,6 +1827,13 @@ position = Vector2(211, 438)
 [node name="forest_background" parent="." instance=ExtResource("4_wpnnp")]
 visible = false
 position = Vector2(-3, 6)
+
+[node name="HubMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_qr0rh")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_2l41c")
+volume_db = -3.0
 
 [connection signal="body_entered" from="Boss2" to="." method="_on_boss_2_body_entered"]
 [connection signal="body_exited" from="Boss2" to="." method="_on_boss_2_body_exited"]

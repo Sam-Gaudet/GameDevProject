@@ -5,6 +5,7 @@ extends Node2D
 @onready var heart_sprite = $Transition/HeartSprite
 @onready var camera = $PlayerPlatformer/Camera2D
 @onready var animated_sprite = $PlayerPlatformer/AnimatedSprite2D
+@onready var transition_rect2 = $Transition2/TransitionRect
 var player_position : Vector2
 
 # Existing variables
@@ -21,6 +22,8 @@ var is_transitioning_to_boss: bool = false
 var current_boss_target : String = "none"
 
 func _ready():
+	$Ambience.play()
+	$HubMusic.play()
 	# Initialize transition elements as hidden
 	transition_rect.visible = false
 	heart_sprite.visible = false
@@ -35,21 +38,28 @@ func _ready():
 		"controls": "MainControls"
 	}
 	
-	if LevelManager.is_level_unlocked("gamecomplete"):
+	if LevelManager.is_level_done("level3"):
 		menu_content["instructions"] = "NoBossInstructions"
 		menu_content["task"] = "NoBossTask"
-	elif LevelManager.is_level_unlocked("level3"):
+	elif LevelManager.is_level_done("level2"):
 		menu_content["instructions"] = "Boss3Instructions"
 		menu_content["task"] = "Boss3Task"
-	elif LevelManager.is_level_unlocked("level2"):
+	elif LevelManager.is_level_done("level1"):
 		menu_content["instructions"] = "Boss2Instructions"
 		menu_content["task"] = "Boss2Task"
-	elif LevelManager.is_level_unlocked("level1"):
+	else:
 		menu_content["instructions"] = "Boss1Instructions"
 		menu_content["task"] = "Boss1Task"
 	
 	pause_menu.set_content(menu_content)
 	pause_menu.close_menu()  # Start close
+	
+	# Start with black screen
+	transition_rect2.color = Color(0, 0, 0, 1)
+	transition_rect2.visible = true
+	
+	var fade_tween = create_tween()
+	fade_tween.tween_property(transition_rect2, "color:a", 0, 1.0)
 
 
 # Hub -------------------------------------------
@@ -105,10 +115,26 @@ func _on_boss_3_body_exited(body: Node2D) -> void:
 
 func _input(event: InputEvent) -> void:
 	if player_in_hub and event.is_action_pressed("ui_accept"):
-		get_tree().call_deferred("change_scene_to_file", "res://Scenes/SamScenesAndScripts/hub.tscn")
-		
+		start_hub_transition()  # Changed from direct scene change to use transition
+
 	if (player_in_boss_1 or player_in_boss_2 or player_in_boss_3) and event.is_action_pressed("ui_accept") and not is_transitioning_to_boss:
 		start_boss_transition()
+
+# New function for hub transition
+func start_hub_transition():
+	var player = get_node("PlayerPlatformer")
+	if player.has_method("set_movement_enabled"):
+		player.set_movement_enabled(false)
+		animated_sprite.play("idle")
+
+	# Show transition rect and fade to black
+	transition_rect2.visible = true
+	var fade_tween = create_tween()
+	fade_tween.tween_property(transition_rect2, "color:a", 1, 0.5)
+	fade_tween.tween_callback(change_to_hub_scene)
+
+func change_to_hub_scene():
+	get_tree().change_scene_to_file("res://Scenes/SamScenesAndScripts/hub.tscn")
 
 func start_boss_transition():
 	is_transitioning_to_boss = true

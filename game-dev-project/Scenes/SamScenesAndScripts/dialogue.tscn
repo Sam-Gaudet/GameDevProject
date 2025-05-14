@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://dfs1v8o23car6"]
 
-[ext_resource type="Script" path="res://Scenes/SamScenesAndScripts/dialogue.gd" id="1_xa44v"]
+[ext_resource type="Script" uid="uid://babhobg0vhsfe" path="res://Scenes/SamScenesAndScripts/dialogue.gd" id="1_xa44v"]
 [ext_resource type="Texture2D" uid="uid://buwpl4qehekqf" path="res://Assets/SamAssets/Keyboard Extras.png" id="2_4m0n4"]
 [ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="2_fgijn"]
 [ext_resource type="Texture2D" uid="uid://cchp854pax1jp" path="res://Assets/SamAssets/UI books & more.png" id="2_m4oqy"]

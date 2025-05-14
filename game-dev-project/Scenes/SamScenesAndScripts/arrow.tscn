@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3dn0f3kqrc6n"]
+[gd_scene load_steps=6 format=3 uid="uid://b3dn0f3kqrc6n"]
 
 [ext_resource type="Script" uid="uid://bp0djcevlxygu" path="res://Scenes/SamScenesAndScripts/arrow.gd" id="1_yh704"]
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="2_4ijfx"]
 [ext_resource type="Texture2D" uid="uid://7ee5wie32qgl" path="res://Assets/SamAssets/arrow.png" id="3_4ijfx"]
+[ext_resource type="AudioStream" uid="uid://dpd7g2ej3k3uv" path="res://Assets/SamAssets/crossbow-firing-95020.mp3" id="4_16mfk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16mfk"]
 size = Vector2(7.11919, 22.381)
@@ -29,3 +30,8 @@ scale = Vector2(6.78786, 6.78786)
 texture = ExtResource("3_4ijfx")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_16mfk")
+volume_db = -20.0
+parameters/looping = false

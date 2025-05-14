@@ -1,6 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://cc8at4yy374j8"]
+[gd_scene load_steps=20 format=3 uid="uid://cc8at4yy374j8"]
 
 [ext_resource type="Script" uid="uid://8bqri6ogu4xn" path="res://Scenes/boss projectiles/bomb.gd" id="1_eyv3d"]
+[ext_resource type="AudioStream" uid="uid://c5vxqt5bnp7wd" path="res://Assets/SamAssets/draw-sword1-44724.mp3" id="16_7co4w"]
+[ext_resource type="AudioStream" uid="uid://ceuoongc6hny5" path="res://Assets/SamAssets/explosion-6055.mp3" id="17_keuil"]
 [ext_resource type="Texture2D" uid="uid://ddd6xipys8tms" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_37.png" id="37_3v6hb"]
 [ext_resource type="Texture2D" uid="uid://dt2q3apngafjk" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_38.png" id="38_1q5s5"]
 [ext_resource type="Texture2D" uid="uid://bklr58hlsqcup" path="res://Assets/GameboardAssets/Fx/Fx04/Fx04_39.png" id="39_3va3o"]
@@ -81,5 +83,14 @@ frame_progress = 0.752415
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["projectile"]]
 shape = SubResource("CircleShape2D_6sfq8")
+
+[node name="bomb" type="Node2D" parent="."]
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="bomb"]
+stream = ExtResource("16_7co4w")
+parameters/looping = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_keuil")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

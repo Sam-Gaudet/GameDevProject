@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://yxt54yfas80n"]
 
-[ext_resource type="Script" path="res://Scenes/SamScenesAndScripts/reset.gd" id="1_nwj13"]
+[ext_resource type="Script" uid="uid://b5m2l2b8gxliv" path="res://Scenes/SamScenesAndScripts/reset.gd" id="1_nwj13"]
 
 [node name="Reset" type="Node2D"]
 script = ExtResource("1_nwj13")

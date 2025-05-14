@@ -1,12 +1,12 @@
 [gd_scene load_steps=17 format=4 uid="uid://cany8rxhephm"]
 
-[ext_resource type="Script" path="res://Scenes/SamScenesAndScripts/pause_menu.gd" id="1_ig7gg"]
+[ext_resource type="Script" uid="uid://bbc242hp6n3gl" path="res://Scenes/SamScenesAndScripts/pause_menu.gd" id="1_ig7gg"]
 [ext_resource type="Texture2D" uid="uid://cchp854pax1jp" path="res://Assets/SamAssets/UI books & more.png" id="2_2lh1y"]
 [ext_resource type="Texture2D" uid="uid://b0bqqfg0ou68j" path="res://Assets/SamAssets/Keyboard Letters and Symbols.png" id="2_rutes"]
 [ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="3_2lh1y"]
 [ext_resource type="Texture2D" uid="uid://buwpl4qehekqf" path="res://Assets/SamAssets/Keyboard Extras.png" id="3_x3wav"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lh1y"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1sx3k"]
 texture = ExtResource("2_2lh1y")
 34:0/0 = 0
 35:0/0 = 0
@@ -922,7 +922,7 @@ texture = ExtResource("2_2lh1y")
 23:28/0 = 0
 24:28/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1sx3k"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_801ua"]
 texture = ExtResource("2_rutes")
 0:0/0 = 0
 1:0/0 = 0
@@ -1033,7 +1033,7 @@ texture = ExtResource("2_rutes")
 4:13/0 = 0
 5:13/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_801ua"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bo4a1"]
 texture = ExtResource("3_x3wav")
 0:0/0 = 0
 1:0/0 = 0
@@ -1101,9 +1101,9 @@ texture = ExtResource("3_x3wav")
 7:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_4nnqf"]
-sources/0 = SubResource("TileSetAtlasSource_2lh1y")
-sources/1 = SubResource("TileSetAtlasSource_1sx3k")
-sources/2 = SubResource("TileSetAtlasSource_801ua")
+sources/0 = SubResource("TileSetAtlasSource_1sx3k")
+sources/1 = SubResource("TileSetAtlasSource_801ua")
+sources/2 = SubResource("TileSetAtlasSource_bo4a1")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nnqf"]
 texture = ExtResource("2_2lh1y")
@@ -3133,6 +3133,54 @@ offset = Vector2(576, 324)
 transform = Transform2D(1, 0, 0, 1, 576, 324)
 script = ExtResource("1_ig7gg")
 
+[node name="TrophyProgress" type="TileMapLayer" parent="PauseMenu"]
+texture_filter = 1
+position = Vector2(-838, -116)
+scale = Vector2(4.2, 4.2)
+tile_map_data = PackedByteArray("AAAFAP3/AAAqAAEAAAAGAP3/AAAqAAEAAAAHAP3/AAAqAAEAAAAIAP3/AAArAAEAAAAGAP7/AAAhAAcAAAAFAP7/AAAhAAcAAAAIAP7/AAArAAIAAAAHAP7/AAAhAAcAAAAEAP3/AAApAAEAAAAEAP7/AAApAAIAAAAEAP//AAApAAQAAAAFAP//AAAqAAQAAAAGAP//AAAqAAQAAAAHAP//AAAqAAQAAAAIAP//AAArAAQAAAA=")
+tile_set = SubResource("TileSet_4nnqf")
+
+[node name="TrophyNone" type="TileMapLayer" parent="PauseMenu/TrophyProgress"]
+texture_filter = 1
+position = Vector2(122.381, -39.7619)
+scale = Vector2(0.8, 0.8)
+tile_map_data = PackedByteArray("AAD8/wEAAAAfAA8AAAD8/wIAAAAfABAAAAD9/wEAAAAgAA8AAAD9/wIAAAAgABAAAAD+/wEAAAAhAA8AAAD+/wIAAAAhABAAAAD//wEAAAAiAA8AAAD//wIAAAAiABAAAAAAAAEAAAAjAA8AAAAAAAIAAAAjABAAAAA=")
+tile_set = SubResource("TileSet_4nnqf")
+
+[node name="Trophy1" type="TileMapLayer" parent="PauseMenu/TrophyProgress"]
+texture_filter = 1
+position = Vector2(122.381, -39.762)
+scale = Vector2(0.8, 0.8)
+tile_map_data = PackedByteArray("AAD8/wEAAAAlAAsAAAD8/wIAAAAlAAwAAAD9/wEAAAAmAAsAAAD9/wIAAAAmAAwAAAD+/wEAAAAnAAsAAAD+/wIAAAAnAAwAAAD//wEAAAAoAAsAAAD//wIAAAAoAAwAAAAAAAEAAAApAAsAAAAAAAIAAAApAAwAAAA=")
+tile_set = SubResource("TileSet_4nnqf")
+
+[node name="Trophy2" type="TileMapLayer" parent="PauseMenu/TrophyProgress"]
+texture_filter = 1
+position = Vector2(122.381, -39.762)
+scale = Vector2(0.8, 0.8)
+tile_map_data = PackedByteArray("AAD8/wEAAAAlAA0AAAD8/wIAAAAlAA4AAAD9/wEAAAAmAA0AAAD9/wIAAAAmAA4AAAD+/wEAAAAnAA0AAAD+/wIAAAAnAA4AAAD//wEAAAAoAA0AAAD//wIAAAAoAA4AAAAAAAEAAAApAA0AAAAAAAIAAAApAA4AAAA=")
+tile_set = SubResource("TileSet_4nnqf")
+
+[node name="Trophy3" type="TileMapLayer" parent="PauseMenu/TrophyProgress"]
+texture_filter = 1
+position = Vector2(122.381, -39.762)
+scale = Vector2(0.8, 0.8)
+tile_map_data = PackedByteArray("AAD8/wEAAAAlAA8AAAD8/wIAAAAlABAAAAD9/wEAAAAmAA8AAAD9/wIAAAAmABAAAAD+/wEAAAAnAA8AAAD+/wIAAAAnABAAAAD//wEAAAAoAA8AAAD//wIAAAAoABAAAAAAAAEAAAApAA8AAAAAAAIAAAApABAAAAA=")
+tile_set = SubResource("TileSet_4nnqf")
+
+[node name="TrophyLabel" type="Label" parent="PauseMenu/TrophyProgress"]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+offset_left = 71.9048
+offset_top = -45.4762
+offset_right = 119.905
+offset_bottom = -32.4762
+scale = Vector2(1.14286, 1.14286)
+theme_override_fonts/font = ExtResource("3_2lh1y")
+text = "Trophies"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="Insturctions" type="TileMapLayer" parent="PauseMenu"]
 texture_filter = 1
 position = Vector2(-15, -39)
@@ -3189,7 +3237,6 @@ autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Book" type="TileMapLayer" parent="PauseMenu"]
-visible = false
 texture_filter = 1
 position = Vector2(0, 111)
 scale = Vector2(4.2, 4.2)

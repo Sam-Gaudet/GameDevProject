@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://bxtm6t7t5o816"]
+[gd_scene load_steps=43 format=4 uid="uid://bxtm6t7t5o816"]
 
 [ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_mtd77"]
 [ext_resource type="Script" uid="uid://bl6wjpo7ijs3i" path="res://Scenes/SamScenesAndScripts/boss_fight_2.gd" id="1_twden"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://2x8tmg5avwl8" path="res://Assets/SamAssets/HURT.png" id="8_ifhdf"]
 [ext_resource type="PackedScene" uid="uid://dal1m8ay0xbf4" path="res://Scenes/SamScenesAndScripts/torch.tscn" id="9_jskob"]
 [ext_resource type="Texture2D" uid="uid://bwnp4nl2lxwn2" path="res://Assets/GameboardAssets/Item__71.png" id="12_1i0qf"]
+[ext_resource type="AudioStream" uid="uid://desn3bp0sk5vi" path="res://Assets/SamAssets/medieval-opener-270568.mp3" id="14_8tqtc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_srs60"]
 texture = ExtResource("6_srs60")
@@ -255,7 +256,7 @@ z_index = 20
 visible = false
 
 [node name="Transition" type="CanvasLayer" parent="."]
-layer = 3
+layer = 6
 follow_viewport_enabled = true
 
 [node name="TransitionRect" type="ColorRect" parent="Transition"]
@@ -299,7 +300,7 @@ tile_set = SubResource("TileSet_jskob")
 visible = false
 z_index = 5
 
-[node name="bomb" parent="." instance=ExtResource("4_w7eve")]
+[node name="bomb" parent="." groups=["attack"] instance=ExtResource("4_w7eve")]
 visible = false
 z_index = 5
 
@@ -354,4 +355,10 @@ texture = ExtResource("12_1i0qf")
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_1i0qf")
 
+[node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_8tqtc")
+volume_db = -20.0
+parameters/looping = false
+
 [editable path="PauseMenu/PauseMenu"]
+[editable path="GameBoard"]

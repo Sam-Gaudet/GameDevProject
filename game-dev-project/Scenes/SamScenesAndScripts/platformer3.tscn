@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cv4pj7011cc60"]
+[gd_scene load_steps=28 format=3 uid="uid://cv4pj7011cc60"]
 
 [ext_resource type="Script" uid="uid://dqdpurbolymav" path="res://Scenes/SamScenesAndScripts/platformer_logic.gd" id="1_tpqbk"]
 [ext_resource type="PackedScene" uid="uid://cany8rxhephm" path="res://Scenes/SamScenesAndScripts/pause_menu.tscn" id="2_cek5l"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dfs1v8o23car6" path="res://Scenes/SamScenesAndScripts/dialogue.tscn" id="7_86dwe"]
 [ext_resource type="PackedScene" uid="uid://cifpnmy1ws14e" path="res://Scenes/SamScenesAndScripts/sign.tscn" id="8_q41a0"]
 [ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="9_86dwe"]
+[ext_resource type="AudioStream" uid="uid://qpeskfhqxsic" path="res://Assets/SamAssets/mountain-knight-castle-medieval-fantasy-orchestral-music-264986.mp3" id="12_s71u5"]
+[ext_resource type="AudioStream" uid="uid://cohvlk353tdql" path="res://Assets/SamAssets/ambience-wind-blowing-through-trees-01-186986.mp3" id="13_lsu4u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tgdpd"]
 shader = ExtResource("2_r4n7g")
@@ -95,6 +97,24 @@ layer = 5
 [node name="PauseMenu" parent="PauseMenu" instance=ExtResource("2_cek5l")]
 z_index = 20
 
+[node name="Transition2" type="CanvasLayer" parent="."]
+layer = 6
+follow_viewport_enabled = true
+
+[node name="TransitionRect" type="ColorRect" parent="Transition2"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -955.0
+offset_top = -607.0
+offset_right = -50.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+color = Color(0, 0, 0, 1)
+
 [node name="Transition" type="CanvasLayer" parent="."]
 layer = 3
 follow_viewport_enabled = true
@@ -104,10 +124,13 @@ visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 763.0
-offset_bottom = 558.0
+offset_left = -955.0
+offset_top = -607.0
+offset_right = -192.0
+offset_bottom = -49.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 color = Color(0, 0, 0, 1)
 
 [node name="HeartSprite" type="Sprite2D" parent="Transition"]
@@ -230,6 +253,13 @@ offset_top = -38.0
 offset_right = 124.5
 offset_bottom = -15.0
 text = "Prepare yourself for battle"
+
+[node name="HubMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_s71u5")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_lsu4u")
+volume_db = -3.0
 
 [connection signal="body_entered" from="Boss3" to="." method="_on_boss_3_body_entered"]
 [connection signal="body_exited" from="Boss3" to="." method="_on_boss_3_body_exited"]

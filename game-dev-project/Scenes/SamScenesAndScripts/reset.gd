@@ -4,8 +4,8 @@ func _ready():
 	# Change these values here, reset save data
 	var data = {
 		"level1": true,
-		"level2": false,
-		"level3": false
+		"level2": true,
+		"level3": true,
 	}
 	
 	var file = FileAccess.open("user://level_progress.save", FileAccess.WRITE)

@@ -13,6 +13,8 @@ const SWORD_MOVE_DISTANCE: int = 40 # pixels to move
 @onready var sword_sprite = $DamageArea/Sprite2D
 @onready var damage_collision = $DamageArea/CollisionShape2D
 
+static var first_time := true
+
 func _ready():
 	# Initial setup
 	damage_area.visible = false
@@ -34,7 +36,11 @@ func _ready():
 		damage_collision.position.y = -SWORD_MOVE_DISTANCE  # Match initial position
 	
 	await _play_warning()
-	_attack()
+	if first_time:
+		first_time = false
+		queue_free()
+	else:
+		_attack()
 
 func _play_warning():
 	# Blink red twice
@@ -46,6 +52,7 @@ func _play_warning():
 		await get_tree().create_timer(0.3).timeout
 
 func _attack():
+	$AttackSound.play()
 	warning_sprite.visible = false
 	sword_sprite.visible = true
 	damage_area.visible = true

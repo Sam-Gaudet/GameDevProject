@@ -3,10 +3,9 @@ extends Node
 const SAVE_FILE := "user://level_progress.save"
 
 var unlocked_levels := {
-	"level1": true,  # First level is always unlocked
+	"level1": false,  # First level is always unlocked
 	"level2": false,
 	"level3": false,
-	"gamecomplete": false
 }
 
 func _ready():
@@ -17,6 +16,8 @@ func save_progress():
 	if file:
 		file.store_var(unlocked_levels)
 		file.close()
+	print("Progress saved!")
+	print_level_status()
 
 func load_progress():
 	if FileAccess.file_exists(SAVE_FILE):
@@ -27,26 +28,26 @@ func load_progress():
 				unlocked_levels = data
 			file.close()
 
-func unlock_level(level_name: String):
+func level_done(level_name: String):
 	if unlocked_levels.has(level_name):
 		unlocked_levels[level_name] = true
 		save_progress()
 
-func is_level_unlocked(level_name: String) -> bool:
+func is_level_done(level_name: String) -> bool:
 	return unlocked_levels.get(level_name, false)
 
 func reset_progress():
+	print("Resetting all progress...")
 	unlocked_levels = {
-		"level1": true,
+		"level1": false,
 		"level2": false,
 		"level3": false,
-		"gamecomplete": false
 	}
 	save_progress()
 	
 func print_level_status():
-	print("=== LEVEL UNLOCK STATUS ===")
-	for level in unlocked_levels:
-		var status = "UNLOCKED" if unlocked_levels[level] else "LOCKED"
-		print("%s: %s" % [level, status])
+	print("=== LEVEL STATUS ===")
+	print("Level 1: %s" % ["DONE" if unlocked_levels["level1"] else "NOT DONE"])
+	print("Level 2: %s" % ["DONE" if unlocked_levels["level2"] else "NOT DONE"])
+	print("Level 3: %s" % ["DONE" if unlocked_levels["level3"] else "NOT DONE"])
 	print("==========================")

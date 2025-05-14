@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dkj8ofhjk827m"]
+[gd_scene load_steps=26 format=3 uid="uid://dkj8ofhjk827m"]
 
 [ext_resource type="Script" uid="uid://ca2xbuqxro322" path="res://Scenes/SamScenesAndScripts/hub.gd" id="1_bhjrh"]
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="1_ypb1b"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dfs1v8o23car6" path="res://Scenes/SamScenesAndScripts/dialogue.tscn" id="4_o5gap"]
 [ext_resource type="PackedScene" uid="uid://cifpnmy1ws14e" path="res://Scenes/SamScenesAndScripts/sign.tscn" id="6_cxyaf"]
 [ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="8_md1j0"]
+[ext_resource type="AudioStream" uid="uid://cohvlk353tdql" path="res://Assets/SamAssets/ambience-wind-blowing-through-trees-01-186986.mp3" id="11_2g51e"]
+[ext_resource type="AudioStream" uid="uid://qpeskfhqxsic" path="res://Assets/SamAssets/mountain-knight-castle-medieval-fantasy-orchestral-music-264986.mp3" id="11_g6csd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dmd4q"]
 shader = ExtResource("3_dwfiy")
@@ -94,11 +96,23 @@ z_index = 20
 [node name="PauseMenu" parent="PauseMenu/PauseMenu" index="0"]
 visible = false
 
-[node name="Insturctions" parent="PauseMenu/PauseMenu/PauseMenu" index="0"]
-position = Vector2(-15, -39)
+[node name="Transition" type="CanvasLayer" parent="."]
+layer = 6
+follow_viewport_enabled = true
 
-[node name="TinyBook" parent="PauseMenu/PauseMenu/PauseMenu/Insturctions" index="0"]
-position = Vector2(121.429, -49.7619)
+[node name="TransitionRect" type="ColorRect" parent="Transition"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1817.0
+offset_top = -914.0
+offset_right = -912.0
+offset_bottom = -405.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.97781, 1.97509)
+color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_priority = 2
@@ -261,7 +275,7 @@ offset_bottom = -31.0
 scale = Vector2(2.24001, 2.24001)
 theme_override_constants/line_spacing = -4
 theme_override_fonts/font = ExtResource("8_md1j0")
-text = "MainMenu"
+text = "MainMenuSign"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -287,6 +301,15 @@ metadata/_edit_use_anchors_ = true
 [node name="PlayerPlatformer" parent="." instance=ExtResource("2_bhjrh")]
 position = Vector2(718, 438)
 collision_mask = 6
+
+[node name="HubMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_g6csd")
+parameters/looping = false
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_2g51e")
+volume_db = -3.0
+parameters/looping = false
 
 [connection signal="body_entered" from="MainMenu" to="." method="_on_main_menu_body_entered"]
 [connection signal="body_exited" from="MainMenu" to="." method="_on_main_menu_body_exited"]
