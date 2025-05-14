@@ -287,7 +287,7 @@ func trophy():
 	$trophy.monitoring = true
 	Global.last_level_completed = "Level3"
 	
-	LevelManager.level_done("boss3")
+	LevelManager.level_done("level3")
 	LevelManager.print_level_status()
 	
 

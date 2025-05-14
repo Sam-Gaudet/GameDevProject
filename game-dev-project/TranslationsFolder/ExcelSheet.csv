@@ -48,7 +48,7 @@ GameBoss1Instructions,Dodge attacks to defeat boss,Eviter attaques pour battre b
 GameBoss2Story,This boss is a fallen night.. they've lost everything they have and are seeking for revenge,Ce boss est un chevalier vaincu... il a tous perdu ce qu'il avaient et recherchent la vengeance
 GameBoss2Task,Avoid red damage zones to avoid attacks + throw bombs back with Enter or Space while in red zone to defeat boss,Eviter zones rouges pour eviter attaques + renvoyez bombes avec Entree ou Espace dans la zone rouge pour vaincre le boss
 GameBoss2Controls,Escape - Close/Open notes\nEnter/Spacebar - Throw bomb back\nMoving:\nAW/Up arrow - Up\nA/Left arrow - Left\nS/Down arrow - Down\nD/Right arrow - Right,Echapper - Fermer/Ouvrir notes\nEntree/Espace - Renvoyer une bombe\nBouger:\nW/Fleche haut - Monter\nA/Fleche gauche - Gauche\nS/Fleche bas - Descendre\nD/Fleche droite - Droite
-GameBoss2Instructions,Dodge attacks / Throw bomb backs with Enter,
+GameBoss2Instructions,Dodge attacks / Throw bomb backs with Space/Enter,Eviter attaques / Renvoyer bomb avec Espace/Entree
 GameBoss3Story,Boss 3 Story here.. EDIT ME,Histoire boss 3 ici.. EDIT ME
 GameBoss3Task,Avoid incoming attacks from.. EDIT ME,Eviter attaques.. EDIT ME
 GameBoss3Controls,Escape - Close/Open notes\nMoving:\nAW/Up arrow - Up\nA/Left arrow - Left\nS/Down arrow - Down\nD/Right arrow - Right,Echapper - Fermer/Ouvrir notes\nBouger:\nW/Fleche en haut - Monter\nA/Fleche gauche - Gauche\nS/Fleche bas - Descendre\nD/Fleche droite - Droite

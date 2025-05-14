@@ -24,7 +24,7 @@ offset_right = 560.0
 offset_bottom = -107.0
 theme_override_fonts/font = ExtResource("1_ek8ke")
 theme_override_font_sizes/font_size = 400
-text = "GameOVer"
+text = "GameOver"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -33,6 +33,7 @@ offset_left = -128.0
 offset_top = 24.0
 offset_right = 128.0
 offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("1_ek8ke")
 action_mode = 0
 text = "Restart"
 script = ExtResource("3_ek8ke")
@@ -42,6 +43,7 @@ offset_left = -128.0
 offset_top = 104.0
 offset_right = 128.0
 offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("1_ek8ke")
 text = "MainMenu"
 script = ExtResource("4_eoghk")
 
