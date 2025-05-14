@@ -19,19 +19,26 @@ var attack_pattern = [
 	{"type": "tendril", "position": Vector2(-700, 0), "end_position": Vector2(1500, 0), "movement": "right"},
 	{"type": "bubble", "position": Vector2(190, -500), "end_position": Vector2(190, 1200), "movement": "down"},
 	{"type": "tendril", "position": Vector2(-700, 65), "end_position": Vector2(1500, 65), "movement": "right"},
-
+	
+	# New combo attacks
+	{"type": "combo", "attacks": [
+		{"type": "bubble", "position": Vector2(65, -500), "end_position": Vector2(65, 1200), "movement": "down", "speed": 250},
+		{"type": "tendril", "position": Vector2(-700, 130), "end_position": Vector2(1500, 130), "movement": "right"}
+	]},
+	{"type": "combo", "attacks": [
+		{"type": "bubble", "position": Vector2(-65, -500), "end_position": Vector2(-65, 1200), "movement": "down", "speed": 300},
+		{"type": "tendril", "position": Vector2(-700, 195), "end_position": Vector2(1500, 195), "movement": "right"}
+	]},
 ]
 
 var current_pattern_index = 0
 
 func _ready():
+	$Theme.play()
 	LevelManager.print_level_status()
 	# Start with black screen
 	transition_rect.color = Color(0, 0, 0, 1)
 	transition_rect.visible = true
-	
-	Dialogue_box.visible = false
-	Dialogue_sprite.visible = false
 	boss_sprite.visible = false
 	start_boss_appearance()
 	Global.current_level = "1"
@@ -51,20 +58,15 @@ func _ready():
 	
 	var fade_tween = create_tween()
 	fade_tween.tween_property(transition_rect, "color:a", 0, 1.0)
-	
 
 func start_boss_appearance():
 	await get_tree().create_timer(5).timeout
 	boss_sprite.visible = true
-	Dialogue_sprite.visible = true
-	Dialogue_box.visible = true
-
-
 	spawn_attack_cycle()
 	await get_tree().create_timer(5).timeout
 
 func spawn_attack_cycle():
-	for i in range(4):  # Loop through the pattern 4 times
+	for i in range(6):  # Loop through all 6 attacks
 		var attack = attack_pattern[current_pattern_index]
 
 		match attack["type"]:
@@ -72,32 +74,49 @@ func spawn_attack_cycle():
 				spawn_bubble(attack)
 			"tendril":
 				spawn_tendril(attack)
+			"combo":
+				for sub_attack in attack["attacks"]:
+					match sub_attack["type"]:
+						"bubble":
+							spawn_bubble(sub_attack)
+						"tendril":
+							spawn_tendril(sub_attack)
 
 		current_pattern_index = (current_pattern_index + 1) % attack_pattern.size()
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(5.0).timeout
 	
 	win()
-
 
 func spawn_bubble(attack):
 	var bubble = bubble_template.instantiate()
 	bubble.position = attack["position"]
 	bubble.z_index = 1
-	projectile_parent.add_child(bubble)  # Add dynamically as child
+	projectile_parent.add_child(bubble)
+
+	var speed = attack.get("speed", 200)  # Default speed if not specified
+	var distance = bubble.position.distance_to(attack["end_position"])
+	var duration = distance / speed
 
 	var tween = create_tween()
-	tween.tween_property(bubble, "position", attack["end_position"], 6.0).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property(bubble, "position", attack["end_position"], duration).set_trans(Tween.TRANS_LINEAR)
+
+	await tween.finished
+	if is_instance_valid(bubble):
+		bubble.queue_free()
 
 func spawn_tendril(attack):
 	var tendril = tendril_template.instantiate()
 	tendril.position = attack["position"]
 	tendril.z_index = 1
-	projectile_parent.add_child(tendril)  # Add dynamically as child
+	projectile_parent.add_child(tendril)
 
+	var duration = 6.0  # Optional: make this configurable
 	var tween = create_tween()
-	tween.tween_property(tendril, "position", attack["end_position"], 6.0).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property(tendril, "position", attack["end_position"], duration).set_trans(Tween.TRANS_LINEAR)
 
-
+	await tween.finished
+	if is_instance_valid(tendril):
+		tendril.queue_free()
 
 func clear_attacks():
 	for child in projectile_parent.get_children():
@@ -112,7 +131,6 @@ func win():
 	Global.last_level_completed = "Level1"
 	
 	LevelManager.level_done("level1")	
-
 	LevelManager.print_level_status()
 	
 	# Tween to normal size

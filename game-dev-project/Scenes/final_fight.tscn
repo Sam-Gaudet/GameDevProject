@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dhasar33v5i8h" path="res://Assets/GameboardAssets/background game.png" id="6_i5n05"]
 [ext_resource type="Texture2D" uid="uid://ccnee84afbf53" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_4.png" id="7_53jd3"]
 [ext_resource type="Texture2D" uid="uid://cviwb4uwg63xd" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_8.png" id="7_egdey"]
-[ext_resource type="Script" path="res://Scenes/backFinal.gd" id="7_qbqs6"]
+[ext_resource type="Script" uid="uid://7if8afeoacvf" path="res://Scenes/backFinal.gd" id="7_qbqs6"]
 [ext_resource type="Texture2D" uid="uid://dkrchrlk2hhn7" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_7.png" id="8_n3q6i"]
 [ext_resource type="Texture2D" uid="uid://dgpvrfg2pet6r" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_6.png" id="9_4gmg8"]
 [ext_resource type="Texture2D" uid="uid://bphen2505lrmv" path="res://Assets/FinalFightAssets/Starry_Night_Itch_Package/Layers_640x360/Starry_night_Layer_5.png" id="10_q5y2a"]

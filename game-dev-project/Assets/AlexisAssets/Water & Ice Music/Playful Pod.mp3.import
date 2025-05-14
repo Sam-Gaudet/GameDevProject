@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cd8t1ypn3uo5l"
+path="res://.godot/imported/Playful Pod.mp3-a198d5abe84d169c2a64a1d267aa8cf1.mp3str"
+
+[deps]
+
+source_file="res://Assets/AlexisAssets/Water & Ice Music/Playful Pod.mp3"
+dest_files=["res://.godot/imported/Playful Pod.mp3-a198d5abe84d169c2a64a1d267aa8cf1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

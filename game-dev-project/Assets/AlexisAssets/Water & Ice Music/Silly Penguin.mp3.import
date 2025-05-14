@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bg68lksvun7lj"
+path="res://.godot/imported/Silly Penguin.mp3-c62001520d6df86bb46ae7a661fec0dd.mp3str"
+
+[deps]
+
+source_file="res://Assets/AlexisAssets/Water & Ice Music/Silly Penguin.mp3"
+dest_files=["res://.godot/imported/Silly Penguin.mp3-c62001520d6df86bb46ae7a661fec0dd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

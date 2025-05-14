@@ -1,12 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://b6loyos6rbvvf"]
+[gd_scene load_steps=14 format=3 uid="uid://b6loyos6rbvvf"]
 
 [ext_resource type="Script" uid="uid://i5ysuiiq77w7" path="res://Scenes/AlexisScenesAndScripts/boss_fight_1.gd" id="1_puq4g"]
 [ext_resource type="PackedScene" uid="uid://cfie0mfxbb5ed" path="res://Scenes/Gameboard/game_board.tscn" id="1_v14ti"]
 [ext_resource type="PackedScene" uid="uid://dva5b3giq4v0r" path="res://Scenes/AlexisScenesAndScripts/Boss1 Background.tscn" id="3_puq4g"]
 [ext_resource type="Texture2D" uid="uid://c6xie6cbyytnq" path="res://Assets/AlexisAssets/SpriteSheet.png" id="4_puq4g"]
-[ext_resource type="Texture2D" uid="uid://0tv7itvfrdu5" path="res://Assets/AlexisAssets/Faceset.png" id="5_vnjvd"]
-[ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="6_0t65x"]
 [ext_resource type="PackedScene" uid="uid://cany8rxhephm" path="res://Scenes/SamScenesAndScripts/pause_menu.tscn" id="7_mvgvc"]
+[ext_resource type="AudioStream" uid="uid://dg24aejbbijar" path="res://Assets/AlexisAssets/Water & Ice Music/City of Coral.mp3" id="7_x5bls"]
 [ext_resource type="Texture2D" uid="uid://bwnp4nl2lxwn2" path="res://Assets/GameboardAssets/Item__71.png" id="8_x5bls"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vnjvd"]
@@ -92,21 +91,6 @@ autoplay = "default"
 [node name="GameBoard2" parent="." instance=ExtResource("1_v14ti")]
 modulate = Color(0.0727445, 0, 0.952592, 1)
 
-[node name="Dialogue face" type="Sprite2D" parent="."]
-position = Vector2(-416, -264)
-scale = Vector2(1.97368, 1.97368)
-texture = ExtResource("5_vnjvd")
-flip_h = true
-
-[node name="Dialogue" type="Label" parent="."]
-offset_left = -336.0
-offset_top = -280.0
-offset_right = -296.0
-offset_bottom = -248.0
-theme_override_fonts/font = ExtResource("6_0t65x")
-theme_override_font_sizes/font_size = 40
-text = "aaaa"
-
 [node name="trophy" type="Area2D" parent="." groups=["win"]]
 visible = false
 texture_filter = 1
@@ -120,5 +104,9 @@ texture = ExtResource("8_x5bls")
 [node name="trophy" type="CollisionShape2D" parent="trophy"]
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_50ann")
+
+[node name="Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_x5bls")
+volume_db = -15.0
 
 [editable path="PauseMenu/PauseMenu"]
