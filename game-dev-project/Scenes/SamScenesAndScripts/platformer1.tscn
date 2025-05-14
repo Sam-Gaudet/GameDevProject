@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cmne264dkm6l5"]
+[gd_scene load_steps=33 format=3 uid="uid://cmne264dkm6l5"]
 
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="1_c0qil"]
 [ext_resource type="Script" uid="uid://dqdpurbolymav" path="res://Scenes/SamScenesAndScripts/platformer_logic.gd" id="1_ms48t"]
@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="9_y7lsg"]
 [ext_resource type="AudioStream" uid="uid://qpeskfhqxsic" path="res://Assets/SamAssets/mountain-knight-castle-medieval-fantasy-orchestral-music-264986.mp3" id="12_y6fft"]
 [ext_resource type="AudioStream" uid="uid://cohvlk353tdql" path="res://Assets/SamAssets/ambience-wind-blowing-through-trees-01-186986.mp3" id="13_stylm"]
+[ext_resource type="Texture2D" uid="uid://c6xie6cbyytnq" path="res://Assets/AlexisAssets/SpriteSheet.png" id="14_stylm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kc33n"]
 shader = ExtResource("2_u5ing")
@@ -81,6 +82,42 @@ animations = [{
 }],
 "loop": true,
 "name": &"portal",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnjvd"]
+atlas = ExtResource("14_stylm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t65x"]
+atlas = ExtResource("14_stylm")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvgvc"]
+atlas = ExtResource("14_stylm")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5bls"]
+atlas = ExtResource("14_stylm")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sst6h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnjvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0t65x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvgvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5bls")
+}],
+"loop": true,
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -236,6 +273,12 @@ stream = ExtResource("12_y6fft")
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_stylm")
 volume_db = -3.0
+
+[node name="BossAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1008, 675)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_sst6h")
+autoplay = "default"
 
 [connection signal="body_entered" from="Boss1" to="." method="_on_boss_1_body_entered"]
 [connection signal="body_exited" from="Boss1" to="." method="_on_boss_1_body_exited"]

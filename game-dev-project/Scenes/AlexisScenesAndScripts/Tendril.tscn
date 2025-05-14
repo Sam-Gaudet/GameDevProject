@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctfdw7drf70lx"]
+[gd_scene load_steps=8 format=3 uid="uid://ctfdw7drf70lx"]
 
 [ext_resource type="Script" uid="uid://exfkp1reabqn" path="res://Scenes/AlexisScenesAndScripts/tendril.gd" id="1_ijqgy"]
 [ext_resource type="Texture2D" uid="uid://dkdr0vuorym7x" path="res://Assets/AlexisAssets/shooting laser-sheet.png" id="1_lm25v"]
+[ext_resource type="AudioStream" uid="uid://yaunicaqqbw" path="res://Assets/AlexisAssets/large-underwater-explosion-190270.mp3" id="3_xqt50"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bj31v"]
 atlas = ExtResource("1_lm25v")
@@ -43,3 +44,7 @@ frame_progress = 0.497966
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["projectile"]]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_lm25v")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xqt50")
+autoplay = true
