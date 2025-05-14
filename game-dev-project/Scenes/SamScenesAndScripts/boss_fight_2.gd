@@ -43,12 +43,24 @@ var current_pattern_index = 0
 var boss_health = 3
 var is_boss_defeated = false
 var is_in_bomb_phase = false
+var should_stop_attacks := false
+
+@onready var player = $GameBoard/MainCharacter
 
 func _ready():
+	$ThemeMusic.play()
+	print("Player node is:", player)
+	if player:
+		player.connect("player_died", Callable(self, "_on_player_died"))
+		print("reached")
+		
 	LevelManager.print_level_status()
 	# Start with black screen
 	transition_rect.color = Color(0, 0, 0, 1)
 	transition_rect.visible = true
+	
+	var fade_tween = create_tween()
+	fade_tween.tween_property(transition_rect, "color:a", 0, 1.0)
 	
 	pause_menu.visible = true
 	
@@ -63,8 +75,6 @@ func _ready():
 	pause_menu.set_content(menu_content)
 	pause_menu.close_menu()  # Start close
 	
-	var fade_tween = create_tween()
-	fade_tween.tween_property(transition_rect, "color:a", 0, 1.0)
 	
 	Global.current_level = "2"
 
@@ -75,7 +85,7 @@ func _ready():
 func start_attack_cycle():
 	# First phase: sword and arrow attacks
 	for attack in sword_arrow_pattern:
-		if is_boss_defeated:
+		if is_boss_defeated or should_stop_attacks:
 			return
 			
 		spawn_attack(attack)
@@ -85,7 +95,7 @@ func start_attack_cycle():
 	is_in_bomb_phase = true
 	while boss_health > 0 and not is_boss_defeated:
 		for attack in bomb_pattern:
-			if is_boss_defeated:
+			if is_boss_defeated or should_stop_attacks:
 				return
 				
 			spawn_attack(attack)
@@ -103,6 +113,7 @@ func spawn_attack(attack):
 			sword.direction = attack["direction"]
 			sword.index = attack["index"]
 			sword.flip = attack.get("flip", false)
+			sword.add_to_group("attack") 
 			add_child(sword)
 		
 		"arrow":
@@ -112,6 +123,7 @@ func spawn_attack(attack):
 			arrow.direction = attack["direction"]
 			arrow.index = attack["index"]
 			arrow.flip = attack.get("flip", false)
+			arrow.add_to_group("attack") 
 			add_child(arrow)
 		
 		"bomb":
@@ -120,7 +132,13 @@ func spawn_attack(attack):
 			bomb.TILE_SIZE = TILE_SIZE
 			bomb.position = attack["position"] * TILE_SIZE - Vector2(GRID_SIZE/2, GRID_SIZE/2) * TILE_SIZE
 			bomb.boss_position = boss_anim.global_position
+			bomb.add_to_group("attack") 
 			add_child(bomb)
+			
+func _on_player_died():
+	print("Player is dead. Clearing attacks.")
+	should_stop_attacks = true
+	clear_attacks()
 
 func boss_hit():
 	boss_health -= 1
@@ -144,6 +162,7 @@ func boss_defeated():
 func clear_attacks():
 	for child in get_children():
 		if child.is_in_group("attack"):
+			print(child.is_in_group("attack"))
 			child.queue_free()
 
 func win():
@@ -153,7 +172,7 @@ func win():
 	$trophy.monitoring = true
 	Global.last_level_completed = "Level2"
 	
-	LevelManager.unlock_level("level3")
+	LevelManager.level_done("level2")
 	LevelManager.print_level_status()
 	# Tween to normal size
 	var tween = create_tween()

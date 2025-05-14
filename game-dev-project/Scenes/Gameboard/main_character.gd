@@ -25,6 +25,8 @@ var game_started := false
 var can_take_damage := true
 var invincibility_timer := Timer.new()
 
+signal player_died
+
 func _ready():
 	position = position.snapped(Vector2(TILE_SIZE, TILE_SIZE))
 	target_position = position
@@ -106,7 +108,8 @@ func take_damage():
 			hearth1.visible = false
 
 	if life == 0:
-		is_dead = true
+		is_dead = true 
+		emit_signal("player_died")
 		blackscreen.visible = true
 		blackscreen.z_index = 10000000
 		player.z_index = 20002222

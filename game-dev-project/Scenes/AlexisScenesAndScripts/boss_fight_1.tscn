@@ -61,7 +61,7 @@ z_index = 20
 visible = false
 
 [node name="Transition" type="CanvasLayer" parent="."]
-layer = 3
+layer = 6
 follow_viewport_enabled = true
 
 [node name="TransitionRect" type="ColorRect" parent="Transition"]

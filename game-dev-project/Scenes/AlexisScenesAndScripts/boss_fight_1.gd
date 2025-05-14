@@ -111,7 +111,7 @@ func win():
 	$trophy.monitoring = true
 	Global.last_level_completed = "Level1"
 	
-	LevelManager.unlock_level("level2")	
+	LevelManager.level_done("level1")	
 
 	LevelManager.print_level_status()
 	

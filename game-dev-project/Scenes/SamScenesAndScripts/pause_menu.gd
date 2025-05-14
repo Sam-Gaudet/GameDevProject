@@ -13,6 +13,11 @@ signal menu_closed
 	"controls": $Book/ControlsDetails
 }
 
+@onready var trophy_none = $TrophyProgress/TrophyNone
+@onready var trophy1 = $TrophyProgress/Trophy1
+@onready var trophy2 = $TrophyProgress/Trophy2
+@onready var trophy3 = $TrophyProgress/Trophy3
+@onready var trophy = $TrophyProgress
 var tween: Tween
 var is_visible: bool = false
 const ANIM_DURATION = 0.5
@@ -24,14 +29,30 @@ func _ready():
 	book.modulate.a = 0
 	notes.modulate.a = 0
 	instructions.modulate.a = 1.0
+	trophy.modulate.a = 1.0
 	
 	book.position.y = 111 + MOVE_DISTANCE  # Start lower
 	notes.position.y = 29 - MOVE_DISTANCE  # Start higher
 	instructions.position.x = 9  # Start position
+	trophy.position.x = -838.0
 	
 	book.visible = false
 	notes.visible = false
 	instructions.visible = true
+	
+	trophy_none.visible = false
+	trophy1.visible = false
+	trophy2.visible = false
+	trophy3.visible = false
+	
+	if LevelManager.is_level_done("level3"):
+		trophy3.visible = true
+	elif LevelManager.is_level_done("level2"):
+		trophy2.visible = true
+	elif LevelManager.is_level_done("level1"):
+		trophy1.visible = true
+	else:
+		trophy_none.visible = true
 
 func set_content(content: Dictionary):
 	for key in content:
@@ -68,6 +89,10 @@ func open_menu():
 	# Animate instructions (move left and fade out)
 	tween.parallel().tween_property(instructions, "position:x", 9 + MOVE_DISTANCE, ANIM_DURATION)
 	tween.parallel().tween_property(instructions, "modulate:a", 0.0, FADE_DURATION)
+	
+	# Animate trophies
+	tween.parallel().tween_property(trophy, "position:x", -838.0 - MOVE_DISTANCE, ANIM_DURATION)
+	tween.parallel().tween_property(trophy, "modulate:a", 0.0, FADE_DURATION)
 
 func close_menu():
 	if !is_visible:
@@ -88,9 +113,15 @@ func close_menu():
 	tween.parallel().tween_property(notes, "position:y", 29 - MOVE_DISTANCE, ANIM_DURATION)
 	tween.parallel().tween_property(notes, "modulate:a", 0.0, FADE_DURATION)
 	
-	# Animate instructions (move right and fade in)
+	# Animate trophies
+	tween.parallel().tween_property(trophy, "position:x", -838.0, ANIM_DURATION)
+	tween.parallel().tween_property(trophy, "modulate:a", 1.0, FADE_DURATION)
+	print("2")
+	
+	# Animate instructions
 	tween.parallel().tween_property(instructions, "position:x", 9, ANIM_DURATION)
 	tween.parallel().tween_property(instructions, "modulate:a", 1.0, FADE_DURATION)
+	
 	
 	tween.tween_callback(func(): 
 		book.visible = false
@@ -99,12 +130,20 @@ func close_menu():
 	)
 
 func show_only_book_and_notes():
-	# Hide instructions completely
-	instructions.visible = false
-	instructions.modulate.a = 0
-	instructions.position.x = 9 + MOVE_DISTANCE
-	
-	# Ensure book and notes are visible
+	if tween:
+		tween.kill()
+
+	tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+
+	# Animate instructions out (same as open_menu)
+	tween.parallel().tween_property(instructions, "position:x", 9 + MOVE_DISTANCE, ANIM_DURATION)
+	tween.parallel().tween_property(instructions, "modulate:a", 0.0, FADE_DURATION)
+
+	# Animate trophies out (same as open_menu)
+	tween.parallel().tween_property(trophy, "position:x", -838.0 - MOVE_DISTANCE, ANIM_DURATION)
+	tween.parallel().tween_property(trophy, "modulate:a", 0.0, FADE_DURATION)
+
+	# Ensure book and notes are visible and in final position
 	book.visible = true
 	notes.visible = true
 	book.modulate.a = 1.0
@@ -112,23 +151,30 @@ func show_only_book_and_notes():
 	book.position.y = 111
 	notes.position.y = 29
 
+
 func hide_all_for_transition():
-	# Immediately hide all UI elements without animation
+	print("1")
 	if tween:
 		tween.kill()
-	
-	book.visible = false
-	notes.visible = false
-	instructions.visible = false
-	
-	# Reset properties for next time
-	book.modulate.a = 0
-	notes.modulate.a = 0
-	instructions.modulate.a = 0
-	
-	book.position.y = 111 + MOVE_DISTANCE
-	notes.position.y = 29 - MOVE_DISTANCE
-	instructions.position.x = 9 + MOVE_DISTANCE
+	instructions.modulate.a = 0.0
+	trophy.modulate.a = 0.0
+
+	tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+
+	# Animate book out (same as close_menu)
+	tween.parallel().tween_property(book, "position:y", 111 + MOVE_DISTANCE, ANIM_DURATION)
+	tween.parallel().tween_property(book, "modulate:a", 0.0, FADE_DURATION)
+
+	# Animate notes out (same as close_menu)
+	tween.parallel().tween_property(notes, "position:y", 29 - MOVE_DISTANCE, ANIM_DURATION)
+	tween.parallel().tween_property(notes, "modulate:a", 0.0, FADE_DURATION)
+
+	tween.tween_callback(func ():
+		book.visible = false
+		notes.visible = false
+		instructions.visible = false
+	)
+
 
 func _input(event):
 	if event.is_action_pressed("open-close_menu"):

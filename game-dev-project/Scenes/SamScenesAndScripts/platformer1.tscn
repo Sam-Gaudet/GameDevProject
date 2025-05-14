@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cmne264dkm6l5"]
+[gd_scene load_steps=27 format=3 uid="uid://cmne264dkm6l5"]
 
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="1_c0qil"]
 [ext_resource type="Script" uid="uid://dqdpurbolymav" path="res://Scenes/SamScenesAndScripts/platformer_logic.gd" id="1_ms48t"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dfs1v8o23car6" path="res://Scenes/SamScenesAndScripts/dialogue.tscn" id="6_y57ts"]
 [ext_resource type="PackedScene" uid="uid://cifpnmy1ws14e" path="res://Scenes/SamScenesAndScripts/sign.tscn" id="8_sr77d"]
 [ext_resource type="FontFile" uid="uid://bfqrqr5je6vjj" path="res://Assets/AlexisAssets/Font.ttf" id="9_y7lsg"]
+[ext_resource type="AudioStream" uid="uid://qpeskfhqxsic" path="res://Assets/SamAssets/mountain-knight-castle-medieval-fantasy-orchestral-music-264986.mp3" id="12_y6fft"]
+[ext_resource type="AudioStream" uid="uid://cohvlk353tdql" path="res://Assets/SamAssets/ambience-wind-blowing-through-trees-01-186986.mp3" id="13_stylm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kc33n"]
 shader = ExtResource("2_u5ing")
@@ -91,11 +93,23 @@ layer = 5
 [node name="PauseMenu" parent="PauseMenu" instance=ExtResource("2_y7lsg")]
 z_index = 20
 
-[node name="Insturctions" parent="PauseMenu/PauseMenu/PauseMenu" index="0"]
-position = Vector2(-15, -39)
+[node name="Transition2" type="CanvasLayer" parent="."]
+layer = 6
+follow_viewport_enabled = true
 
-[node name="TinyBook" parent="PauseMenu/PauseMenu/PauseMenu/Insturctions" index="0"]
-position = Vector2(121.429, -49.7619)
+[node name="TransitionRect" type="ColorRect" parent="Transition2"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -955.0
+offset_top = -607.0
+offset_right = -50.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+color = Color(0, 0, 0, 1)
 
 [node name="Transition" type="CanvasLayer" parent="."]
 layer = 3
@@ -106,10 +120,13 @@ visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 905.0
-offset_bottom = 509.0
+offset_left = -955.0
+offset_top = -607.0
+offset_right = -50.0
+offset_bottom = -98.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 color = Color(0, 0, 0, 1)
 
 [node name="HeartSprite" type="Sprite2D" parent="Transition"]
@@ -212,6 +229,13 @@ metadata/_edit_use_anchors_ = true
 
 [node name="PlayerPlatformer" parent="." instance=ExtResource("2_g358o")]
 position = Vector2(216, 688)
+
+[node name="HubMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_y6fft")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_stylm")
+volume_db = -3.0
 
 [connection signal="body_entered" from="Boss1" to="." method="_on_boss_1_body_entered"]
 [connection signal="body_exited" from="Boss1" to="." method="_on_boss_1_body_exited"]

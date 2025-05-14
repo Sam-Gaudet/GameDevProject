@@ -4,8 +4,17 @@ extends Node2D
 @onready var fade = $FadeOverlay
 var shake_timer = 0.0
 var shake_strength = 5.0
+
+@onready var transition_rect = $Transition/TransitionRect
 #Testing
 func _ready():
+	# Start with black screen
+	transition_rect.color = Color(0, 0, 0, 1)
+	transition_rect.visible = true
+	
+	var fade_tween = create_tween()
+	fade_tween.tween_property(transition_rect, "color:a", 0, 1.0)
+	
 	Global.current_level = "3"
 	await get_tree().create_timer(7.0).timeout
 	fakeboss.play("die")
@@ -13,6 +22,7 @@ func _ready():
 	real_boss_man()
 	await get_tree().create_timer(8.0).timeout
 	start_fight()
+	
 
 #Scenes import
 @onready var ZoomSkullthing = preload("res://Scenes/boss projectiles/warning.tscn")
@@ -277,7 +287,7 @@ func trophy():
 	$trophy.monitoring = true
 	Global.last_level_completed = "Level3"
 	
-	LevelManager.unlock_level("gamecomplete")
+	LevelManager.level_done("boss3")
 	LevelManager.print_level_status()
 	
 

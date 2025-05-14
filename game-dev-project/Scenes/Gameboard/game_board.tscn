@@ -191,6 +191,7 @@ shape = SubResource("RectangleShape2D_fleov")
 debug_color = Color(0.820336, 0.353676, 0.511924, 0.415686)
 
 [node name="MainCharacter" type="RigidBody2D" parent="." groups=["player", "player_attack"]]
+unique_name_in_owner = true
 visible = false
 z_index = 30
 collision_mask = 9

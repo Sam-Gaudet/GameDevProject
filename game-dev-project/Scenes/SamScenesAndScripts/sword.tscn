@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://doyoe204anemg"]
+[gd_scene load_steps=6 format=3 uid="uid://doyoe204anemg"]
 
-[ext_resource type="Script" uid="uid://ctwbtcpwesbo5" path="res://Scenes/SamScenesAndScripts/sword.gd" id="1_nxyp4"]
+[ext_resource type="Script" uid="uid://cc2tbnm2w5ntp" path="res://Scenes/SamScenesAndScripts/sword.gd" id="1_nxyp4"]
 [ext_resource type="Texture2D" uid="uid://cnig4cnlesawh" path="res://Assets/SamAssets/Placeholder1.png" id="2_lgcyh"]
 [ext_resource type="Texture2D" uid="uid://g5pvhruvuyak" path="res://Assets/SamAssets/s.png" id="3_wtndp"]
+[ext_resource type="AudioStream" uid="uid://c5vxqt5bnp7wd" path="res://Assets/SamAssets/draw-sword1-44724.mp3" id="4_gxqd6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgcyh"]
 
@@ -29,3 +30,8 @@ scale = Vector2(6.78786, 6.78786)
 texture = ExtResource("3_wtndp")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gxqd6")
+volume_db = -20.0
+parameters/looping = false

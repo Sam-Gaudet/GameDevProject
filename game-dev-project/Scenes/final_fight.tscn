@@ -564,6 +564,24 @@ animations = [{
 position = Vector2(1, 0)
 script = ExtResource("1_i5n05")
 
+[node name="Transition" type="CanvasLayer" parent="."]
+layer = 6
+follow_viewport_enabled = true
+
+[node name="TransitionRect" type="ColorRect" parent="Transition"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1817.0
+offset_top = -914.0
+offset_right = -912.0
+offset_bottom = -405.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.97781, 1.97509)
+color = Color(0, 0, 0, 1)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10
 visible = false

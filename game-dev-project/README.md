@@ -1,5 +1,5 @@
 Sam -------------------------------------------
-Sword and arrow asset used in game board created by me
+Sword, arrow and trophy progess assets created by me
 
 pixelfelix
 Knight 16x16
@@ -41,20 +41,27 @@ srtoasty
 A downloadable asset pack
 https://srtoasty.itch.io/ui-assets-pack-2
 
-
+dreammix
+Keyboard keys for ui
 https://dreammix.itch.io/keyboard-keys-for-ui
 
-(Possible use)
-https://kayillustrations.itch.io/parallax-sunset-mountains
-https://free-game-assets.itch.io/free-sky-with-clouds-background-pixel-art-set
-https://ansimuz.itch.io/parallax-forest
-https://kiddolink.itch.io/parallax-background-plains-pixel-art
-https://ilymeiib.itch.io/caketileset
-https://lazyteastudios.itch.io/pine-forest-parallax-background
-https://pixeloverload.itch.io/jungle-parallax-assets
-https://orizho.itch.io/oil-6-palette-landscape
+Mountain Knight Castle (Medieval Fantasy orchestral music)
+https://pixabay.com/music/modern-classical-mountain-knight-castle-medieval-fantasy-orchestral-music-264986/
 
+Explosion
+https://pixabay.com/sound-effects/explosion-6055/
 
+Ambience Wind Blowing Through Trees 01
+https://pixabay.com/sound-effects/ambience-wind-blowing-through-trees-01-186986/
+
+Medieval Opener
+https://pixabay.com/music/build-up-scenes-medieval-opener-270568/
+
+Draw sword#1
+https://pixabay.com/sound-effects/draw-sword1-44724/
+
+Crossbow Firing
+https://pixabay.com/sound-effects/crossbow-firing-95020/
 
 Alexis -------------------------------------------
 
