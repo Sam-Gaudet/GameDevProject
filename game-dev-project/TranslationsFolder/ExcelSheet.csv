@@ -41,8 +41,8 @@ Boss2Instructions,Defeat boss 2,Vaincre boss 2
 Boss2Task,Find and defeat boss 2,Trouver et vaincre boss 2
 Boss1Instructions,Defeat boss 1,Vaincre boss 1
 Boss1Task,Find and defeat boss 1,Trouver et vaincre boss 1
-GameBoss1Story,Boss 1 Story here.. EDIT ME,Histoire boss 1 ici.. EDIT ME
-GameBoss1Task,Avoid incoming attacks from.. EDIT ME,Éviter attaques.. EDIT ME
+GameBoss1Story,"You came across an axolotl that could  speak through sign.  It offered to show you the ropes on how to fight, which you accepted.","Vous avez croiser un axolotl capable de communiquer par signes. Il vous a proposer de vous montrer les ficelles du combat, ce que vous avez accepter."
+GameBoss1Task,Avoid incoming attacks from the axolotl's tendrils and air bubbles,Évitez les attaques entrantes des vrilles et des bulles d'air de l'axolotl
 GameBoss1Controls,Escape - Close/Open notes\nMoving:\nAW/Up arrow - Up\nA/Left arrow - Left\nS/Down arrow - Down\nD/Right arrow - Right,Echapper - Fermer/Ouvrir notes\nBouger:\nW/Fleche en haut - Monter\nA/Fleche gauche - Gauche\nS/Fleche bas - Descendre\nD/Fleche droite - Droite
 GameBoss1Instructions,Dodge attacks to defeat boss,Eviter attaques pour battre boss
 GameBoss2Story,This boss is a fallen night.. they've lost everything they have and are seeking for revenge,Ce boss est un chevalier vaincu... il a tous perdu ce qu'il avaient et recherchent la vengeance
