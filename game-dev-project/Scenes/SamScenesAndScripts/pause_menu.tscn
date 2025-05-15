@@ -3260,9 +3260,9 @@ metadata/_edit_use_anchors_ = true
 [node name="StoryDetails" type="Label" parent="PauseMenu/Book"]
 modulate = Color(0, 0, 0, 1)
 texture_filter = 1
-offset_left = -83.8095
+offset_left = -88.3333
 offset_top = -67.1429
-offset_right = 11.1905
+offset_right = 16.6667
 offset_bottom = -4.14286
 scale = Vector2(0.761906, 0.761906)
 theme_override_constants/line_spacing = -4

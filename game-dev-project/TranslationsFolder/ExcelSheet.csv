@@ -31,7 +31,7 @@ Trophies,Trophies,Trophees
 Story,Story,Histoire
 Objective,Objective:,Objectif:
 Controls,Controls,Controles
-MainStory,Main Story here, Histoire principale ici
+MainStory,The world knew calm and peaceful times before signs of the demon aegis being reborn. The hero of this story is you - Trying to stop the evil from being reborn.,Le monde connaissait des temps calmes et paisibles avant les signes de la renaissance du demon Aegis. Le heros de cette histoire - c'est vous - tentant d'empecher le mal de renaitre.
 MainControls,Escape - Close/Open notes\nEnter/Spacebar - Interact\nMoving:\nA/Left arrow - Left\nD/Right arrow - Right\nW/Up arrow/Spacebar - Jump,Echapper - Fermer/Ouvrir notes\nEntree/Espace - Interagir\nBouger:\nA/Fleche gauche - Gauche\nD/Fleche Droite - Droite\nW/Fleche haut/Espace - Sauter
 NoBossInstructions,All bosses defeated,Tous les bosses vaincus
 NoBossTask,All bosses defeated,Tous les boss vaincus
@@ -49,8 +49,8 @@ GameBoss2Story,This boss is a fallen night.. they've lost everything they have a
 GameBoss2Task,Avoid red damage zones to avoid attacks + throw bombs back with Enter or Space while in red zone to defeat boss,Eviter zones rouges pour eviter attaques + renvoyez bombes avec Entree ou Espace dans la zone rouge pour vaincre le boss
 GameBoss2Controls,Escape - Close/Open notes\nEnter/Spacebar - Throw bomb back\nMoving:\nAW/Up arrow - Up\nA/Left arrow - Left\nS/Down arrow - Down\nD/Right arrow - Right,Echapper - Fermer/Ouvrir notes\nEntree/Espace - Renvoyer une bombe\nBouger:\nW/Fleche haut - Monter\nA/Fleche gauche - Gauche\nS/Fleche bas - Descendre\nD/Fleche droite - Droite
 GameBoss2Instructions,Dodge attacks / Throw bomb backs with Space/Enter,Eviter attaques / Renvoyer bomb avec Espace/Entree
-GameBoss3Story,Boss 3 Story here.. EDIT ME,Histoire boss 3 ici.. EDIT ME
-GameBoss3Task,Avoid incoming attacks from.. EDIT ME,Eviter attaques.. EDIT ME
+GameBoss3Story,You touched the weird looking stone - It took you to a secret layer where a cultist was hidding. He seems surprise to see you but keeps his compusure.,Tu as touche la pierre à l'apparence etrange. Elle t'a emmene dans une cachette secrete ou un cultiste se cachait. Il semble surpris de te voir - mais garde son calme.
+GameBoss3Task,SURVIVE,BONNE CHANCE
 GameBoss3Controls,Escape - Close/Open notes\nMoving:\nAW/Up arrow - Up\nA/Left arrow - Left\nS/Down arrow - Down\nD/Right arrow - Right,Echapper - Fermer/Ouvrir notes\nBouger:\nW/Fleche en haut - Monter\nA/Fleche gauche - Gauche\nS/Fleche bas - Descendre\nD/Fleche droite - Droite
 GameOver,Game over,Jeu terminee
 MainMenu,Main Menu,Menu principale

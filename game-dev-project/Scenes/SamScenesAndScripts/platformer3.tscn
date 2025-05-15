@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cv4pj7011cc60"]
+[gd_scene load_steps=32 format=3 uid="uid://cv4pj7011cc60"]
 
 [ext_resource type="Script" uid="uid://dqdpurbolymav" path="res://Scenes/SamScenesAndScripts/platformer_logic.gd" id="1_tpqbk"]
 [ext_resource type="PackedScene" uid="uid://cany8rxhephm" path="res://Scenes/SamScenesAndScripts/pause_menu.tscn" id="2_cek5l"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bte3wuqwkulpn" path="res://Assets/AlexisAssets/hearth1.png" id="2_tgdpd"]
 [ext_resource type="PackedScene" uid="uid://du5i5alatbswb" path="res://Scenes/SamScenesAndScripts/playerplatformer.tscn" id="3_r4n7g"]
 [ext_resource type="PackedScene" uid="uid://cpvnu34q0avff" path="res://Scenes/SamScenesAndScripts/forest_background.tscn" id="4_jekxf"]
+[ext_resource type="Texture2D" uid="uid://cqb7oavaa55v3" path="res://Assets/FinalFightAssets/AnimationSheet_Character.png" id="6_lsu4u"]
 [ext_resource type="Texture2D" uid="uid://13xpsaboxi18" path="res://Assets/SamAssets/Dimensional_Portal.png" id="6_ybut8"]
 [ext_resource type="PackedScene" uid="uid://dfs1v8o23car6" path="res://Scenes/SamScenesAndScripts/dialogue.tscn" id="7_86dwe"]
 [ext_resource type="PackedScene" uid="uid://cifpnmy1ws14e" path="res://Scenes/SamScenesAndScripts/sign.tscn" id="8_q41a0"]
@@ -18,6 +19,28 @@
 shader = ExtResource("2_r4n7g")
 shader_parameter/aberration = 0.1
 shader_parameter/strength = 0.01
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hc3x"]
+atlas = ExtResource("6_lsu4u")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vaws3"]
+atlas = ExtResource("6_lsu4u")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ydpf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hc3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vaws3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g358o"]
 size = Vector2(102, 172.5)
@@ -158,8 +181,9 @@ modulate = Color(0.734492, 0.000885221, 0.812406, 1)
 texture_filter = 1
 position = Vector2(981, 417.12)
 scale = Vector2(3.5625, 3.5625)
+sprite_frames = SubResource("SpriteFrames_3ydpf")
 autoplay = "default"
-frame_progress = 0.718602
+frame_progress = 0.0378415
 flip_h = true
 
 [node name="Boss3Trigger" type="CollisionShape2D" parent="Boss3"]
